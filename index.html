@@ -4452,5 +4452,35 @@ function enhanceCardA11y(){
 </div>
 </div><!-- /view-terms -->
 
+<script>
+/* V41 — multi-domain routing: kayabotanicals.com = brand, drinkkoda.com = KODA, k3bapothecary.com = K3B */
+(function(){
+  var DOMAINS = { brand: 'kayabotanicals.com', koda: 'drinkkoda.com', k3b: 'k3bapothecary.com' };
+  var host = location.hostname.replace(/^www\./, '');
+  var isProd = false;
+  for (var k in DOMAINS) { if (DOMAINS[k] === host) { isProd = true; } }
+
+  /* 1. Landing view: open the section that matches the domain */
+  var entryView = null;
+  if (host === DOMAINS.koda) entryView = 'koda';
+  if (host === DOMAINS.k3b) entryView = 'k3b';
+  if (entryView && typeof switchView === 'function') {
+    try { switchView(entryView); } catch (e) {}
+  }
+
+  /* 2. Cross-domain nav: BRAND/KODA/K3B tabs hop to their own domain */
+  if (isProd && typeof switchView === 'function') {
+    var origSwitchView = window.switchView;
+    window.switchView = function(to) {
+      var targetHost = DOMAINS[to];
+      if (targetHost && targetHost !== host) {
+        window.location.href = 'https://' + targetHost + '/';
+        return;
+      }
+      return origSwitchView.apply(this, arguments);
+    };
+  }
+})();
+</script>
 </body>
 </html>
