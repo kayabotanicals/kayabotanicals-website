@@ -4483,6 +4483,15 @@ function enhanceCardA11y(){
   var entryView = null;
   if (host === DOMAINS.koda) entryView = 'koda';
   if (host === DOMAINS.k3b) entryView = 'k3b';
+
+  /* 1b. Per-domain favicon (V44) */
+  var favMap = {};
+  favMap[DOMAINS.koda] = '/favicon-koda.svg';
+  favMap[DOMAINS.k3b] = '/favicon-k3b.svg';
+  if (favMap[host]) {
+    var favLink = document.querySelector('link[rel="icon"]');
+    if (favLink) { favLink.href = favMap[host]; }
+  }
   if (entryView && typeof switchView === 'function') {
     try { switchView(entryView); } catch (e) {}
   }
