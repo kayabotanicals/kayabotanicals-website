@@ -4484,13 +4484,13 @@ function enhanceCardA11y(){
   if (host === DOMAINS.koda) entryView = 'koda';
   if (host === DOMAINS.k3b) entryView = 'k3b';
 
-  /* 1b. Per-domain favicon (V44) */
+  /* 1b. Per-domain favicon (V44/V45 — official brand marks) */
   var favMap = {};
-  favMap[DOMAINS.koda] = '/favicon-koda.svg';
-  favMap[DOMAINS.k3b] = '/favicon-k3b.svg';
+  favMap[DOMAINS.koda] = '/favicon-koda.png';
+  favMap[DOMAINS.k3b] = '/favicon-k3b.png';
   if (favMap[host]) {
     var favLink = document.querySelector('link[rel="icon"]');
-    if (favLink) { favLink.href = favMap[host]; }
+    if (favLink) { favLink.href = favMap[host]; favLink.type = 'image/png'; }
   }
   if (entryView && typeof switchView === 'function') {
     try { switchView(entryView); } catch (e) {}
