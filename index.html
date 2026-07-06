@@ -3892,15 +3892,45 @@ function closeCart(){
   if(_cartOpener){_cartOpener.focus();_cartOpener=null;}
 }
 
-/* ══ CHECKOUT HANDLER ══
-   TODO (Shopify): Replace this function body with Shopify Checkout API call.
-   Use cart items to build a Shopify checkout URL or initiate Storefront API checkout.
-══ */
-function handleCheckout(){
-  if(cart.length===0){showToast('Your cart is empty');return}
+/* ══ CHECKOUT HANDLER — V46: Shopify Storefront API ══ */
+var SHOPIFY_API_URL='https://kaya-botanicals.myshopify.com/api/2024-10/graphql.json';
+var SHOPIFY_STOREFRONT_TOKEN='5d7adf99db1ba3946f4032e8c46abdca'; /* public token — safe client-side */
+var SHOPIFY_VARIANTS={
+  'koda-gut':'48211509444820','koda-grit':'48211509608660','koda-glow':'48211509739732',
+  'koda-cacao':'48211509903572','koda-amber':'48211510034644',
+  'k3b-face':'48211510165716','k3b-body':'48211510264020','k3b-oil':'48211510362324',
+  'k3b-serum':'48211510493396','k3b-sun':'48211510591700','k3b-wand':'48211510690004',
+  'k3b-scalp':'48211510886612','k3b-gua-sha':'48211510984916'
+};
+function showEarlyAccessFallback(){
   var ea=document.getElementById('cartEarlyAccess');
   ea.hidden=!ea.hidden;
   if(!ea.hidden){var inp=ea.querySelector('input');if(inp)inp.focus();}
+}
+function handleCheckout(){
+  if(cart.length===0){showToast('Your cart is empty');return}
+  var lines=[],missing=false;
+  cart.forEach(function(it){
+    var v=SHOPIFY_VARIANTS[it.id];
+    if(!v){missing=true;return}
+    lines.push({merchandiseId:'gid://shopify/ProductVariant/'+v,quantity:it.qty});
+  });
+  if(missing||!lines.length){showEarlyAccessFallback();return}
+  var btn=document.querySelector('.cart-checkout');
+  var prevLabel=btn?btn.textContent:'';
+  if(btn){btn.textContent='Opening Checkout…';btn.disabled=true;}
+  fetch(SHOPIFY_API_URL,{
+    method:'POST',
+    headers:{'Content-Type':'application/json','X-Shopify-Storefront-Access-Token':SHOPIFY_STOREFRONT_TOKEN},
+    body:JSON.stringify({query:'mutation cartCreate($input: CartInput!){cartCreate(input:$input){cart{checkoutUrl}userErrors{field message}}}',variables:{input:{lines:lines}}})
+  }).then(function(r){return r.json()}).then(function(d){
+    var url=d&&d.data&&d.data.cartCreate&&d.data.cartCreate.cart&&d.data.cartCreate.cart.checkoutUrl;
+    if(url){window.location.href=url;}
+    else{throw new Error('no checkout url');}
+  }).catch(function(){
+    if(btn){btn.textContent=prevLabel;btn.disabled=false;}
+    showToast('Checkout is temporarily unavailable — please try again.');
+  });
 }
 function handleCartEarlyAccess(e){
   e.preventDefault();
