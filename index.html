@@ -798,6 +798,7 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
     <li><button id="nav-brand" class="active" onclick="switchView('brand')">Brand</button></li>
     <li><button id="nav-koda" onclick="switchView('koda')">KODA</button></li>
     <li><button id="nav-k3b" onclick="switchView('k3b')">K3B</button></li>
+    <li><button id="nav-tools" onclick="switchView('k3b');setTimeout(function(){var g=document.getElementById('k3bToolsGrid');if(g)g.scrollIntoView({behavior:'smooth',block:'start'});},2000)">Tools</button></li>
   </ul>
   <div class="nav__right">
     <button class="nav__cart-btn" onclick="toggleCart()" aria-label="Open shopping cart">
@@ -822,6 +823,7 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
     <button id="mnav-brand" onclick="mobileNav('brand')">Brand</button>
     <button id="mnav-koda" onclick="mobileNav('koda')">KODA</button>
     <button id="mnav-k3b" onclick="mobileNav('k3b')">K3B</button>
+    <button id="mnav-tools" onclick="mobileNav('k3b');setTimeout(function(){var g=document.getElementById('k3bToolsGrid');if(g)g.scrollIntoView({behavior:'smooth',block:'start'});},2200)">Tools</button>
     <button onclick="closeMobileMenu();toggleCart()">Cart</button>
   </nav>
   <div class="mobile-menu__foot">Decoction-Crafted · Patent-Pending</div>
@@ -1179,7 +1181,7 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
       <img data-img="K3B Arc Mark" class="brand-mark brand-mark--hero" width="52" height="52" alt="K3B Ritual Arc" aria-hidden="true">
       <p class="k3b-hero__tag anim">Kokum-Led Skincare</p>
       <h2 class="koda-hero__headline anim d1" style="font-family:var(--fd);font-size:clamp(2.5rem,5vw,4rem);font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--cream);line-height:.95;margin-bottom:28px">K3B</h2>
-      <p class="k3b-hero__sub anim d2">K3B Apothecary is built around one ingredient: kokum butter. One of the most stable, skin-compatible plant lipids on earth. No unnecessary complexity. No cosmetic theater. Barrier-supportive botanical skincare for daily ritual.</p>
+      <p class="k3b-hero__sub anim d2">Gentle, barrier-first skincare built with botanical lipids and purposeful plant actives for every age, every skin type, and every stage of life. Inspired by Kokum Butter and grounded in intentional daily rituals, every formulation is designed to strengthen the skin barrier&mdash;not chase cosmetic perfection.</p>
       <p class="k3b-hero__tagline anim d3">Care with Intention.</p>
       <div class="hero__actions anim d4">
         <button class="btn btn--gold" onclick="document.getElementById('k3b-products-section').scrollIntoView({behavior:'smooth'})">Shop K3B Apothecary</button>
@@ -1201,7 +1203,7 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
 <section class="s-k3b-philosophy">
   <div class="wrap">
     <p class="eyebrow anim" style="margin-bottom:28px">The K3B Philosophy</p>
-    <p class="philosophy-statement anim d1">&#x201C;The skin does not need more ingredients. It needs the right ones. Kokum butter is one of the most stable plant lipids on earth &#x2014; non-comedogenic, deeply nourishing, and gentle enough for daily use across all skin types. K3B Apothecary is not a range. It is a ritual.&#x201D;</p>
+    <p class="philosophy-statement anim d1">Gentle, barrier-first skincare built with intentional botanical lipids and purposeful plant actives for every age, every skin type, and every stage of life. Inspired by the remarkable stability of Kokum Butter&mdash;one of nature&rsquo;s most resilient botanical lipids&mdash;and guided by Ayurvedic daily rituals, every formulation is designed to strengthen the skin barrier through thoughtful ingredient selection, not unnecessary complexity. Care with Intention.</p>
     <p class="ritual-arc-line anim d2">The Ritual Arc &mdash; intentional care, grounded in protection, elevated through daily ritual.</p>
     <div class="section-cta-row anim d3">
       <button class="section-cta" onclick="document.getElementById('k3b-products-section').scrollIntoView({behavior:'smooth'})">Begin Your Practice</button>
@@ -2915,7 +2917,7 @@ GUA SHA</h1>
   <p class="ritual__num">III &mdash; Apothecary Pairing</p>
   <h3 class="ritual__title">Ruby Serum or Magic Cream</h3>
   <div class="ritual__rule"></div>
-  <p class="ritual__body">Designed to glide beautifully over the Phytolipid Elixir or Tri-Lipid Barrier Moisturizer for optimal slip and skin protection.</p>
+  <p class="ritual__body">Designed to glide beautifully over the Phyto Lipid Elixir or Tri-Lipid Barrier Moisturizer for optimal slip and skin protection.</p>
 </div><div class="ritual__card anim d4">
   <p class="ritual__num">IV &mdash; System Benefit</p>
   <h3 class="ritual__title">Structural Definition</h3>
@@ -2972,7 +2974,7 @@ GUA SHA</h1>
     <p class="eyebrow anim" style="text-align:center">The Application Ritual</p>
     <h2 style="font-family:var(--fd);font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--cream)" class="anim d1">The Utthana <em class="em-g">Lift</em></h2>
     <div class="serving__decoration anim d2"><div class="serving__deco-line"></div><div class="serving__deco-text">THE RITUAL</div><div class="serving__deco-line serving__deco-line--r"></div></div>
-    <p class="serving__body anim d2">Generously coat your face and neck with Phytolipid Elixir to ensure a flawless, silky glide. Hold the Kansa B-Shaped Gua Sha flat at a 15-degree angle against your skin. Anchor the tool in the center of your chin using the deep notch, and glide it slowly outward along your jawbone to the earlobe with firm, steady pressure.</p><p class="serving__body anim d2">Repeat this stroke 5 to 7 times on each side. Use the long flat edge to sweep down the neck to complete the fluid purge, revealing an instantly defined, lifted, and radiant facial structure.</p>
+    <p class="serving__body anim d2">Generously coat your face and neck with Phyto Lipid Elixir to ensure a flawless, silky glide. Hold the Kansa B-Shaped Gua Sha flat at a 15-degree angle against your skin. Anchor the tool in the center of your chin using the deep notch, and glide it slowly outward along your jawbone to the earlobe with firm, steady pressure.</p><p class="serving__body anim d2">Repeat this stroke 5 to 7 times on each side. Use the long flat edge to sweep down the neck to complete the fluid purge, revealing an instantly defined, lifted, and radiant facial structure.</p>
     <div class="serving__stamp anim d3">Care with Intention &middot; K3B Apothecary &middot; Kaya Botanicals</div>
   </div></div>
 </section>
@@ -3064,9 +3066,9 @@ DUAL WAND</h1>
   <p class="ritual__body">Five minutes during your evening wind-down to erase daytime stress and tech fatigue, or after your morning skincare sequence.</p>
 </div><div class="ritual__card anim d3">
   <p class="ritual__num">III &mdash; Apothecary Pairing</p>
-  <h3 class="ritual__title">Phytolipid Elixir</h3>
+  <h3 class="ritual__title">Phyto Lipid Elixir</h3>
   <div class="ritual__rule"></div>
-  <p class="ritual__body">Must be used with a rich lipid medium. Perfectly optimized for the Phytolipid Elixir for maximum slip and tool glide.</p>
+  <p class="ritual__body">Must be used with a rich lipid medium. Perfectly optimized for the Phyto Lipid Elixir for maximum slip and tool glide.</p>
 </div><div class="ritual__card anim d4">
   <p class="ritual__num">IV &mdash; The Effect</p>
   <h3 class="ritual__title">Kansa Metallurgy</h3>
@@ -3123,7 +3125,7 @@ DUAL WAND</h1>
     <p class="eyebrow anim" style="text-align:center">The Application Ritual</p>
     <h2 style="font-family:var(--fd);font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--cream)" class="anim d1">The Marma <em class="em-g">Practice</em></h2>
     <div class="serving__decoration anim d2"><div class="serving__deco-line"></div><div class="serving__deco-text">THE RITUAL</div><div class="serving__deco-line serving__deco-line--r"></div></div>
-    <p class="serving__body anim d2">Apply 4 drops of Phytolipid Elixir across your face to create a slick, protective cushion. Hold the Kansa Dual Wand by its hardwood handle. Using the large dome, trace firm figure-eight patterns across your forehead, then sweep outward from the nose to the ears along the cheekbones.</p><p class="serving__body anim d2">Switch to the small dome to perform gentle, circular sweeps around the eyes and temples. If graying occurs, simply wipe it away with a damp cloth to reveal a bright, fully detoxified, and beautifully sculpted complexion.</p>
+    <p class="serving__body anim d2">Apply 4 drops of Phyto Lipid Elixir across your face to create a slick, protective cushion. Hold the Kansa Dual Wand by its hardwood handle. Using the large dome, trace firm figure-eight patterns across your forehead, then sweep outward from the nose to the ears along the cheekbones.</p><p class="serving__body anim d2">Switch to the small dome to perform gentle, circular sweeps around the eyes and temples. If graying occurs, simply wipe it away with a damp cloth to reveal a bright, fully detoxified, and beautifully sculpted complexion.</p>
     <div class="serving__stamp anim d3">Care with Intention &middot; K3B Apothecary &middot; Kaya Botanicals</div>
   </div></div>
 </section>
@@ -3482,7 +3484,7 @@ RUBY SERUM</h1>
     <p class="hero__hook anim d3">&ldquo;The gold standard of botanical cellular perfection.&rdquo;</p>
     <p class="hero__identity anim d3">Supreme cosmetic perfection through sacred Ayurvedic lipid physics.</p>
     <div class="hero__actions anim d4">
-      <button class="btn btn--gold" onclick="addToCart('k3b-serum','K3B PHYTOLIPID ELIXIR',68.0,'Marma Phyto-Glow Facial Ritual','')">Add to Ritual Cart &mdash; $42.00</button>
+      <button class="btn btn--gold" onclick="addToCart('k3b-serum','K3B PHYTO LIPID ELIXIR',68.0,'Marma Phyto-Glow Facial Ritual','')">Add to Ritual Cart &mdash; $42.00</button>
     </div>
     <p class="hero__launch anim d4">Launching Fall 2026 &mdash; Care with Intention&trade;</p>
   </div>
@@ -3497,7 +3499,7 @@ RUBY SERUM</h1>
     <p class="eyebrow anim" style="text-align:center">The Core Narrative</p>
     <p class="narrative__quote anim d1">&ldquo;Completely waterless. Pure Ayurvedic lipid intelligence.&rdquo;</p>
     <span class="rule rule--c anim d2"></span>
-    <div class="narrative__body anim d2"><p>Phytolipid Elixir is a completely waterless (anhydrous) treatment serum engineered to optimize facial massage rituals.</p><p>Mainstream active serums are often loaded with water and fillers, requiring heavy synthetic preservation networks and industrial gums that add zero value to your skin barrier. K3B completely bypasses this, ensuring every single molecule in this bottle is pure, unadulterated skin nourishment.</p><p>Lauded for its physical mechanical glide, the serum features a cold-pressed Broccoli Seed Oil architecture. Its natural erucic acid profile mimics the smooth, cushiony slip of synthetic silicones, providing the perfect friction-free cushion for deep Gua Sha and Kansa wand work without ever tugging the skin.</p><p>Driven by pure Bakuchiol — a botanical retinol alternative — it addresses fine lines and skin clarity with zero redness or irritation. It finishes with an astronomical garnet-ruby hue derived from oil-soluble Manjistha root, and grounds the mind with an exquisite, meditative accord of Vetiver and Cardamom.</p></div>
+    <div class="narrative__body anim d2"><p>Phyto Lipid Elixir is a completely waterless (anhydrous) treatment serum engineered to optimize facial massage rituals.</p><p>Mainstream active serums are often loaded with water and fillers, requiring heavy synthetic preservation networks and industrial gums that add zero value to your skin barrier. K3B completely bypasses this, ensuring every single molecule in this bottle is pure, unadulterated skin nourishment.</p><p>Lauded for its physical mechanical glide, the serum features a cold-pressed Broccoli Seed Oil architecture. Its natural erucic acid profile mimics the smooth, cushiony slip of synthetic silicones, providing the perfect friction-free cushion for deep Gua Sha and Kansa wand work without ever tugging the skin.</p><p>Driven by pure Bakuchiol — a botanical retinol alternative — it addresses fine lines and skin clarity with zero redness or irritation. It finishes with an astronomical garnet-ruby hue derived from oil-soluble Manjistha root, and grounds the mind with an exquisite, meditative accord of Vetiver and Cardamom.</p></div>
   </div></div>
 </section>
 
@@ -3802,15 +3804,15 @@ const KODA_PRODUCTS=[
 ];
 const K3B_PRODUCTS=[
   {id:'k3b-face',name:'Tri-Lipid Barrier Moisturizer',tag:'Daily Barrier Ritual',price:32,ingredients:'Kokum Butter · Moringa · Squalane · Aloe Vera',body:'Daily phyto-lipid barrier moisturizer. Non-comedogenic. Family-safe. AM/PM.',detail:'prod-k3b-everyday-magic'},
-  {id:'k3b-sun',name:'Mineral Veil SPF',tag:'Environmental Shield',price:46,ingredients:'Zinc Oxide · Kokum · Amaranth · Saffron',body:'Phyto-lipid zinc oxide environmental shield. SPF 40. Zero white cast. Reef safe.',detail:'prod-k3b-mineral-veil'},
   {id:'k3b-body',name:'Kokum Body Butter',tag:'Full-Body Restoration',price:38,ingredients:'Kokum · Mango Butter · Saffron · Gotu Kola',body:'Advanced botanical restorative body melt. Ghee-textured. Saffron-infused.',detail:'prod-k3b-face-body-ghee'},
+  {id:'k3b-sun',name:'Mineral Veil SPF',tag:'Environmental Shield',price:46,ingredients:'Zinc Oxide · Kokum · Amaranth · Saffron',body:'Phyto-lipid zinc oxide environmental shield. SPF 40. Zero white cast. Reef safe.',detail:'prod-k3b-mineral-veil'},
   {id:'k3b-oil',name:'Kokum Ritual Body Oil',tag:'Anhydrous Treatment',price:52,ingredients:'Squalane · MCT Oil · Kokum · Neroli · Tulsi',body:'Anhydrous dry-touch botanical body treatment. Waterless. Satin finish.',detail:'prod-k3b-kokum-body-oil'},
-  {id:'k3b-serum',name:'Phytolipid Elixir',tag:'Intensive Treatment',price:68,ingredients:'Broccoli Seed · Bakuchiol · Manjistha · Vetiver',body:'Waterless retinol-alternative serum. Velvet-glide. Massage-engineered.',detail:'prod-k3b-ruby-serum'}
+  {id:'k3b-serum',name:'Phyto Lipid Elixir',tag:'Intensive Treatment',price:68,ingredients:'Broccoli Seed · Bakuchiol · Manjistha · Vetiver',body:'Waterless retinol-alternative serum. Velvet-glide. Massage-engineered.',detail:'prod-k3b-ruby-serum'}
 ];
 const K3B_TOOLS=[
   {id:'k3b-wand',name:'Kansa Dual Wand',tag:'Sacred Bronze Tool',price:68,body:'High-purity bronze facial detoxification & sculpting wand. Dual-dome system.',detail:'prod-k3b-kansa-wand'},
-  {id:'k3b-gua-sha',name:'Kansa B-Shaped Gua Sha',tag:'Sculptural Bronze Tool',price:78,body:'Advanced sculpting & myofascial release bronze board. Indestructible. Lifetime ritual partner.',detail:'prod-k3b-gua-sha'},
-  {id:'k3b-scalp',name:'Kansa Scalp & Body Massager',tag:'Full-Body Ritual Tool',price:72,body:'Multi-node large-format ritual body wand. Root-stimulating. Tension-melting.',detail:'prod-k3b-scalp-massager'}
+  {id:'k3b-scalp',name:'Kansa Scalp & Body Massager',tag:'Full-Body Ritual Tool',price:72,body:'Multi-node large-format ritual body wand. Root-stimulating. Tension-melting.',detail:'prod-k3b-scalp-massager'},
+  {id:'k3b-gua-sha',name:'Kansa B-Shaped Gua Sha',tag:'Sculptural Bronze Tool',price:78,body:'Advanced sculpting & myofascial release bronze board. Indestructible. Lifetime ritual partner.',detail:'prod-k3b-gua-sha'}
 ];
 /* TODO (Shopify): K3B_PRODUCTS maps to Shopify product handles for K3B collection.
    Replace static array with Shopify collection query when store is live. */
@@ -3989,7 +3991,7 @@ const VIEW_TITLES={
   'prod-k3b-mineral-veil':'Mineral Veil SPF — K3B Apothecary',
   'prod-k3b-face-body-ghee':'Kokum Body Butter — K3B Apothecary',
   'prod-k3b-kokum-body-oil':'Kokum Ritual Body Oil — K3B Apothecary',
-  'prod-k3b-ruby-serum':'Phytolipid Elixir — K3B Apothecary',
+  'prod-k3b-ruby-serum':'Phyto Lipid Elixir — K3B Apothecary',
   'prod-k3b-kansa-wand':'Kansa Dual Wand — K3B Apothecary',
   'prod-k3b-gua-sha':'Kansa B-Shaped Gua Sha — K3B Apothecary',
   'prod-k3b-scalp-massager':'Kansa Scalp Massager — K3B Apothecary',
