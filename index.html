@@ -4378,6 +4378,7 @@ function syncMobileNavActive(){
 }
 window.addEventListener('resize',function(){alignHeroRender();});
 window.addEventListener('load',function(){setTimeout(alignHeroRender,300);});
+(function(){var _t=0;function ta(){var n=Date.now();if(n-_t>70){_t=n;alignHeroRender();}}window.addEventListener('scroll',ta,{passive:true});var k=0;var iv=setInterval(function(){alignHeroRender();if(++k>16)clearInterval(iv);},220);})();
 window.addEventListener('resize',function(){
   if(window.innerWidth>1100)closeMobileMenu();
 });
