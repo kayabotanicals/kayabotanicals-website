@@ -2616,7 +2616,7 @@ MAGIC CREAM</h1>
     <p class="hero__launch anim d4">Launching Fall 2026 &mdash; Care with Intention&trade;</p>
   </div>
   <div class="hero__right">
-    <div class="hero__render-wrap"><img src="products/k3b-moisturizer.png" alt="K3B Tri-Lipid Barrier Moisturizer" decoding="async" style="width:min(360px,86%);height:auto;display:block;margin:0 auto;position:relative;z-index:1;background:transparent" onerror="this.style.display='none'"/></div>
+    <div class="hero__render-wrap"><img src="products/k3b-moisturizer.png" alt="K3B Tri-Lipid Barrier Moisturizer" loading="eager" decoding="async" style="width:min(360px,86%);height:auto;display:block;margin:0 auto;position:relative;z-index:1;background:transparent" onerror="this.style.display='none'"/></div>
   </div>
   <div class="hero__scroll"><span>Explore</span><div class="hero__scroll-line"></div></div>
 </section>
@@ -3371,7 +3371,7 @@ MINERAL VEIL SPF</h1>
     <p class="hero__launch anim d4">Launching Fall 2026 &mdash; Care with Intention&trade;</p>
   </div>
   <div class="hero__right">
-    <div class="hero__render-wrap"><img src="products/k3b-mineral-veil.png" alt="K3B Mineral Veil Barrier Defense SPF 40" decoding="async" style="width:min(360px,86%);height:auto;display:block;margin:0 auto;position:relative;z-index:1;background:transparent" onerror="this.style.display='none'"/></div>
+    <div class="hero__render-wrap"><img src="products/k3b-mineral-veil.png" alt="K3B Mineral Veil Barrier Defense SPF 40" loading="eager" decoding="async" style="width:min(360px,86%);height:auto;display:block;margin:0 auto;position:relative;z-index:1;background:transparent" onerror="this.style.display='none'"/></div>
   </div>
   <div class="hero__scroll"><span>Explore</span><div class="hero__scroll-line"></div></div>
 </section>
@@ -3522,7 +3522,7 @@ RITUAL ELIXIR</h1>
     <p class="hero__launch anim d4">Launching Fall 2026 &mdash; Care with Intention&trade;</p>
   </div>
   <div class="hero__right">
-    <div class="hero__render-wrap"><img src="products/k3b-elixir.png" alt="K3B Phyto Lipid Ritual Elixir" decoding="async" style="width:min(360px,86%);height:auto;display:block;margin:0 auto;position:relative;z-index:1;background:transparent" onerror="this.style.display='none'"/></div>
+    <div class="hero__render-wrap"><img src="products/k3b-elixir.png" alt="K3B Phyto Lipid Ritual Elixir" loading="eager" decoding="async" style="width:min(360px,86%);height:auto;display:block;margin:0 auto;position:relative;z-index:1;background:transparent" onerror="this.style.display='none'"/></div>
   </div>
   <div class="hero__scroll"><span>Explore</span><div class="hero__scroll-line"></div></div>
 </section>
@@ -4121,7 +4121,7 @@ function buildK3bGrid(){
     d.className='k3b-card';
     if(p.detail){d.style.cursor='pointer';d.onclick=()=>switchView(p.detail);}
     d.innerHTML=`
-      ${p.img?`<img class="k3b-card__img" src="${p.img}" alt="K3B ${p.name}" decoding="async" style="display:block;width:78%;max-width:230px;margin:0 auto 20px;height:auto;background:transparent" onerror="this.style.display='none'"/>`:''}
+      ${p.img?`<img class="k3b-card__img" src="${p.img}" alt="K3B ${p.name}" loading="eager" decoding="async" style="display:block;width:78%;max-width:230px;margin:0 auto 20px;height:auto;background:transparent" onerror="this.style.display='none'"/>`:''}
       <p class="k3b-card__tag">${p.tag}</p>
       <p class="k3b-card__name">${p.name}</p>
       <div class="k3b-card__rule"></div>
@@ -4784,7 +4784,7 @@ function enhanceCardA11y(){
   }
 
   /* ---- perf: lazy-load + async decode on imgs ---- */
-  function optimizeImgs(){document.querySelectorAll('img:not([loading])').forEach(function(im){im.loading='lazy';im.decoding='async';});}
+  function optimizeImgs(){document.querySelectorAll('img:not([loading])').forEach(function(im){if(im.src&&im.src.indexOf('/products/')>-1)return;im.loading='lazy';im.decoding='async';});}
 
   function boot(){injectGift();injectSearchButtons();optimizeImgs();if(typeof updateCartUI==='function')updateCartUI();else decorateCart();}
   if(document.readyState!=='loading')boot();else document.addEventListener('DOMContentLoaded',boot);
