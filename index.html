@@ -381,7 +381,7 @@ button{cursor:pointer;font-family:var(--fi)}
 .s-hero{min-height:100vh;display:grid;align-items:center;position:relative;overflow:hidden;background:var(--bg);grid-template-columns:1fr 1fr}
 .hero__ambient{position:absolute;inset:0;pointer-events:none}
 .hero__left{display:flex;flex-direction:column;justify-content:center;padding:110px 64px 80px;position:relative;z-index:2}
-.hero__right{position:relative;display:flex;align-items:center;justify-content:center;overflow:visible;align-self:center;min-height:auto;padding:40px 40px 40px 0}
+.hero__right{position:relative;display:flex;align-items:center;justify-content:center;overflow:visible;align-self:center;min-height:auto;padding:40px 40px 40px 0}@media(min-width:901px){.hero__right img{transform:translateY(-130px)}}
 .hero__can-wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
 .hero__can{max-height:85%;max-width:90%;width:auto;mix-blend-mode:screen;filter:brightness(1.08);object-fit:contain;position:relative;z-index:1}
 .hero__brand-tag{font-size:9px;letter-spacing:.45em;text-transform:uppercase;color:var(--gold2);margin-bottom:20px;display:flex;align-items:center;gap:12px}
@@ -4068,6 +4068,7 @@ function alignHeroRender(){
     img.style.transform='';
     if(window.innerWidth<=900)return;
     var hr=h.getBoundingClientRect(), ir=img.getBoundingClientRect();
+    if(ir.height<60||hr.height<20)return;
     var diff=(hr.top+hr.height/2)-(ir.top+ir.height/2);
     if(Math.abs(diff)>4){img.style.transform='translateY('+diff.toFixed(1)+'px)';}
   }catch(e){}
