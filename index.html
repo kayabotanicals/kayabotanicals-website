@@ -4034,7 +4034,9 @@ function switchView(to){
   isSwitching=true;
   /* hide global nav on product pages — they have their own inline nav */
   var _gNav=document.getElementById('nav');
-  if(_gNav){_gNav.style.display=to.startsWith('prod-')?'none':'';}
+  var _toEl=document.getElementById('view-'+to);
+  var _toHasPnav=!!(_toEl&&_toEl.querySelector('.pnav'));
+  if(_gNav){_gNav.style.display=(to.startsWith('prod-')||_toHasPnav)?'none':'';}
   document.title=VIEW_TITLES[to]||'Kaya Botanicals';
   window.scrollTo({top:0,behavior:'instant'});
   const fromEl=document.getElementById('view-'+currentView);
