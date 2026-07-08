@@ -4073,6 +4073,15 @@ function alignHeroRender(){
     if(Math.abs(diff)>4){img.style.transform='translateY('+diff.toFixed(1)+'px)';}
   }catch(e){}
 }
+function alignHeroRetry(){
+  try{
+    alignHeroRender();
+    var n=0;var iv=setInterval(function(){alignHeroRender();if(++n>12)clearInterval(iv);},160);
+    var v=document.querySelector('.view.active');
+    var img=v&&v.querySelector('.hero__right img');
+    if(img&&!img.__alignBound){img.__alignBound=1;img.addEventListener('load',function(){setTimeout(alignHeroRender,40);});}
+  }catch(e){}
+}
 function triggerViewAnimations(viewId){
   const view=document.getElementById('view-'+viewId);
   if(!view)return;
@@ -4084,7 +4093,7 @@ function triggerViewAnimations(viewId){
   });
   const heroAnims=view.querySelectorAll('.s-hero .anim, .s-koda-hero .anim, .s-k3b-hero .anim');
   heroAnims.forEach((el,i)=>setTimeout(()=>el.classList.add('in'),i*130+200));
-  requestAnimationFrame(function(){setTimeout(alignHeroRender,60);setTimeout(alignHeroRender,400);});
+  requestAnimationFrame(function(){alignHeroRetry();});
 }
 
 /* ══ WHEEL MODAL ══ */
