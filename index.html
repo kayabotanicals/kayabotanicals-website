@@ -2616,7 +2616,7 @@ MAGIC CREAM</h1>
     <p class="hero__launch anim d4">Launching Fall 2026 &mdash; Care with Intention&trade;</p>
   </div>
   <div class="hero__right">
-    <div class="hero__render-wrap"><img src="products/k3b-moisturizer.png" alt="K3B Tri-Lipid Barrier Moisturizer" loading="lazy" decoding="async" style="width:min(360px,86%);height:auto;display:block;margin:0 auto;position:relative;z-index:1;background:transparent" onerror="this.style.display='none'"/></div>
+    <div class="hero__render-wrap"><img src="products/k3b-moisturizer.png" alt="K3B Tri-Lipid Barrier Moisturizer" decoding="async" style="width:min(360px,86%);height:auto;display:block;margin:0 auto;position:relative;z-index:1;background:transparent" onerror="this.style.display='none'"/></div>
   </div>
   <div class="hero__scroll"><span>Explore</span><div class="hero__scroll-line"></div></div>
 </section>
@@ -3371,7 +3371,7 @@ MINERAL VEIL SPF</h1>
     <p class="hero__launch anim d4">Launching Fall 2026 &mdash; Care with Intention&trade;</p>
   </div>
   <div class="hero__right">
-    <div class="hero__render-wrap"><img src="products/k3b-mineral-veil.png" alt="K3B Mineral Veil Barrier Defense SPF 40" loading="lazy" decoding="async" style="width:min(360px,86%);height:auto;display:block;margin:0 auto;position:relative;z-index:1;background:transparent" onerror="this.style.display='none'"/></div>
+    <div class="hero__render-wrap"><img src="products/k3b-mineral-veil.png" alt="K3B Mineral Veil Barrier Defense SPF 40" decoding="async" style="width:min(360px,86%);height:auto;display:block;margin:0 auto;position:relative;z-index:1;background:transparent" onerror="this.style.display='none'"/></div>
   </div>
   <div class="hero__scroll"><span>Explore</span><div class="hero__scroll-line"></div></div>
 </section>
@@ -3522,7 +3522,7 @@ RITUAL ELIXIR</h1>
     <p class="hero__launch anim d4">Launching Fall 2026 &mdash; Care with Intention&trade;</p>
   </div>
   <div class="hero__right">
-    <div class="hero__render-wrap"><img src="products/k3b-elixir.png" alt="K3B Phyto Lipid Ritual Elixir" loading="lazy" decoding="async" style="width:min(360px,86%);height:auto;display:block;margin:0 auto;position:relative;z-index:1;background:transparent" onerror="this.style.display='none'"/></div>
+    <div class="hero__render-wrap"><img src="products/k3b-elixir.png" alt="K3B Phyto Lipid Ritual Elixir" decoding="async" style="width:min(360px,86%);height:auto;display:block;margin:0 auto;position:relative;z-index:1;background:transparent" onerror="this.style.display='none'"/></div>
   </div>
   <div class="hero__scroll"><span>Explore</span><div class="hero__scroll-line"></div></div>
 </section>
@@ -3838,8 +3838,8 @@ const KODA_PRODUCTS=[
 const K3B_PRODUCTS=[
   {id:'k3b-face',img:'products/k3b-moisturizer.png',name:'Tri-Lipid Barrier Moisturizer',tag:'Daily Barrier Ritual',price:32,ingredients:'Gotu Kola · Moringa · Amaranth',body:'Daily phyto-lipid barrier moisturizer. 50 ml. Non-comedogenic. Family-safe. AM/PM.',detail:'prod-k3b-everyday-magic'},
   {id:'k3b-sun',img:'products/k3b-mineral-veil.png',name:'Mineral Veil Barrier Defense SPF 40',tag:'Environmental Shield',price:32,ingredients:'Zinc Oxide · Kokum · Amaranth · Saffron',body:'Phyto-lipid zinc oxide environmental shield. Zero white cast. Reef safe.',detail:'prod-k3b-mineral-veil'},
-  {id:'k3b-body',img:'products/k3b-body-butter.png',name:'Face & Body Ghee',tag:'Full-Body Restoration',price:34,ingredients:'Kokum · Mango Butter · Saffron · Gotu Kola',body:'Advanced botanical restorative body melt. Ghee-textured. Saffron-infused.',detail:'prod-k3b-face-body-ghee'},
-  {id:'k3b-oil',img:'products/k3b-body-oil.png',name:'Kokum Ritual Body Oil',tag:'Anhydrous Treatment',price:36,ingredients:'Squalane · MCT Oil · Kokum · Neroli · Tulsi',body:'Anhydrous dry-touch botanical body treatment. Waterless. Satin finish.',detail:'prod-k3b-kokum-body-oil'},
+  {id:'k3b-body',img:'',name:'Face & Body Ghee',tag:'Full-Body Restoration',price:34,ingredients:'Kokum · Mango Butter · Saffron · Gotu Kola',body:'Advanced botanical restorative body melt. Ghee-textured. Saffron-infused.',detail:'prod-k3b-face-body-ghee'},
+  {id:'k3b-oil',img:'',name:'Kokum Ritual Body Oil',tag:'Anhydrous Treatment',price:36,ingredients:'Squalane · MCT Oil · Kokum · Neroli · Tulsi',body:'Anhydrous dry-touch botanical body treatment. Waterless. Satin finish.',detail:'prod-k3b-kokum-body-oil'},
   {id:'k3b-serum',img:'products/k3b-elixir.png',name:'Phyto Lipid Ritual Elixir',tag:'Intensive Treatment',price:42,ingredients:'Broccoli Seed · Bakuchiol · Manjistha · Vetiver',body:'Waterless retinol-alternative serum. Velvet-glide. Massage-engineered.',detail:'prod-k3b-ruby-serum'}
 ];
 const K3B_TOOLS=[
@@ -4121,7 +4121,7 @@ function buildK3bGrid(){
     d.className='k3b-card';
     if(p.detail){d.style.cursor='pointer';d.onclick=()=>switchView(p.detail);}
     d.innerHTML=`
-      ${p.img?`<img class="k3b-card__img" src="${p.img}" alt="K3B ${p.name}" loading="lazy" style="display:block;width:78%;max-width:230px;margin:0 auto 20px;height:auto;background:transparent" onerror="this.remove()"/>`:''}
+      ${p.img?`<img class="k3b-card__img" src="${p.img}" alt="K3B ${p.name}" decoding="async" style="display:block;width:78%;max-width:230px;margin:0 auto 20px;height:auto;background:transparent" onerror="this.style.display='none'"/>`:''}
       <p class="k3b-card__tag">${p.tag}</p>
       <p class="k3b-card__name">${p.name}</p>
       <div class="k3b-card__rule"></div>
