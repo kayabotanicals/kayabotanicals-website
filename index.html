@@ -4185,7 +4185,10 @@ function buildK3bGrid(){
     if(p.detail){
       const srcSvg=document.querySelector('#view-'+p.detail+' .hero__render-wrap svg');
       if(srcSvg){
-        let svg=srcSvg.outerHTML.replace(/style="[^"]*"/,'style="max-height:200px;width:auto"');
+        let svg=srcSvg.outerHTML
+          .replace(/style="[^"]*"/,'style="height:200px;width:auto"')
+          .replace(/id="/g,'id="tg-'+p.id+'-')
+          .replace(/url\(#/g,'url(#tg-'+p.id+'-');
         art='<div class="k3b-card__imgslot" style="height:220px">'+svg+'</div>';
       }
     }
