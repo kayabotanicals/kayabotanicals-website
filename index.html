@@ -49,8 +49,9 @@ img{display:block;max-width:100%}
 
 
 
-.nav__links{display:flex;gap:36px;list-style:none}
-.nav__links button{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--txt2);background:none;border:none;border-bottom:1px solid transparent;padding:4px 0;transition:all .2s;cursor:pointer}
+.nav__links{display:flex;gap:36px;list-style:none;align-items:center;margin:0;padding:0}
+.nav__links li{display:flex;align-items:center}
+.nav__links button{font-size:9.5px;line-height:1;letter-spacing:.22em;text-transform:uppercase;color:var(--txt2);background:none;border:none;border-bottom:1px solid transparent;padding:4px 0;transition:color .2s,border-color .2s;cursor:pointer;display:block}
 .nav__links button:hover,.nav__links button.active{color:var(--gold2);border-color:rgba(184,135,46,.35)}
 
 /* ══ VIEW SWITCHING ══ */
@@ -826,7 +827,7 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
     <button class="nav__logo" onclick="switchView('brand')">KAYA BOTANICALS<span>Botanical Ritual House</span></button>
   </div>
   <ul class="nav__links">
-    <li><button id="nav-k3b" onclick="switchView('k3b')">K3B Skincare</button></li>
+    <li><button id="nav-k3b" onclick="switchView('k3b')">K3B</button></li>
     <li><button id="nav-tools" onclick="navToTools()">Tools</button></li>
     <li><button id="nav-koda" onclick="switchView('koda')">KODA</button></li>
     <li><button id="nav-brand" class="active" onclick="switchView('brand')">Brand</button></li>
