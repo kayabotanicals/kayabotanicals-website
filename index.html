@@ -995,7 +995,7 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
   <div class="wrap">
     <div class="s-founder__inner">
       <div class="s-founder__visual anim">
-        <span class="s-founder__monogram">KB</span>
+        <img src="/products/kaya-brand-mark.jpg" alt="Kaya Botanicals monogram" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"/>
       </div>
       <div>
         <p class="eyebrow anim">Our Foundation</p>
@@ -3088,7 +3088,7 @@ DUAL WAND</h1>
     <p class="hero__launch anim d4">Launching Fall 2026 &mdash; Care with Intention&trade;</p>
   </div>
   <div class="hero__right">
-    <div class="hero__render-wrap"><svg viewBox="0 0 160 400" xmlns="http://www.w3.org/2000/svg" style="width:140px;height:auto;position:relative;z-index:1"><defs><linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#9B7628"/><stop offset="45%" stop-color="#DEB84C"/><stop offset="100%" stop-color="#7A5C18"/></linearGradient><radialGradient id="wg" cx="50%" cy="40%"><stop offset="0%" stop-color="rgba(184,135,46,.2)"/><stop offset="100%" stop-color="rgba(0,0,0,0)"/></radialGradient></defs><ellipse cx="80" cy="58" rx="44" ry="44" fill="url(#wg)"/><circle cx="80" cy="56" r="40" fill="url(#bg1)" stroke="rgba(220,186,120,.55)" stroke-width="1.2"/><circle cx="80" cy="56" r="28" fill="rgba(0,0,0,.15)" stroke="rgba(220,186,120,.18)" stroke-width=".5"/><circle cx="80" cy="56" r="12" fill="rgba(0,0,0,.25)"/><text x="80" y="60" font-family="Georgia,serif" font-size="9" letter-spacing="2" fill="rgba(220,186,120,.8)" text-anchor="middle">K3B</text><rect x="72" y="98" width="16" height="10" rx="2" fill="#9B7628" stroke="rgba(220,186,120,.3)" stroke-width=".5"/><rect x="67" y="106" width="26" height="240" rx="7" fill="#2A2018" stroke="rgba(120,90,40,.3)" stroke-width=".8"/><line x1="67" y1="140" x2="93" y2="140" stroke="rgba(184,135,46,.12)" stroke-width=".5"/><line x1="67" y1="175" x2="93" y2="175" stroke="rgba(184,135,46,.08)" stroke-width=".5"/><line x1="67" y1="210" x2="93" y2="210" stroke="rgba(184,135,46,.08)" stroke-width=".5"/><line x1="67" y1="280" x2="93" y2="280" stroke="rgba(184,135,46,.08)" stroke-width=".5"/><rect x="67" y="346" width="26" height="12" rx="4" fill="#9B7628" stroke="rgba(220,186,120,.3)" stroke-width=".5"/><circle cx="80" cy="368" r="16" fill="url(#bg1)" stroke="rgba(184,135,46,.5)" stroke-width=".8"/><circle cx="80" cy="368" r="8" fill="rgba(0,0,0,.22)"/><rect x="67" y="106" width="4" height="240" rx="2" fill="rgba(255,255,255,.04)"/></svg></div>
+    <div class="hero__render-wrap"><img src="/products/kansa-dual-wand.jpg" alt="K3B Kansa Dual Wand — bronze facial sculpting tool" loading="eager" decoding="async" style="width:min(340px,80%);height:auto;display:block;margin:0 auto;position:relative;z-index:1;mix-blend-mode:screen;filter:brightness(1.06)"/></div>
   </div>
   <div class="hero__scroll"><span>Explore</span><div class="hero__scroll-line"></div></div>
 </section>
@@ -4183,9 +4183,11 @@ function buildK3bGrid(){
     if(p.detail){d.style.cursor='pointer';d.onclick=()=>switchView(p.detail);}
     let art='';
     if(p.detail){
-      const srcSvg=document.querySelector('#view-'+p.detail+' .hero__render-wrap svg');
-      if(srcSvg){
-        let svg=srcSvg.outerHTML
+      const srcEl=document.querySelector('#view-'+p.detail+' .hero__render-wrap svg, #view-'+p.detail+' .hero__render-wrap img');
+      if(srcEl&&srcEl.tagName==='IMG'){
+        art='<div class="k3b-card__imgslot" style="height:220px"><img src="'+srcEl.getAttribute('src')+'" alt="" loading="lazy" style="max-height:200px;width:auto;mix-blend-mode:screen"/></div>';
+      }else if(srcEl){
+        let svg=srcEl.outerHTML
           .replace(/style="[^"]*"/,'style="height:200px;width:auto"')
           .replace(/id="/g,'id="tg-'+p.id+'-')
           .replace(/url\(#/g,'url(#tg-'+p.id+'-');
