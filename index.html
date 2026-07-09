@@ -707,11 +707,12 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
 <meta property="og:image" content="https://kayabotanicals.com/og-image.jpg"/>
 <meta name="twitter:image" content="https://kayabotanicals.com/og-image.jpg"/>
 <meta name="twitter:site" content="@kayabotanicals"/>
+<meta name="twitter:url" content="https://kayabotanicals.com/"/>
 <link rel="apple-touch-icon" href="/favicon-koda.png"/>
 <link rel="mask-icon" href="/favicon.svg" color="#B8872E"/>
 <script>
 /* self-referencing canonical per brand domain (www -> apex) */
-(function(){try{var h=location.hostname.replace(/^www\./,'');if(['kayabotanicals.com','drinkkoda.com','k3bapothecary.com'].indexOf(h)>-1){var l=document.querySelector('link[rel="canonical"]');if(l)l.href='https://'+h+'/';var o=document.querySelector('meta[property="og:url"]');if(o)o.setAttribute('content','https://'+h+'/');}}catch(e){}})();
+(function(){try{if(/\.pages\.dev$/.test(location.hostname)){location.replace('https://kayabotanicals.com'+location.pathname+location.search+location.hash);return;}var h=location.hostname.replace(/^www\./,'');if(['kayabotanicals.com','drinkkoda.com','k3bapothecary.com'].indexOf(h)>-1){var l=document.querySelector('link[rel="canonical"]');if(l)l.href='https://'+h+'/';var o=document.querySelector('meta[property="og:url"]');if(o)o.setAttribute('content','https://'+h+'/');var t=document.querySelector('meta[name="twitter:url"]');if(t)t.setAttribute('content','https://'+h+'/');}}catch(e){}})();
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
