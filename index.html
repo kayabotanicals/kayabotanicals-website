@@ -3088,7 +3088,7 @@ DUAL WAND</h1>
     <p class="hero__launch anim d4">Launching Fall 2026 &mdash; Care with Intention&trade;</p>
   </div>
   <div class="hero__right">
-    <div class="hero__render-wrap"><img src="/products/kansa-dual-wand.jpg" alt="K3B Kansa Dual Wand — bronze facial sculpting tool" loading="eager" decoding="async" style="width:min(340px,80%);height:auto;display:block;margin:0 auto;position:relative;z-index:1;mix-blend-mode:screen;filter:brightness(1.06)"/></div>
+    <div class="hero__render-wrap"><img src="/products/kansa-dual-wand.jpg" alt="K3B Kansa Dual Wand — bronze facial sculpting tool" loading="eager" decoding="async" style="width:min(360px,84%);height:auto;display:block;margin:0 auto;position:relative;z-index:1;-webkit-mask-image:radial-gradient(ellipse 62% 62% at 50% 50%,#000 55%,transparent 98%);mask-image:radial-gradient(ellipse 62% 62% at 50% 50%,#000 55%,transparent 98%)"/></div>
   </div>
   <div class="hero__scroll"><span>Explore</span><div class="hero__scroll-line"></div></div>
 </section>
@@ -4185,7 +4185,7 @@ function buildK3bGrid(){
     if(p.detail){
       const srcEl=document.querySelector('#view-'+p.detail+' .hero__render-wrap svg, #view-'+p.detail+' .hero__render-wrap img');
       if(srcEl&&srcEl.tagName==='IMG'){
-        art='<div class="k3b-card__imgslot" style="height:220px"><img src="'+srcEl.getAttribute('src')+'" alt="" loading="lazy" style="max-height:200px;width:auto;mix-blend-mode:screen"/></div>';
+        art='<div class="k3b-card__imgslot" style="height:220px"><img src="'+srcEl.getAttribute('src')+'" alt="" loading="lazy" style="max-height:210px;width:auto;-webkit-mask-image:radial-gradient(ellipse 60% 60% at 50% 50%,#000 52%,transparent 97%);mask-image:radial-gradient(ellipse 60% 60% at 50% 50%,#000 52%,transparent 97%)"/></div>';
       }else if(srcEl){
         let svg=srcEl.outerHTML
           .replace(/style="[^"]*"/,'style="height:200px;width:auto"')
