@@ -835,7 +835,7 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
     <li><button id="nav-brand" class="active" onclick="switchView('brand')">Brand</button></li>
     <li><button id="nav-koda" onclick="switchView('koda')">KODA</button></li>
     <li><button id="nav-k3b" onclick="switchView('k3b')">K3B</button></li>
-    <li><button id="nav-tools" onclick="navToTools()">Tools</button></li>
+    <li><button id="nav-tools" onclick="switchView('tools')">Tools</button></li>
   </ul>
   <div class="nav__right">
     <button class="nav__cart-btn" onclick="toggleCart()" aria-label="Open shopping cart">
@@ -860,7 +860,7 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
     <button id="mnav-brand" onclick="mobileNav('brand')">Brand</button>
     <button id="mnav-koda" onclick="mobileNav('koda')">KODA</button>
     <button id="mnav-k3b" onclick="mobileNav('k3b')">K3B</button>
-    <button id="mnav-tools" onclick="closeMobileMenu();setTimeout(navToTools,130)">Tools</button>
+    <button id="mnav-tools" onclick="mobileNav('tools')">Tools</button>
     <button onclick="closeMobileMenu();toggleCart()">Cart</button>
   </nav>
   <div class="mobile-menu__foot">Decoction-Crafted · Patent-Pending</div>
@@ -1266,20 +1266,7 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
   </div>
 </section>
 
-<!-- K3B RITUAL TOOLS -->
-<section class="s-k3b-products" style="padding-top:0;padding-bottom:120px;background:var(--bg2)">
-  <div class="wrap">
-    <div style="text-align:center;margin-bottom:72px;padding-top:100px">
-      <p class="eyebrow anim">Ritual Instruments</p>
-      <h2 class="display anim d1">Tools of<br><em>Ritual</em></h2>
-      <span class="rule rule--c anim d2"></span>
-      <p class="anim d3" style="font-size:.9rem;font-weight:300;color:var(--txt2);max-width:520px;margin:0 auto;line-height:1.9">Intentional instruments designed to elevate the daily ritual.</p>
-    </div>
-    <div class="tools-grid" id="k3bToolsGrid">
-      <!-- Injected by JS -->
-    </div>
-  </div>
-</section>
+
 
 <!-- ══ FIVE PILLARS OF FACIAL WELLNESS ══ -->
 <section class="s-pillars">
@@ -1401,6 +1388,31 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
 </footer>
 
 </div><!-- /view-k3b -->
+
+<div id="view-tools" class="view">
+<!-- K3B RITUAL TOOLS -->
+<section class="s-k3b-products" style="padding-top:150px;padding-bottom:136px;background:var(--bg3)">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:72px;padding-top:100px">
+      <p class="eyebrow anim">Ritual Instruments</p>
+      <h2 class="display anim d1">Tools of<br><em>Ritual</em></h2>
+      <span class="rule rule--c anim d2"></span>
+      <p class="anim d3" style="font-size:.9rem;font-weight:300;color:var(--txt2);max-width:520px;margin:0 auto;line-height:1.9">Intentional instruments designed to elevate the daily ritual.</p>
+    </div>
+    <div class="tools-grid" id="k3bToolsGrid">
+      <!-- Injected by JS -->
+    </div>
+  </div>
+</section>
+<footer style="background:var(--bg2);border-top:1px solid var(--border);padding:38px 0">
+  <div class="wrap">
+    <div class="sub-footer" style="border-top:none;padding-top:0">
+      <button class="sub-footer__back" onclick="switchView('k3b')">Back to K3B Apothecary</button>
+      <p class="sub-footer__copy">&#x00A9; 2025 Kaya Botanicals LLC.</p>
+    </div>
+  </div>
+</footer>
+</div><!-- /view-tools -->
 
 <div id="view-prod-koda-amber" class="view"><nav class="pnav"><button class="pnav__link" onclick="switchView('koda')">&#8592; KODA</button><button onclick="switchView('brand')" class="pnav__logo">KAYA BOTANICALS</button><button aria-label="Shopping cart" onclick="toggleCart()" class="pnav__cart">Cart<span class="cart-badge" id="badge-prod-koda-amber">0</span></button></nav><div style="height:68px"></div><!-- CART OVERLAY -->
 
@@ -4015,6 +4027,7 @@ const VIEW_TITLES={
   'brand':'Kaya Botanicals — Botanical Ritual House',
   'koda':'KODA — Botanical Ritual Drinks | Kaya Botanicals',
   'k3b':'K3B Apothecary — Kokum-Led Skincare | Kaya Botanicals',
+  'tools':'Ritual Tools — Kansa Instruments | K3B Apothecary',
   'contact':'Contact | Kaya Botanicals',
   'privacy':'Privacy Policy | Kaya Botanicals',
   'terms':'Terms & Conditions | Kaya Botanicals',
@@ -4140,7 +4153,7 @@ function addKoda(btn,id,name,price,sub,img){
   btn.textContent='Added ✓';btn.classList.add('added');
   setTimeout(()=>{btn.textContent='Add to Cart';btn.classList.remove('added');},1800);
 }
-function navToTools(){if(typeof switchView==="function")switchView("k3b");setTimeout(function(){var t=document.getElementById("k3bToolsGrid");if(t){var s=t.closest("section");(s||t).scrollIntoView({behavior:"smooth"});}},450);}
+function navToTools(){switchView("tools");}
 function buildK3bGrid(){
   const g=document.getElementById('k3bGrid');
   K3B_PRODUCTS.forEach(p=>{
@@ -4168,7 +4181,16 @@ function buildK3bGrid(){
     const d=document.createElement('div');
     d.className='k3b-card';
     if(p.detail){d.style.cursor='pointer';d.onclick=()=>switchView(p.detail);}
+    let art='';
+    if(p.detail){
+      const srcSvg=document.querySelector('#view-'+p.detail+' .hero__render-wrap svg');
+      if(srcSvg){
+        let svg=srcSvg.outerHTML.replace(/style="[^"]*"/,'style="max-height:200px;width:auto"');
+        art='<div class="k3b-card__imgslot" style="height:220px">'+svg+'</div>';
+      }
+    }
     d.innerHTML=`
+      ${art}
       <p class="k3b-card__tag">${p.tag}</p>
       <p class="k3b-card__name">${p.name}</p>
       <div class="k3b-card__rule"></div>
@@ -4382,7 +4404,7 @@ function closeMobileMenu(){
 }
 function mobileNav(to){closeMobileMenu();setTimeout(function(){switchView(to);},130);}
 function syncMobileNavActive(){
-  ['brand','koda','k3b'].forEach(function(v){
+  ['brand','koda','k3b','tools'].forEach(function(v){
     var b=document.getElementById('mnav-'+v);
     if(b)b.classList.toggle('active',v===currentView);
   });
