@@ -3072,7 +3072,6 @@ GUA SHA</h1>
   </div>
 </section></div>
 <div id="view-prod-k3b-kansa-wand" class="view"><nav class="pnav"><button class="pnav__link" onclick="switchView('k3b')">&#8592; K3B</button><button onclick="switchView('brand')" class="pnav__logo">KAYA BOTANICALS</button><button aria-label="Shopping cart" onclick="toggleCart()" class="pnav__cart">Cart<span class="cart-badge" id="badge-prod-k3b-kansa-wand">0</span></button></nav><div style="height:68px"></div><section class="s-hero">
-  <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 50% 60% at 72% 52%,rgba(155,118,40,.15),transparent 65%)"></div>
   <div class="hero__left">
     <p class="hero__brand-tag anim">K3B Ritual Tools &mdash; Sacred Bronze Metallurgy</p>
     <h1 class="hero__name anim d1">KANSA
@@ -3088,7 +3087,7 @@ DUAL WAND</h1>
     <p class="hero__launch anim d4">Launching Fall 2026 &mdash; Care with Intention&trade;</p>
   </div>
   <div class="hero__right">
-    <div class="hero__render-wrap"><img src="/products/kansa-dual-wand.jpg" alt="K3B Kansa Dual Wand — bronze facial sculpting tool" loading="eager" decoding="async" style="width:min(360px,84%);height:auto;display:block;margin:0 auto;position:relative;z-index:1;-webkit-mask-image:radial-gradient(ellipse 62% 62% at 50% 50%,#000 55%,transparent 98%);mask-image:radial-gradient(ellipse 62% 62% at 50% 50%,#000 55%,transparent 98%)"/></div>
+    <div class="hero__render-wrap"><img src="/products/kansa-dual-wand.png" alt="K3B Kansa Dual Wand — bronze facial sculpting tool" loading="eager" decoding="async" style="width:min(380px,86%);height:auto;display:block;margin:0 auto;position:relative;z-index:1"/></div>
   </div>
   <div class="hero__scroll"><span>Explore</span><div class="hero__scroll-line"></div></div>
 </section>
@@ -4185,7 +4184,7 @@ function buildK3bGrid(){
     if(p.detail){
       const srcEl=document.querySelector('#view-'+p.detail+' .hero__render-wrap svg, #view-'+p.detail+' .hero__render-wrap img');
       if(srcEl&&srcEl.tagName==='IMG'){
-        art='<div class="k3b-card__imgslot" style="height:220px"><img src="'+srcEl.getAttribute('src')+'" alt="" loading="lazy" style="max-height:210px;width:auto;-webkit-mask-image:radial-gradient(ellipse 60% 60% at 50% 50%,#000 52%,transparent 97%);mask-image:radial-gradient(ellipse 60% 60% at 50% 50%,#000 52%,transparent 97%)"/></div>';
+        art='<div class="k3b-card__imgslot" style="height:220px"><img src="'+srcEl.getAttribute('src')+'" alt="" loading="lazy" style="max-height:210px;width:auto"/></div>';
       }else if(srcEl){
         let svg=srcEl.outerHTML
           .replace(/style="[^"]*"/,'style="height:200px;width:auto"')
