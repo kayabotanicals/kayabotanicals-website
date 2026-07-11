@@ -4186,7 +4186,7 @@ function buildK3bGrid(){
         art='<div class="k3b-card__imgslot"><img class="k3b-card__img" src="'+srcEl.getAttribute('src')+'" alt="" loading="lazy" decoding="async"/></div>';
       }else if(srcEl){
         let svg=srcEl.outerHTML
-          .replace(/style="[^"]*"/,'style="max-height:200px;width:auto;filter:grayscale(.2) brightness(.5);opacity:.85"')
+          .replace(/style="[^"]*"/,'style="height:200px;width:auto;filter:grayscale(.2) brightness(.5);opacity:.85"')
           .replace(/id="/g,'id="tg-'+p.id+'-')
           .replace(/url\(#/g,'url(#tg-'+p.id+'-');
         art='<div class="k3b-card__imgslot">'+svg+'</div>';
