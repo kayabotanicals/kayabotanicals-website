@@ -835,7 +835,6 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
     <li><button id="nav-brand" class="active" onclick="switchView('brand')">Brand</button></li>
     <li><button id="nav-koda" onclick="switchView('koda')">KODA</button></li>
     <li><button id="nav-k3b" onclick="switchView('k3b')">K3B</button></li>
-    <li><button id="nav-tools" onclick="switchView('tools')">Tools</button></li>
   </ul>
   <div class="nav__right">
     <button class="nav__cart-btn" onclick="toggleCart()" aria-label="Open shopping cart">
@@ -860,7 +859,6 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
     <button id="mnav-brand" onclick="mobileNav('brand')">Brand</button>
     <button id="mnav-koda" onclick="mobileNav('koda')">KODA</button>
     <button id="mnav-k3b" onclick="mobileNav('k3b')">K3B</button>
-    <button id="mnav-tools" onclick="mobileNav('tools')">Tools</button>
     <button onclick="closeMobileMenu();toggleCart()">Cart</button>
   </nav>
   <div class="mobile-menu__foot">Decoction-Crafted · Patent-Pending</div>
@@ -871,7 +869,6 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
   <button data-v="brand" onclick="switchView('brand')">Brand</button>
   <button data-v="koda" onclick="switchView('koda')">KODA</button>
   <button data-v="k3b" onclick="switchView('k3b')">K3B</button>
-  <button data-v="tools" onclick="switchView('tools')">Tools</button>
 </nav>
 <div id="views" role="main" tabindex="-1">
 
@@ -1244,7 +1241,7 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
       <img data-img="K3B Arc Mark" class="brand-mark brand-mark--hero" width="52" height="52" alt="K3B Ritual Arc" aria-hidden="true">
       <p class="k3b-hero__tag anim">Kokum-Led Skincare</p>
       <h2 class="koda-hero__headline anim d1" style="font-family:var(--fd);font-size:clamp(2.5rem,5vw,4rem);font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--cream);line-height:.95;margin-bottom:28px">K3B</h2>
-      <p class="k3b-hero__sub anim d2">K3B Apothecary is built around one ingredient: kokum butter. One of the most stable, skin-compatible plant lipids on earth. No unnecessary complexity. No cosmetic theater. Barrier-supportive botanical skincare for daily ritual.</p>
+      <p class="k3b-hero__sub anim d2">K3B Apothecary is built around one ingredient: kokum butter. One of the most stable, skin-compatible plant lipids on earth. No unnecessary complexity. No cosmetic theater. Barrier-supportive botanical skincare &mdash; and sacred bronze instruments &mdash; for daily ritual.</p>
       <p class="k3b-hero__tagline anim d3">Care with Intention.</p>
       <div class="hero__actions anim d4">
         <button class="btn btn--gold" onclick="document.getElementById('k3b-products-section').scrollIntoView({behavior:'smooth'})">Shop K3B Apothecary</button>
@@ -1261,6 +1258,13 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
     </div>
   </div>
 </section>
+
+<div class="wrap" style="padding-top:34px">
+  <nav aria-label="K3B collections" style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap">
+    <button class="pack-opt active" style="flex-direction:row" onclick="document.getElementById(&#39;k3bGrid&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">Skincare</button>
+    <button class="pack-opt" style="flex-direction:row" onclick="switchView(&#39;tools&#39;)">Ritual Tools</button>
+  </nav>
+</div>
 
 <!-- K3B PHILOSOPHY -->
 <section class="s-k3b-philosophy">
@@ -1412,8 +1416,14 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
 </div><!-- /view-k3b -->
 
 <div id="view-tools" class="view">
+<div class="wrap" style="padding-top:118px">
+  <nav aria-label="K3B collections" style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap">
+    <button class="pack-opt" style="flex-direction:row" onclick="switchView(&#39;k3b&#39;)">Skincare</button>
+    <button class="pack-opt active" style="flex-direction:row" aria-current="page">Ritual Tools</button>
+  </nav>
+</div>
 <!-- K3B RITUAL TOOLS -->
-<section class="s-k3b-products" style="padding-top:150px;padding-bottom:136px;background:var(--bg3)">
+<section class="s-k3b-products" style="padding-top:56px;padding-bottom:136px;background:var(--bg3)">
   <div class="wrap">
     <div style="text-align:center;margin-bottom:72px;padding-top:100px">
       <p class="eyebrow anim">Ritual Instruments</p>
@@ -4001,7 +4011,7 @@ function addDiscoveryBox(){
   KODA_PRODUCTS.forEach(p=>addToCart(p.id,'KODA '+p.name,p.price,p.ritual,p.img));
 }
 /* V51: mobile swipe between sections */
-(function(){var sx=0,sy=0,order=['brand','koda','k3b','tools'];
+(function(){var sx=0,sy=0,order=['brand','koda','k3b'];
 document.addEventListener('touchstart',function(e){if(window.innerWidth>900)return;var t=e.touches[0];sx=t.clientX;sy=t.clientY;},{passive:true});
 document.addEventListener('touchend',function(e){
   if(window.innerWidth>900||!sx)return;
@@ -4014,6 +4024,36 @@ document.addEventListener('touchend',function(e){
   var n=i+(dx<0?1:-1);if(n<0||n>=order.length)return;
   switchView(order[n]);
 },{passive:true});})();
+
+
+/* V52: cross-sell — complete the ritual */
+const RITUAL_PAIRS={
+ 'prod-k3b-everyday-magic':['prod-k3b-kansa-wand','prod-k3b-gua-sha'],
+ 'prod-k3b-ruby-serum':['prod-k3b-kansa-wand','prod-k3b-scalp-massager'],
+ 'prod-k3b-kokum-body-oil':['prod-k3b-scalp-massager','prod-k3b-gua-sha'],
+ 'prod-k3b-mineral-veil':['prod-k3b-everyday-magic','prod-k3b-kansa-wand'],
+ 'prod-k3b-face-body-ghee':['prod-k3b-scalp-massager','prod-k3b-kokum-body-oil'],
+ 'prod-k3b-kansa-wand':['prod-k3b-ruby-serum','prod-k3b-everyday-magic'],
+ 'prod-k3b-gua-sha':['prod-k3b-ruby-serum','prod-k3b-kokum-body-oil'],
+ 'prod-k3b-scalp-massager':['prod-k3b-kokum-body-oil','prod-k3b-face-body-ghee']
+};
+function buildCrossSell(){
+  const meta={};
+  try{K3B_PRODUCTS.concat(K3B_TOOLS).forEach(p=>{if(p.detail)meta[p.detail]={name:p.name,tag:p.tag,price:p.price};});}catch(e){return;}
+  Object.keys(RITUAL_PAIRS).forEach(pid=>{
+    const v=document.getElementById('view-'+pid); if(!v||v.querySelector('.xsell'))return;
+    const items=RITUAL_PAIRS[pid].map(t=>{const m=meta[t];if(!m)return '';
+      return '<button class="ritx" onclick="switchView(&#39;'+t+'&#39;)"><b>'+m.name+'</b><i>'+m.tag+' &middot; $'+m.price+'</i></button>';}).join('');
+    const sec=document.createElement('section');
+    sec.className='xsell';
+    sec.style.cssText='padding:88px 0;background:var(--bg2)';
+    sec.innerHTML='<div class="wrap"><div style="text-align:center;margin-bottom:40px"><p class="eyebrow">Complete the Ritual</p></div><div class="ritual-index__grid" style="max-width:680px;margin:0 auto">'+items+'</div></div>';
+    const rel=v.querySelector('.s-related');
+    if(rel)v.insertBefore(sec,rel);
+    else{const f=v.querySelector('footer');if(f)v.insertBefore(sec,f);else v.appendChild(sec);}
+  });
+}
+try{buildCrossSell();}catch(e){}
 
 var SHOPIFY_API_URL='https://kaya-botanicals.myshopify.com/api/2024-10/graphql.json';
 var SHOPIFY_STOREFRONT_TOKEN='5d7adf99db1ba3946f4032e8c46abdca'; /* public token — safe client-side */
@@ -4483,7 +4523,7 @@ function closeMobileMenu(){
 }
 function mobileNav(to){closeMobileMenu();setTimeout(function(){switchView(to);},130);}
 function syncMobileNavActive(){
-  ['brand','koda','k3b','tools'].forEach(function(v){
+  ['brand','koda','k3b'].forEach(function(v){
     var b=document.getElementById('mnav-'+v);
     if(b)b.classList.toggle('active',v===currentView);
   });
@@ -4782,6 +4822,7 @@ function enhanceCardA11y(){
     var out=[];
     try{ if(typeof KODA_PRODUCTS!=='undefined')KODA_PRODUCTS.forEach(function(p){out.push({id:p.id,name:p.name,tag:p.sub||p.tag||'',price:p.price,house:'KODA',detail:p.detail});}); }catch(e){}
     try{ if(typeof K3B_PRODUCTS!=='undefined')K3B_PRODUCTS.forEach(function(p){out.push({id:p.id,name:p.name,tag:p.tag||'',price:p.price,house:'K3B Apothecary',detail:p.detail,ingredients:p.ingredients||'',img:p.img||''});}); }catch(e){}
+    try{ if(typeof K3B_TOOLS!=='undefined')K3B_TOOLS.forEach(function(p){out.push({id:p.id,name:p.name,tag:p.tag||'',price:p.price,house:'K3B Ritual Tools',detail:p.detail,ingredients:'kansa bronze ritual tool wand gua sha massage sculpting'});});}catch(e){}
     return out;
   }
 
