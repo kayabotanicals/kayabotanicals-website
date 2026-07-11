@@ -867,6 +867,12 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
 </aside>
 
 <!-- ══ VIEWS CONTAINER ══ -->
+<nav class="mseg" aria-label="Quick section navigation">
+  <button data-v="brand" onclick="switchView('brand')">Brand</button>
+  <button data-v="koda" onclick="switchView('koda')">KODA</button>
+  <button data-v="k3b" onclick="switchView('k3b')">K3B</button>
+  <button data-v="tools" onclick="switchView('tools')">Tools</button>
+</nav>
 <div id="views" role="main" tabindex="-1">
 
 <!-- ════════════════════════════════════
@@ -987,6 +993,18 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
         <span class="expr-card__link">Enter K3B Apothecary</span>
       </button>
     </div>
+  </div>
+</section>
+
+<!-- V51: SHOP BY RITUAL -->
+<section style="padding:136px 0;background:var(--bg)">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:64px">
+      <p class="eyebrow anim">Shop by Ritual</p>
+      <h2 class="display anim d1">Begin with<br><em>a Need</em></h2>
+      <span class="rule rule--c anim d2"></span>
+    </div>
+    <div class="ritual-index__grid"><button class="ritx anim" onclick="switchView(&#39;prod-k3b-everyday-magic&#39;)"><b>Restore Barrier</b><i>Tri-Lipid Moisturizer</i></button><button class="ritx anim" onclick="switchView(&#39;prod-k3b-kokum-body-oil&#39;)"><b>Hydrate</b><i>Kokum Body Oil</i></button><button class="ritx anim" onclick="switchView(&#39;prod-k3b-mineral-veil&#39;)"><b>Protect</b><i>Mineral Veil SPF 40</i></button><button class="ritx anim" onclick="switchView(&#39;prod-k3b-ruby-serum&#39;)"><b>Radiance</b><i>Ritual Elixir</i></button><button class="ritx anim" onclick="switchView(&#39;prod-koda-amber&#39;)"><b>Calm</b><i>KODA Amber</i></button><button class="ritx anim" onclick="switchView(&#39;prod-koda-gut&#39;)"><b>Recovery</b><i>KODA Gut</i></button><button class="ritx anim" onclick="switchView(&#39;k3b&#39;)"><b>Daily Ritual</b><i>K3B Apothecary</i></button></div>
   </div>
 </section>
 
@@ -1184,6 +1202,10 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
       <h2 class="display anim d1">Five Botanical<br><em>Rituals</em></h2>
       <span class="rule rule--c anim d2"></span>
     </div>
+    <div class="anim d2" style="text-align:center;margin:0 0 56px">
+      <button class="btn btn--gold" onclick="addDiscoveryBox()">Start with the Discovery Box &mdash; All 5 Rituals &middot; $30.21</button>
+      <p class="pack-note" style="margin-top:14px">One of each ritual &middot; the complete KODA experience</p>
+    </div>
     <div class="koda-grid anim" id="kodaGrid">
       <!-- Injected by JS -->
     </div>
@@ -1244,7 +1266,7 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
 <section class="s-k3b-philosophy">
   <div class="wrap">
     <p class="eyebrow anim" style="margin-bottom:28px">The K3B Philosophy</p>
-    <p class="philosophy-statement anim d1">&#x201C;the skin does not need more ingredients. it needs the right ones. kokum butter is one of the most stable plant lipids on earth &#x2014; non-comedogenic, deeply nourishing, and gentle enough for daily use across all skin types. k3b apothecary is not a range. it is a ritual.&#x201D;</p>
+    <p class="philosophy-statement anim d1">&#x201C;The skin does not need more ingredients. It needs the right ones. Kokum butter is one of the most stable plant lipids on earth &#x2014; non-comedogenic, deeply nourishing, and gentle enough for daily use across all skin types. K3B Apothecary is not a range. It is a ritual.&#x201D;</p>
     <p class="ritual-arc-line anim d2">The Ritual Arc &mdash; intentional care, grounded in protection, elevated through daily ritual.</p>
     <div class="section-cta-row anim d3">
       <button class="section-cta" onclick="document.getElementById('k3b-products-section').scrollIntoView({behavior:'smooth'})">Begin Your Practice</button>
@@ -1342,11 +1364,11 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
             <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="17" stroke="rgba(184,135,46,.4)" stroke-width="1"/><path d="M12 24 L12 18 M16 24 L16 14 M20 24 L20 20 M24 24 L24 11" stroke="rgba(184,135,46,.8)" stroke-width="1.4" stroke-linecap="round"/></svg>
           </div>
         </div>
-        <h3 class="pillar__name">Track</h3>
+        <h3 class="pillar__name">Reflect</h3>
         <div class="pillar__rule"></div>
         <p class="pillar__desc">Awareness &middot; Progress &middot; Consistency</p>
         <p class="pillar__body">Observe change through intentional practice.</p>
-        <p class="pillar__support">Meaningful transformation often happens gradually. Tracking encourages awareness, consistency, and a deeper connection to personal wellness rituals.</p>
+        <p class="pillar__support">Meaningful transformation often happens gradually. Reflection encourages awareness, consistency, and a deeper connection to personal wellness rituals.</p>
       </div>
 
     </div><!-- /pillars__grid -->
@@ -1354,7 +1376,7 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
     <!-- BOTTOM CALLOUT -->
     <div class="pillars__callout anim">
       <p class="eyebrow" style="text-align:center;margin-bottom:20px">The K3B Framework</p>
-      <h3 class="pillars__callout-headline">Measure. Prevent. Ritualize.</h3>
+      <h3 class="pillars__callout-headline">Observe. Prevent. Ritualize.</h3>
       <span class="rule rule--c" style="margin:28px auto"></span>
       <p class="pillars__callout-body">K3B Apothecary believes facial wellness should be approached with the same intention used to care for the rest of the body. Movement. Recovery. Nourishment. Protection. Consistency. Together, these practices form a long-term approach to facial wellness rooted in calm rather than correction.</p>
     </div>
@@ -1365,7 +1387,7 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
         <p class="pillars__teaser-tag">Coming Soon</p>
         <p class="pillars__teaser-name">K3B Facial Wellness&trade;</p>
         <div class="pillar__rule" style="margin:16px auto;width:28px"></div>
-        <p class="pillars__teaser-body">Track your face like you track your body. A future digital wellness companion designed to help users understand facial wellness trends, build personalized rituals, and maintain long-term consistency.</p>
+        <p class="pillars__teaser-body">A ritual journal for the face. A future companion designed to help users understand facial wellness trends, build personalized rituals, and maintain long-term consistency.</p>
       </div>
     </div>
 
@@ -1429,7 +1451,7 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
     <p class="hero__hook anim d3">&ldquo;Stillness in every drop.&rdquo;</p>
     <p class="hero__identity anim d3">The gold standard of calm.</p>
     <div class="hero__actions anim d4">
-      <button class="btn btn--gold" onclick="addToCart('koda-amber','KODA AMBER',6.25,'Calm &amp; Unwind','AMBER CAN FInal Mar 8 Website Product Page.png')">Add to Ritual Cart &mdash; $6.25</button>
+      <div class="pack-select" role="radiogroup" aria-label="Choose pack size" data-id="koda-amber" data-name="KODA AMBER" data-price="6.25" data-sub="Calm &amp; Unwind" data-img="AMBER CAN FInal Mar 8 Website Product Page.png"><button class="pack-opt" data-qty="1" role="radio" aria-checked="false" onclick="packPick(this)">Single Can<span>$6.25</span></button><button class="pack-opt active" data-qty="4" role="radio" aria-checked="true" onclick="packPick(this)">4-Pack<span>$25.00</span></button><button class="pack-opt" data-qty="12" role="radio" aria-checked="false" onclick="packPick(this)">12-Can Collection<span>$75.00</span></button></div><button class="btn btn--gold pack-cta" onclick="packAdd(this)">Add 4-Pack to Ritual Cart &mdash; $25.00</button><p class="pack-note">Free US shipping over $75 &middot; collections get you there</p>
     </div>
     <p class="hero__launch anim d4">Launching Fall 2026 &mdash; Patent-Pending Botanical Decoction System&trade;</p>
   </div>
@@ -1670,7 +1692,7 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
     <p class="hero__hook anim d3">&ldquo;Focus, without the noise.&rdquo;</p>
     <p class="hero__identity anim d3">Sharp mind. Still heart.</p>
     <div class="hero__actions anim d4">
-      <button class="btn btn--gold" onclick="addToCart('koda-cacao','KODA CACAO',5.99,'Clarity &amp; Focus','CACAO CAN Final Website Ready.png')">Add to Ritual Cart &mdash; $5.99</button>
+      <div class="pack-select" role="radiogroup" aria-label="Choose pack size" data-id="koda-cacao" data-name="KODA CACAO" data-price="5.99" data-sub="Clarity &amp; Focus" data-img="CACAO CAN Final Website Ready.png"><button class="pack-opt" data-qty="1" role="radio" aria-checked="false" onclick="packPick(this)">Single Can<span>$5.99</span></button><button class="pack-opt active" data-qty="4" role="radio" aria-checked="true" onclick="packPick(this)">4-Pack<span>$23.96</span></button><button class="pack-opt" data-qty="12" role="radio" aria-checked="false" onclick="packPick(this)">12-Can Collection<span>$71.88</span></button></div><button class="btn btn--gold pack-cta" onclick="packAdd(this)">Add 4-Pack to Ritual Cart &mdash; $23.96</button><p class="pack-note">Free US shipping over $75 &middot; collections get you there</p>
     </div>
     <p class="hero__launch anim d4">Launching Fall 2026 &mdash; Patent-Pending Botanical Decoction System&trade;</p>
   </div>
@@ -1911,7 +1933,7 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
     <p class="hero__hook anim d3">&ldquo;Inner light. Outer glow.&rdquo;</p>
     <p class="hero__identity anim d3">Vitality you can see.</p>
     <div class="hero__actions anim d4">
-      <button class="btn btn--gold" onclick="addToCart('koda-glow','KODA GLOW',5.99,'Radiate','GLOW Can Final Design for Website Product Page Mar 8th 2026.png')">Add to Ritual Cart &mdash; $5.99</button>
+      <div class="pack-select" role="radiogroup" aria-label="Choose pack size" data-id="koda-glow" data-name="KODA GLOW" data-price="5.99" data-sub="Radiate" data-img="GLOW Can Final Design for Website Product Page Mar 8th 2026.png"><button class="pack-opt" data-qty="1" role="radio" aria-checked="false" onclick="packPick(this)">Single Can<span>$5.99</span></button><button class="pack-opt active" data-qty="4" role="radio" aria-checked="true" onclick="packPick(this)">4-Pack<span>$23.96</span></button><button class="pack-opt" data-qty="12" role="radio" aria-checked="false" onclick="packPick(this)">12-Can Collection<span>$71.88</span></button></div><button class="btn btn--gold pack-cta" onclick="packAdd(this)">Add 4-Pack to Ritual Cart &mdash; $23.96</button><p class="pack-note">Free US shipping over $75 &middot; collections get you there</p>
     </div>
     <p class="hero__launch anim d4">Launching Fall 2026 &mdash; Patent-Pending Botanical Decoction System&trade;</p>
   </div>
@@ -2152,7 +2174,7 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
     <p class="hero__hook anim d3">&ldquo;Resilience, brewed with heat.&rdquo;</p>
     <p class="hero__identity anim d3">Your daily armor.</p>
     <div class="hero__actions anim d4">
-      <button class="btn btn--gold" onclick="addToCart('koda-grit','KODA GRIT',5.99,'Daily Defense','GRIT CAN Final Product Image for Website Mar 7.png')">Add to Ritual Cart &mdash; $5.99</button>
+      <div class="pack-select" role="radiogroup" aria-label="Choose pack size" data-id="koda-grit" data-name="KODA GRIT" data-price="5.99" data-sub="Daily Defense" data-img="GRIT CAN Final Product Image for Website Mar 7.png"><button class="pack-opt" data-qty="1" role="radio" aria-checked="false" onclick="packPick(this)">Single Can<span>$5.99</span></button><button class="pack-opt active" data-qty="4" role="radio" aria-checked="true" onclick="packPick(this)">4-Pack<span>$23.96</span></button><button class="pack-opt" data-qty="12" role="radio" aria-checked="false" onclick="packPick(this)">12-Can Collection<span>$71.88</span></button></div><button class="btn btn--gold pack-cta" onclick="packAdd(this)">Add 4-Pack to Ritual Cart &mdash; $23.96</button><p class="pack-note">Free US shipping over $75 &middot; collections get you there</p>
     </div>
     <p class="hero__launch anim d4">Launching Fall 2026 &mdash; Patent-Pending Botanical Decoction System&trade;</p>
   </div>
@@ -2393,7 +2415,7 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
     <p class="hero__hook anim d3">&ldquo;Nature's original digestive.&rdquo;</p>
     <p class="hero__identity anim d3">The future of digestive ritual.</p>
     <div class="hero__actions anim d4">
-      <button class="btn btn--gold" onclick="addToCart('koda-gut','KODA GUT',5.99,'Restore','GUT Can Image for Product Page Final Mar 7th.png')">Add to Ritual Cart &mdash; $5.99</button>
+      <div class="pack-select" role="radiogroup" aria-label="Choose pack size" data-id="koda-gut" data-name="KODA GUT" data-price="5.99" data-sub="Restore" data-img="GUT Can Image for Product Page Final Mar 7th.png"><button class="pack-opt" data-qty="1" role="radio" aria-checked="false" onclick="packPick(this)">Single Can<span>$5.99</span></button><button class="pack-opt active" data-qty="4" role="radio" aria-checked="true" onclick="packPick(this)">4-Pack<span>$23.96</span></button><button class="pack-opt" data-qty="12" role="radio" aria-checked="false" onclick="packPick(this)">12-Can Collection<span>$71.88</span></button></div><button class="btn btn--gold pack-cta" onclick="packAdd(this)">Add 4-Pack to Ritual Cart &mdash; $23.96</button><p class="pack-note">Free US shipping over $75 &middot; collections get you there</p>
     </div>
     <p class="hero__launch anim d4">Launching Fall 2026 &mdash; Patent-Pending Botanical Decoction System&trade;</p>
   </div>
@@ -3026,7 +3048,7 @@ GUA SHA</h1>
     <p class="eyebrow anim" style="text-align:center">The Application Ritual</p>
     <h2 style="font-family:var(--fd);font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--cream)" class="anim d1">The Utthana <em class="em-g">Lift</em></h2>
     <div class="serving__decoration anim d2"><div class="serving__deco-line"></div><div class="serving__deco-text">THE RITUAL</div><div class="serving__deco-line serving__deco-line--r"></div></div>
-    <p class="serving__body anim d2">Generously coat your face and neck with Phyto Lipid Ritual Elixir to ensure a flawless, silky glide. Hold the Kansa B-Shaped Gua Sha flat at a 15-degree angle against your skin. Anchor the tool in the center of your chin using the deep notch, and glide it slowly outward along your jawbone to the earlobe with firm, steady pressure.</p><p class="serving__body anim d2">Repeat this stroke 5 to 7 times on each side. Use the long flat edge to sweep down the neck to complete the fluid purge, revealing an instantly defined, lifted, and radiant facial structure.</p>
+    <p class="serving__body anim d2">Generously coat your face and neck with Phyto Lipid Ritual Elixir to ensure a smooth, silky glide. Hold the Kansa B-Shaped Gua Sha flat at a 15-degree angle against your skin. Anchor the tool in the center of your chin using the deep notch, and glide it slowly outward along your jawbone to the earlobe with firm, steady pressure.</p><p class="serving__body anim d2">Repeat this stroke 5 to 7 times on each side. Use the long flat edge to sweep down the neck to complete the fluid purge, revealing an instantly defined, lifted, and radiant facial structure.</p>
     <div class="serving__stamp anim d3">Care with Intention &middot; K3B Apothecary &middot; Kaya Botanicals</div>
   </div></div>
 </section>
@@ -3079,7 +3101,7 @@ DUAL WAND</h1>
     <p class="hero__sub anim d2">Sacred Bronze Facial Detoxification & Sculpting Tool</p>
     <span class="rule anim d2"></span>
     <p class="hero__arch anim d2">Bronze-carved. Toxicity-purging. Contour-defining.</p>
-    <p class="hero__hook anim d3">&ldquo;Ancient metal physics for modern facial perfection.&rdquo;</p>
+    <p class="hero__hook anim d3">&ldquo;Ancient metal physics for modern facial resilience.&rdquo;</p>
     <p class="hero__identity anim d3">Ancient metal physics engineered for modern facial rejuvenation.</p>
     <div class="hero__actions anim d4">
       <button class="btn btn--gold" onclick="addToCart('k3b-wand','K3B KANSA DUAL WAND',68.0,'Marma Point Clarifying Ritual','')">Add to Ritual Cart &mdash; $68.00</button>
@@ -3097,7 +3119,7 @@ DUAL WAND</h1>
     <p class="eyebrow anim" style="text-align:center">The Core Narrative</p>
     <p class="narrative__quote anim d1">&ldquo;The healing metal. Thousands of years of Ayurvedic intelligence.&rdquo;</p>
     <span class="rule rule--c anim d2"></span>
-    <div class="narrative__body anim d2"><p>The Kansa Dual Wand is a precision handheld facial massager crafted from a sacred, high-purity metallurgical alloy of premium copper and tin.</p><p>Known in Ayurveda as the &lsquo;healing metal,&rsquo; this authentic bronze dome is specifically designed to interact with the skin&rsquo;s natural pH, drawing out deep environmental impurities, neutralizing cellular acidity, and releasing stubborn facial tension.</p><p>Featuring a unique double-sided design with both a medium and small bronze dome, this dual-wand system adapts flawlessly to the contours of your face. It traces the jawline, lifts the cheekbones, and fits perfectly into the delicate orbital sockets around the eyes.</p><p>When paired with our botanical lipid serums, it works to dramatically improve lymphatic drainage, smooth out puffiness, and revive micro-circulation&mdash;bringing deep, oxygenated blood flow back to the skin surface.</p></div>
+    <div class="narrative__body anim d2"><p>The Kansa Dual Wand is a precision handheld facial massager crafted from a sacred, high-purity metallurgical alloy of premium copper and tin.</p><p>Known in Ayurveda as the &lsquo;healing metal,&rsquo; this authentic bronze dome is specifically designed to interact with the skin&rsquo;s natural pH, drawing out deep environmental impurities, neutralizing cellular acidity, and releasing stubborn facial tension.</p><p>Featuring a unique double-sided design with both a medium and small bronze dome, this dual-wand system adapts naturally to the contours of your face. It traces the jawline, lifts the cheekbones, and fits perfectly into the delicate orbital sockets around the eyes.</p><p>When paired with our botanical lipid serums, it works to dramatically improve lymphatic drainage, smooth out puffiness, and revive micro-circulation&mdash;bringing deep, oxygenated blood flow back to the skin surface.</p></div>
   </div></div>
 </section>
 
@@ -3530,8 +3552,8 @@ RITUAL ELIXIR</h1>
     <p class="hero__sub anim d2">Waterless Retinol-Alternative Treatment Serum</p>
     <span class="rule anim d2"></span>
     <p class="hero__arch anim d2">Anhydrous. Massage-engineered. Velvet-glide.</p>
-    <p class="hero__hook anim d3">&ldquo;The gold standard of botanical cellular perfection.&rdquo;</p>
-    <p class="hero__identity anim d3">Supreme cosmetic perfection through sacred Ayurvedic lipid physics.</p>
+    <p class="hero__hook anim d3">&ldquo;The gold standard of botanical cellular equilibrium.&rdquo;</p>
+    <p class="hero__identity anim d3">Deep botanical nourishment through sacred Ayurvedic lipid physics.</p>
     <div class="hero__actions anim d4">
       <button class="btn btn--gold" onclick="addToCart('k3b-serum','K3B PHYTO LIPID RITUAL ELIXIR',42.0,'Marma Phyto-Glow Facial Ritual','')">Add to Ritual Cart &mdash; $42.00</button>
     </div>
@@ -3826,6 +3848,25 @@ RITUAL ELIXIR</h1>
 </div><!-- /views -->
 
 <!-- TOAST -->
+<style>
+.pack-select{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 18px}
+.pack-opt{background:none;border:1px solid var(--border2);color:var(--txt2);padding:10px 16px;font-family:var(--fi);font-size:9px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:4px;min-height:44px}
+.pack-opt span{color:var(--gold2);font-size:10px;letter-spacing:.08em}
+.pack-opt.active{border-color:var(--gold);color:var(--cream)}
+.pack-opt:hover,.pack-opt:focus-visible{border-color:var(--gold)}
+.pack-note{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--txt3);margin:12px 0 0}
+.ritual-index__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:2px}
+.ritx{background:var(--surface);border:none;padding:36px 18px;text-align:center;cursor:pointer;transition:background .25s}
+.ritx:hover,.ritx:focus-visible{background:var(--surface2)}
+.ritx b{display:block;font-family:var(--fd);font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);margin-bottom:8px;font-weight:600}
+.ritx i{font-style:normal;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold2)}
+.mseg{display:none}
+@media(max-width:900px){
+.mseg{display:flex;position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:340;background:rgba(13,11,9,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--border2);border-radius:999px;padding:5px;gap:2px}
+.mseg button{background:none;border:none;border-radius:999px;color:var(--txt2);font-family:var(--fi);font-size:9px;letter-spacing:.16em;text-transform:uppercase;padding:12px 14px;min-height:44px;cursor:pointer;transition:all .2s}
+.mseg button.active{background:var(--gold);color:#0D0B09}}
+@media(prefers-reduced-motion:reduce){.pack-opt,.ritx,.mseg button{transition:none}}
+</style>
 <div class="toast" id="toast"></div>
 
 <script>
@@ -3941,6 +3982,39 @@ function closeCart(){
 }
 
 /* ══ CHECKOUT HANDLER — V46: Shopify Storefront API ══ */
+
+/* V51: pack selector + discovery box */
+function packPick(btn){
+  const g=btn.closest('.pack-select');
+  g.querySelectorAll('.pack-opt').forEach(b=>{b.classList.toggle('active',b===btn);b.setAttribute('aria-checked',b===btn?'true':'false');});
+  const qty=+btn.dataset.qty, total=(+g.dataset.price*qty).toFixed(2);
+  const label=qty===1?'Single Can':qty===4?'4-Pack':'12-Can Collection';
+  const cta=g.parentElement.querySelector('.pack-cta');
+  if(cta)cta.innerHTML='Add '+label+' to Ritual Cart &mdash; $'+total;
+}
+function packAdd(btn){
+  const g=btn.parentElement.querySelector('.pack-select');
+  const opt=g.querySelector('.pack-opt.active');
+  for(let i=0;i<+opt.dataset.qty;i++)addToCart(g.dataset.id,g.dataset.name,+g.dataset.price,g.dataset.sub,g.dataset.img);
+}
+function addDiscoveryBox(){
+  KODA_PRODUCTS.forEach(p=>addToCart(p.id,'KODA '+p.name,p.price,p.ritual,p.img));
+}
+/* V51: mobile swipe between sections */
+(function(){var sx=0,sy=0,order=['brand','koda','k3b','tools'];
+document.addEventListener('touchstart',function(e){if(window.innerWidth>900)return;var t=e.touches[0];sx=t.clientX;sy=t.clientY;},{passive:true});
+document.addEventListener('touchend',function(e){
+  if(window.innerWidth>900||!sx)return;
+  var t=e.changedTouches[0],dx=t.clientX-sx,dy=t.clientY-sy;sx=0;
+  if(Math.abs(dx)<95||Math.abs(dy)>55)return;
+  if(document.body.style.overflow==='hidden')return;
+  if(e.target.closest('input,textarea,.pack-select'))return;
+  if(typeof currentView==='undefined'||currentView.indexOf('prod-')===0)return;
+  var i=order.indexOf(currentView);if(i<0)return;
+  var n=i+(dx<0?1:-1);if(n<0||n>=order.length)return;
+  switchView(order[n]);
+},{passive:true});})();
+
 var SHOPIFY_API_URL='https://kaya-botanicals.myshopify.com/api/2024-10/graphql.json';
 var SHOPIFY_STOREFRONT_TOKEN='5d7adf99db1ba3946f4032e8c46abdca'; /* public token — safe client-side */
 var SHOPIFY_VARIANTS={
@@ -4062,6 +4136,8 @@ function switchView(to){
   document.querySelectorAll('.nav__links button').forEach(b=>b.classList.remove('active'));
   const nb=document.getElementById('nav-'+to);
   if(nb)nb.classList.add('active');
+  document.querySelectorAll('.mseg button').forEach(b=>b.classList.toggle('active',b.dataset.v===to));
+  var _ms=document.querySelector('.mseg');if(_ms)_ms.style.display=(to.startsWith('prod-')||_toHasPnav)?'none':'';
   setTimeout(()=>{
     fromEl.classList.remove('active','cube-exit');
     fromEl.style.top='';
