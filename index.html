@@ -718,18 +718,45 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
 /* self-referencing canonical per brand domain (www -> apex) */
 (function(){try{if(/\.pages\.dev$/.test(location.hostname)){location.replace('https://kayabotanicals.com'+location.pathname+location.search+location.hash);return;}var h=location.hostname.replace(/^www\./,'');if(['kayabotanicals.com','drinkkoda.com','k3bapothecary.com'].indexOf(h)>-1){var l=document.querySelector('link[rel="canonical"]');if(l)l.href='https://'+h+'/';var o=document.querySelector('meta[property="og:url"]');if(o)o.setAttribute('content','https://'+h+'/');var t=document.querySelector('meta[name="twitter:url"]');if(t)t.setAttribute('content','https://'+h+'/');}}catch(e){}})();
 </script>
+<!-- Google tag (gtag.js) — GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WH56E2XSPK"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-WH56E2XSPK',{linker:{domains:['kayabotanicals.com','drinkkoda.com','k3bapothecary.com']}});
+/* Unified tracker: GA4 now; auto-mirrors to Meta Pixel if/when fbq is activated */
+function kbTrack(ev,params){
+  try{if(typeof gtag==='function')gtag('event',ev,params||{});}catch(e){}
+  try{
+    if(typeof fbq==='function'){
+      var map={view_item:'ViewContent',add_to_cart:'AddToCart',begin_checkout:'InitiateCheckout',search:'Search',sign_up:'Lead'};
+      if(map[ev])fbq('track',map[ev],params||{});
+    }
+  }catch(e){}
+}
+</script>
+<!-- Meta Pixel — PREPARED, NOT ACTIVE (no Pixel ID yet).
+     To activate: create a Pixel in Meta Events Manager, replace META_PIXEL_ID below,
+     and remove these comment markers. kbTrack() will then mirror ViewContent /
+     AddToCart / InitiateCheckout / Search automatically.
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','META_PIXEL_ID');fbq('track','PageView');
+</script>
+-->
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
 {"@type":"Organization","@id":"https://kayabotanicals.com/#org","name":"Kaya Botanicals","url":"https://kayabotanicals.com/","email":"hello@kayabotanicals.com","description":"A botanical ritual house rooted in kokum. KODA botanical ritual drinks and K3B Apothecary kokum-led skincare.","brand":[{"@type":"Brand","name":"KODA","url":"https://drinkkoda.com/"},{"@type":"Brand","name":"K3B Apothecary","url":"https://k3bapothecary.com/"}],"logo":"https://kayabotanicals.com/favicon-koda.png","sameAs":[]},
 {"@type":"WebSite","@id":"https://kayabotanicals.com/#website","url":"https://kayabotanicals.com/","name":"Kaya Botanicals","publisher":{"@id":"https://kayabotanicals.com/#org"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://kayabotanicals.com/?q={search_term_string}"},"query-input":"required name=search_term_string"}},
 {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://kayabotanicals.com/"},{"@type":"ListItem","position":2,"name":"KODA","item":"https://drinkkoda.com/"},{"@type":"ListItem","position":3,"name":"K3B Apothecary","item":"https://k3bapothecary.com/"}]},
 {"@type":"ItemList","name":"K3B Apothecary","itemListElement":[
-{"@type":"Product","position":1,"name":"Tri-Lipid Barrier Moisturizer","brand":"K3B Apothecary","category":"Face","offers":{"@type":"Offer","price":"32.00","priceCurrency":"USD","availability":"https://schema.org/PreOrder"}},
-{"@type":"Product","position":2,"name":"Phyto Lipid Ritual Elixir","brand":"K3B Apothecary","category":"Face","offers":{"@type":"Offer","price":"42.00","priceCurrency":"USD","availability":"https://schema.org/PreOrder"}},
-{"@type":"Product","position":3,"name":"Mineral Veil Barrier Defense SPF 40","brand":"K3B Apothecary","category":"Sun","offers":{"@type":"Offer","price":"32.00","priceCurrency":"USD","availability":"https://schema.org/PreOrder"}},
-{"@type":"Product","position":4,"name":"Kansa B-Shaped Gua Sha","brand":"K3B Apothecary","category":"Ritual","offers":{"@type":"Offer","price":"48.00","priceCurrency":"USD","availability":"https://schema.org/PreOrder"}},
-{"@type":"Product","position":5,"name":"Kansa Scalp & Body Massager","brand":"K3B Apothecary","category":"Ritual","offers":{"@type":"Offer","price":"52.00","priceCurrency":"USD","availability":"https://schema.org/PreOrder"}},
-{"@type":"Product","position":6,"name":"Kansa Dual Wand","brand":"K3B Apothecary","category":"Ritual","offers":{"@type":"Offer","price":"68.00","priceCurrency":"USD","availability":"https://schema.org/PreOrder"}}
+{"@type":"Product","position":1,"name":"Tri-Lipid Barrier Moisturizer","image":"https://k3bapothecary.com/products/k3b-moisturizer.webp","description":"Daily phyto-lipid barrier moisturizer. 50 ml. Non-comedogenic. Family-safe. AM/PM.","brand":{"@type":"Brand","name":"K3B Apothecary"},"category":"Face","offers":{"@type":"Offer","price":"38.00","priceCurrency":"USD","availability":"https://schema.org/PreOrder","url":"https://k3bapothecary.com/"}},
+{"@type":"Product","position":2,"name":"Mineral Veil Barrier Defense SPF 40","image":"https://k3bapothecary.com/products/k3b-mineral-veil.webp","description":"Phyto-lipid zinc oxide environmental shield. Zero white cast. Reef safe.","brand":{"@type":"Brand","name":"K3B Apothecary"},"category":"Sun","offers":{"@type":"Offer","price":"44.00","priceCurrency":"USD","availability":"https://schema.org/PreOrder","url":"https://k3bapothecary.com/"}},
+{"@type":"Product","position":3,"name":"Kokum Body Butter","image":"https://k3bapothecary.com/products/k3b-ghee.png","description":"Advanced botanical restorative body melt. Ghee-textured. Saffron-infused.","brand":{"@type":"Brand","name":"K3B Apothecary"},"category":"Body","offers":{"@type":"Offer","price":"48.00","priceCurrency":"USD","availability":"https://schema.org/PreOrder","url":"https://k3bapothecary.com/"}},
+{"@type":"Product","position":4,"name":"Kokum Ritual Body Oil","image":"https://k3bapothecary.com/products/k3b-body-oil2.png","description":"Anhydrous dry-touch botanical body treatment. Waterless. Satin finish.","brand":{"@type":"Brand","name":"K3B Apothecary"},"category":"Body","offers":{"@type":"Offer","price":"56.00","priceCurrency":"USD","availability":"https://schema.org/PreOrder","url":"https://k3bapothecary.com/"}},
+{"@type":"Product","position":5,"name":"Phyto Lipid Ritual Elixir","image":"https://k3bapothecary.com/products/k3b-elixir.webp","description":"Waterless retinol-alternative serum. Velvet-glide. Massage-engineered.","brand":{"@type":"Brand","name":"K3B Apothecary"},"category":"Face","offers":{"@type":"Offer","price":"68.00","priceCurrency":"USD","availability":"https://schema.org/PreOrder","url":"https://k3bapothecary.com/"}},
+{"@type":"Product","position":6,"name":"Kansa Dual Wand","image":"https://k3bapothecary.com/products/kansa-wand-cut.png","description":"High-purity bronze facial detoxification & sculpting wand. Dual-dome system.","brand":{"@type":"Brand","name":"K3B Apothecary"},"category":"Ritual","offers":{"@type":"Offer","price":"68.00","priceCurrency":"USD","availability":"https://schema.org/PreOrder","url":"https://k3bapothecary.com/"}}
 ]}
 ]}
 </script>
@@ -3939,6 +3966,7 @@ function addToCart(id,name,price,sub,img){
   const existing=cart.find(i=>i.id===id);
   if(existing){existing.qty++}else{cart.push({id,name,price,sub,img,qty:1})}
   saveCart();updateCartUI();showToast(name+' added to cart');
+  if(typeof kbTrack==='function')kbTrack('add_to_cart',{currency:'USD',value:Number(price)||0,items:[{item_id:id,item_name:name,price:Number(price)||0,quantity:1}]});
 }
 function removeFromCart(id){
   cart=cart.filter(i=>i.id!==id);saveCart();renderCartItems();updateCartBadge();
@@ -4178,6 +4206,16 @@ function switchView(to){
   var _toHasPnav=!!(_toEl&&_toEl.querySelector('.pnav'));
   if(_gNav){_gNav.style.display=(to.startsWith('prod-')||_toHasPnav)?'none':'';}
   document.title=VIEW_TITLES[to]||'Kaya Botanicals';
+  if(typeof kbTrack==='function'){
+    kbTrack('page_view',{page_title:document.title,page_location:location.href,view_name:to});
+    if(to.indexOf('prod-')===0){
+      try{
+        var _all=[].concat(typeof KODA_PRODUCTS!=='undefined'?KODA_PRODUCTS:[],typeof K3B_PRODUCTS!=='undefined'?K3B_PRODUCTS:[],typeof K3B_TOOLS!=='undefined'?K3B_TOOLS:[]);
+        var _p=_all.find(function(x){return x.detail===to;});
+        if(_p)kbTrack('view_item',{currency:'USD',value:Number(_p.price)||0,items:[{item_id:_p.id,item_name:_p.name,price:Number(_p.price)||0}]});
+      }catch(e){}
+    }
+  }
   window.scrollTo({top:0,behavior:'instant'});
   const fromEl=document.getElementById('view-'+currentView);
   const toEl=document.getElementById('view-'+to);
@@ -4454,6 +4492,7 @@ document.querySelectorAll('#view-brand .s-hero .anim').forEach((el,i)=>setTimeou
 const KLAVIYO_COMPANY_ID='RJR7QD';
 const KLAVIYO_LIST_ID='WZXZJZ';
 function klaviyoSubscribe(email,firstName,source){
+  if(typeof kbTrack==='function')kbTrack('sign_up',{method:source||'newsletter'});
   try{
     fetch('https://a.klaviyo.com/client/subscriptions/?company_id='+KLAVIYO_COMPANY_ID,{
       method:'POST',
@@ -4901,6 +4940,7 @@ function enhanceCardA11y(){
       if(missing||!lines.length){if(typeof showEarlyAccessFallback==='function')showEarlyAccessFallback();return;}
       var btn=document.querySelector('.cart-checkout');var prev=btn?btn.textContent:'';
       if(btn){btn.textContent='Opening Checkout…';btn.disabled=true;}
+      if(typeof kbTrack==='function')kbTrack('begin_checkout',{currency:'USD',value:c.reduce(function(s,i){return s+(Number(i.price)||0)*i.qty;},0),items:c.map(function(i){return{item_id:i.id,item_name:i.name,price:Number(i.price)||0,quantity:i.qty};})});
       var input={lines:lines};var gm=giftMessage();
       if(gm){input.note=gm;input.attributes=[{key:'Gift message',value:gm}];}
       fetch(SHOPIFY_API_URL,{method:'POST',headers:{'Content-Type':'application/json','X-Shopify-Storefront-Access-Token':SHOPIFY_STOREFRONT_TOKEN},
@@ -4929,6 +4969,10 @@ function enhanceCardA11y(){
   var activeIdx=-1,flat=[];
   function runSearch(q){
     q=(q||'').toLowerCase().trim();
+    if(q.length>=3&&typeof kbTrack==='function'){
+      clearTimeout(window._kbSearchT);
+      window._kbSearchT=setTimeout(function(){if(q!==window._kbLastQ){window._kbLastQ=q;kbTrack('search',{search_term:q});}},900);
+    }
     var cat=catalog();
     var prods=cat.filter(function(p){return !q||(p.name+' '+(p.tag||'')+' '+(p.ingredients||'')+' '+p.house).toLowerCase().indexOf(q)>-1;});
     var ings={};cat.forEach(function(p){(p.ingredients||'').split(/[·,|]/).forEach(function(w){w=w.trim();if(w&&(!q||w.toLowerCase().indexOf(q)>-1))ings[w]=(ings[w]||[]);ings[w]&&ings[w].push(p);});});
