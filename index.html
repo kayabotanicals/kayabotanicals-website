@@ -724,7 +724,12 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
 window.dataLayer=window.dataLayer||[];
 function gtag(){dataLayer.push(arguments);}
 gtag('js',new Date());
-gtag('config','G-WH56E2XSPK',{linker:{domains:['kayabotanicals.com','drinkkoda.com','k3bapothecary.com']}});
+/* Cross-domain: JS domain hops carry the client id via #gcid= (linker only decorates real link clicks) */
+var _kbGcid=null;try{var _kbM=location.hash.match(/gcid=(\d+\.\d+)/);if(_kbM)_kbGcid=_kbM[1];}catch(e){}
+var _kbCfg={linker:{domains:['kayabotanicals.com','drinkkoda.com','k3bapothecary.com']}};
+if(_kbGcid)_kbCfg.client_id=_kbGcid;
+gtag('config','G-WH56E2XSPK',_kbCfg);
+if(_kbGcid&&location.hash.indexOf('#kc=')===-1){try{history.replaceState(null,'',location.pathname+location.search);}catch(e){}}
 /* Unified tracker: GA4 now; auto-mirrors to Meta Pixel if/when fbq is activated */
 function kbTrack(ev,params){
   try{if(typeof gtag==='function')gtag('event',ev,params||{});}catch(e){}
@@ -4793,6 +4798,7 @@ function enhanceCardA11y(){
       var targetHost = DOMAINS[to];
       if (targetHost && targetHost !== host) {
         var _h='';try{if(cart&&cart.length)_h='#kc='+encodeURIComponent(JSON.stringify(cart));}catch(e){}
+        try{var _gaC=(document.cookie.match(/(?:^|;\s*)_ga=([^;]+)/)||[])[1];if(_gaC){var _gp=_gaC.split('.');if(_gp.length>=4)_h+=(_h?'&':'#')+'gcid='+_gp[_gp.length-2]+'.'+_gp[_gp.length-1];}}catch(e){}
         window.location.href = 'https://' + targetHost + '/' + _h;
         return;
       }
