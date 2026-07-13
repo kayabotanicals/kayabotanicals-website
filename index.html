@@ -118,15 +118,15 @@ img{display:block;max-width:100%}
 .pillar__title{font-family:var(--fd);font-size:.84rem;font-weight:600;color:var(--cream);margin-bottom:12px;letter-spacing:.12em;text-transform:uppercase;line-height:1.3}
 
 /* ══ TWO EXPRESSIONS ══ */
-.s-expressions{padding:156px 0;background:var(--bg2)}
+.s-expressions{padding:192px 0;background:var(--bg2)}
 .s-expressions__header{text-align:center;margin-bottom:80px}
 .expr-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px}
-.expr-card{background:var(--bg);padding:80px 64px;position:relative;overflow:hidden;display:flex;flex-direction:column;transition:background .35s;cursor:pointer;border:none;color:inherit;text-align:left;width:100%}
+.expr-card{background:var(--bg);padding:96px 72px;position:relative;overflow:hidden;display:flex;flex-direction:column;transition:background .35s;cursor:pointer;border:none;color:inherit;text-align:left;width:100%}
 .expr-card:hover{background:var(--surface)}
 .expr-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transition:transform .5s var(--ease)}
 .expr-card:hover::after{transform:scaleX(1)}
 .expr-card__watermark{position:absolute;top:40px;right:48px;font-family:var(--fd);font-size:4.5rem;font-weight:700;color:rgba(184,135,46,.06);line-height:1}
-.expr-card__tag{font-size:9px;font-weight:500;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:24px}
+.expr-card__tag{font-size:9px;font-weight:500;letter-spacing:.35em;line-height:2;text-transform:uppercase;color:var(--gold);margin-bottom:24px}
 .expr-card__name{font-family:var(--fd);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:600;letter-spacing:.12em;color:var(--cream);margin-bottom:28px;line-height:1.1}
 .expr-card__rule{width:36px;height:1px;background:var(--gold);margin-bottom:24px}
 .expr-card__body{font-size:.9rem;font-weight:300;color:var(--txt2);line-height:1.85;max-width:400px;flex:1;margin-bottom:44px}
@@ -280,7 +280,7 @@ img{display:block;max-width:100%}
 .s-founder__visual::before{content:'';position:absolute;top:-10px;left:-10px;right:10px;bottom:10px;border:1px solid rgba(184,135,46,.1)}
 .s-founder__monogram{font-family:var(--fd);font-size:5rem;color:rgba(184,135,46,.16);letter-spacing:.1em}
 .s-founder__headline{font-size:clamp(1rem,1.8vw,1.2rem);font-weight:300;font-style:italic;color:var(--gold3);line-height:1.75;margin-bottom:32px}
-.s-founder__body{font-size:.9rem;font-weight:300;color:var(--txt2);line-height:1.95;margin-bottom:44px}
+.s-founder__body{font-size:.9rem;font-weight:300;color:var(--txt2);line-height:2.05;margin-bottom:52px}
 .s-founder__sig{font-family:var(--fd);font-size:1.1rem;font-weight:600;letter-spacing:.2em;color:var(--gold2);margin-bottom:4px}
 .s-founder__sigtitle{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--txt3)}
 /* ══ EMAIL ══ */
@@ -931,26 +931,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
 </section>
 
 <!-- BRAND ARCHITECTURE GATEWAY -->
-<section class="s-brand-gateway">
-  <div class="wrap" style="max-width:1060px">
-    <p class="eyebrow anim" style="text-align:center;margin-bottom:56px">A Botanical Ritual House</p>
-    <div class="brand-gateway__grid">
-      <button class="brand-gateway__card anim" onclick="switchView('koda')">
-        <img data-img="KODA Flame Mark" class="brand-mark" width="56" height="56" alt="KODA Decoction Flame">
-        <p class="brand-gateway__name">KODA</p>
-        <p class="brand-gateway__cat">Botanical Ritual Drinks<br>Decoction-Crafted · Patent-Pending</p>
-        <span class="brand-gateway__cta">Explore KODA &rarr;</span>
-      </button>
-      <div class="brand-gateway__divider" aria-hidden="true"></div>
-      <button class="brand-gateway__card anim d1" onclick="switchView('k3b')">
-        <img data-img="K3B Arc Mark" class="brand-mark" width="56" height="56" alt="K3B Ritual Arc">
-        <p class="brand-gateway__name">K3B APOTHECARY</p>
-        <p class="brand-gateway__cat">Kokum-Led Skincare Rituals<br>Western Ghats Botanicals</p>
-        <span class="brand-gateway__cta">Explore K3B &rarr;</span>
-      </button>
-    </div>
-  </div>
-</section>
+
 
 
 <!-- WHY KOKUM -->
@@ -967,7 +948,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
         <div class="kokum-orb">
           <div style="text-align:center;z-index:1">
             <span class="kokum-orb__name">KOKUM</span>
-            <span class="kokum-orb__origin" style="display:block;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--txt3)">Garcinia Indica &middot; Western Ghats</span>
+            <span class="kokum-orb__origin" style="display:block;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--txt3)">Garcinia Indica &middot; Sahyadri</span>
           </div>
         </div>
       </div>
@@ -1007,7 +988,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
     <div class="expr-grid">
       <button class="expr-card anim" onclick="switchView('koda')">
         <span class="expr-card__watermark">KODA</span>
-        <p class="expr-card__tag">Botanical Ritual Drinks</p>
+        <p class="expr-card__tag">Botanical Ritual Drinks<br>Decoction-Crafted &middot; Patent Pending</p>
         <h3 class="expr-card__name">KODA</h3>
         <div class="expr-card__rule"></div>
         <p class="expr-card__body">Botanical ritual drinks designed for different moments of the day. Polyphenol-rich tonics crafted with kokum, amla, jamun, saffron, and cacao. Not soda. Not alcohol. A botanical ritual.</p>
@@ -1015,7 +996,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
       </button>
       <button class="expr-card anim d2" onclick="switchView('k3b')">
         <span class="expr-card__watermark">K3B</span>
-        <p class="expr-card__tag">Kokum-Led Skincare</p>
+        <p class="expr-card__tag">Kokum-Led Skincare<br>Sahyadri Botanicals</p>
         <h3 class="expr-card__name">K3B Apothecary</h3>
         <div class="expr-card__rule"></div>
         <p class="expr-card__body">Kokum-led skincare designed to support calm, nourished skin. Plant-derived lipids, botanical intelligence, and daily ritual. Calm skin, not cosmetic perfection.</p>
@@ -1050,6 +1031,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
         <span class="rule anim d2"></span>
         <p class="s-founder__headline anim d2">&#x201C;Wellness should not feel separate from everyday life.&#x201D;</p>
         <p class="s-founder__body anim d3">Kaya Botanicals was created from a simple belief: wellness should not feel separate from everyday life. It should live in what we drink, how we care for our skin, and the moments we choose for ourselves and our families.<br><br>We did not set out to build a beauty brand or a beverage company.</p><p class="s-founder__body anim d3">We set out to find ingredients that were honest, deeply rooted, and genuinely effective &#x2014; and build rituals around them that families could actually live with. Kokum was there from the beginning.</p>
+        <p class="s-founder__body anim d3">What we drink. How we care for ourselves. The moments we make room for. None of it is separate, and none of it is small. To drink with intention, to care with intention, to live with intention &mdash; this is not a philosophy we invented. It is one we grew up inside, and it is the quiet foundation beneath everything we make.</p>
         <div class="anim d4">
           <p class="s-founder__sig">Rutu Jadhav</p>
           <p class="s-founder__sigtitle">Founder &middot; Kaya Botanicals</p>
@@ -1059,48 +1041,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
   </div>
 </section>
 
-<!-- EMAIL SIGNUP -->
 
-<!-- ══ OUR STORY (PLACEHOLDER) ══ -->
-<section class="s-our-story" id="our-story" style="padding:120px 0;background:var(--bg3);position:relative;overflow:hidden">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(184,135,46,.04),transparent 70%);pointer-events:none"></div>
-  <div class="wrap" style="position:relative;z-index:1">
-    <div style="text-align:center;margin-bottom:80px">
-      <p class="eyebrow anim">Kaya Botanicals</p>
-      <h2 class="display anim d1">Our <em>Story</em></h2>
-      <span class="rule rule--c anim d2"></span>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;margin-bottom:2px" class="anim d2">
-      <div style="background:var(--surface);padding:52px 40px;display:flex;flex-direction:column;justify-content:space-between;min-height:320px">
-        <div>
-          <p style="font-size:9px;letter-spacing:.38em;text-transform:uppercase;color:var(--gold2);margin-bottom:20px">The Brand</p>
-          <h3 style="font-family:var(--fd);font-size:1.2rem;font-weight:600;letter-spacing:.14em;color:var(--cream);margin-bottom:20px;text-transform:uppercase">Kaya Botanicals</h3>
-          <div style="width:28px;height:1px;background:var(--gold);margin-bottom:20px;opacity:.4"></div>
-          <p style="font-family:var(--fb);font-size:.88rem;font-weight:300;color:var(--txt2);line-height:1.85">A botanical ritual house rooted in kokum — bringing two expressions of one plant philosophy into daily life. Founder story coming soon.</p>
-        </div>
-        <p style="font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--txt3);margin-top:32px">Coming Soon</p>
-      </div>
-      <div style="background:var(--surface2);padding:52px 40px;display:flex;flex-direction:column;justify-content:space-between;min-height:320px">
-        <div>
-          <p style="font-size:9px;letter-spacing:.38em;text-transform:uppercase;color:var(--gold2);margin-bottom:20px">The Drinks</p>
-          <h3 style="font-family:var(--fd);font-size:1.2rem;font-weight:600;letter-spacing:.14em;color:var(--cream);margin-bottom:20px;text-transform:uppercase">KODA</h3>
-          <div style="width:28px;height:1px;background:var(--gold);margin-bottom:20px;opacity:.4"></div>
-          <p style="font-family:var(--fb);font-size:.88rem;font-weight:300;color:var(--txt2);line-height:1.85">Five botanical ritual beverages. Each one a different moment. Each one rooted in the same philosophy. The KODA origin story coming soon.</p>
-        </div>
-        <p style="font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--txt3);margin-top:32px">Coming Soon</p>
-      </div>
-      <div style="background:var(--surface);padding:52px 40px;display:flex;flex-direction:column;justify-content:space-between;min-height:320px">
-        <div>
-          <p style="font-size:9px;letter-spacing:.38em;text-transform:uppercase;color:var(--gold2);margin-bottom:20px">The Skincare</p>
-          <h3 style="font-family:var(--fd);font-size:1.2rem;font-weight:600;letter-spacing:.14em;color:var(--cream);margin-bottom:20px;text-transform:uppercase">K3B Apothecary</h3>
-          <div style="width:28px;height:1px;background:var(--gold);margin-bottom:20px;opacity:.4"></div>
-          <p style="font-family:var(--fb);font-size:.88rem;font-weight:300;color:var(--txt2);line-height:1.85">A kokum-first botanical skincare system built for daily ritual. The K3B Apothecary origin story coming soon.</p>
-        </div>
-        <p style="font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--txt3);margin-top:32px">Coming Soon</p>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section class="s-email" id="join">
   <div class="wrap">
@@ -1138,7 +1079,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
           </span>
         </div>
         <p class="footer__tagline">Botanical rituals for<br>inner and outer wellness.</p>
-        <div class="footer__badge">Rooted in Kokum &middot; Western Ghats, India</div>
+        <div class="footer__badge">Rooted in Kokum &middot; Sahyadri, India</div>
       </div>
       <div class="footer__col">
         <p class="footer__col-title">KODA</p>
