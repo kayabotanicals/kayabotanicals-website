@@ -125,7 +125,7 @@ img{display:block;max-width:100%}
 .expr-card:hover{background:var(--surface)}
 .expr-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transition:transform .5s var(--ease)}
 .expr-card:hover::after{transform:scaleX(1)}
-.expr-card__watermark{position:absolute;top:40px;right:48px;font-family:var(--fd);font-size:4.5rem;font-weight:700;color:rgba(184,135,46,.06);line-height:1}
+.expr-card__watermark{position:absolute;top:40px;right:48px;height:118px;width:auto;opacity:.08;pointer-events:none;line-height:1}
 .expr-card__tag{font-size:9px;font-weight:500;letter-spacing:.35em;line-height:2;text-transform:uppercase;color:var(--gold);margin-bottom:24px}
 .expr-card__name{font-family:var(--fd);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:600;letter-spacing:.12em;color:var(--cream);margin-bottom:28px;line-height:1.1}
 .expr-card__rule{width:36px;height:1px;background:var(--gold);margin-bottom:24px}
@@ -987,7 +987,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
     </div>
     <div class="expr-grid">
       <button class="expr-card anim" onclick="switchView('koda')">
-        <span class="expr-card__watermark">KODA</span>
+        <img class="expr-card__watermark" src="/products/koda-flame-mark.png" alt="" aria-hidden="true" width="130" height="134" decoding="async" loading="lazy"/>
         <p class="expr-card__tag">Botanical Ritual Drinks<br>Decoction-Crafted &middot; Patent Pending</p>
         <h3 class="expr-card__name">KODA</h3>
         <div class="expr-card__rule"></div>
@@ -995,7 +995,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
         <span class="expr-card__link">Enter KODA</span>
       </button>
       <button class="expr-card anim d2" onclick="switchView('k3b')">
-        <span class="expr-card__watermark">K3B</span>
+        <img class="expr-card__watermark" src="/products/k3b-arc-mark.png" alt="" aria-hidden="true" width="130" height="123" decoding="async" loading="lazy"/>
         <p class="expr-card__tag">Kokum-Led Skincare<br>Sahyadri Botanicals</p>
         <h3 class="expr-card__name">K3B Apothecary</h3>
         <div class="expr-card__rule"></div>
