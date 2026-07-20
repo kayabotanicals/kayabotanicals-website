@@ -126,6 +126,7 @@ img{display:block;max-width:100%}
 .expr-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transition:transform .5s var(--ease)}
 .expr-card:hover::after{transform:scaleX(1)}
 .expr-card__watermark{position:absolute;top:40px;right:48px;font-family:var(--fd);font-size:4.5rem;font-weight:700;color:rgba(184,135,46,.06);line-height:1}
+.expr-card__watermark--mark{width:112px;height:auto;opacity:.07;pointer-events:none;user-select:none}
 .expr-card__tag{font-size:9px;font-weight:500;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:24px}
 .expr-card__name{font-family:var(--fd);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:600;letter-spacing:.12em;color:var(--cream);margin-bottom:28px;line-height:1.1}
 .expr-card__rule{width:36px;height:1px;background:var(--gold);margin-bottom:24px}
@@ -760,7 +761,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
 {"@type":"Product","position":2,"name":"Mineral Veil Barrier Defense SPF 40","image":"https://k3bapothecary.com/products/k3b-mineral-veil.webp","description":"Phyto-lipid zinc oxide environmental shield. Zero white cast. Reef safe.","brand":{"@type":"Brand","name":"K3B Apothecary"},"category":"Sun","offers":{"@type":"Offer","price":"48.00","priceCurrency":"USD","availability":"https://schema.org/PreOrder","url":"https://k3bapothecary.com/"}},
 {"@type":"Product","position":3,"name":"Kokum Body Butter","image":"https://k3bapothecary.com/products/k3b-ghee.png","description":"Advanced botanical restorative body melt. Ghee-textured. Saffron-infused.","brand":{"@type":"Brand","name":"K3B Apothecary"},"category":"Body","offers":{"@type":"Offer","price":"52.00","priceCurrency":"USD","availability":"https://schema.org/PreOrder","url":"https://k3bapothecary.com/"}},
 {"@type":"Product","position":4,"name":"Kokum Ritual Body Oil","image":"https://k3bapothecary.com/products/k3b-body-oil2.png","description":"Anhydrous dry-touch botanical body treatment. Waterless. Satin finish.","brand":{"@type":"Brand","name":"K3B Apothecary"},"category":"Body","offers":{"@type":"Offer","price":"58.00","priceCurrency":"USD","availability":"https://schema.org/PreOrder","url":"https://k3bapothecary.com/"}},
-{"@type":"Product","position":5,"name":"Phyto Lipid Ritual Elixir","image":"https://k3bapothecary.com/products/k3b-elixir.webp","description":"Waterless retinol-alternative serum. Velvet-glide. Massage-engineered.","brand":{"@type":"Brand","name":"K3B Apothecary"},"category":"Face","offers":{"@type":"Offer","price":"68.00","priceCurrency":"USD","availability":"https://schema.org/PreOrder","url":"https://k3bapothecary.com/"}},
+{"@type":"Product","position":5,"name":"Phyto-Lipid Ritual Elixir","image":"https://k3bapothecary.com/products/k3b-elixir.webp","description":"Waterless retinol-alternative serum. Velvet-glide. Massage-engineered.","brand":{"@type":"Brand","name":"K3B Apothecary"},"category":"Face","offers":{"@type":"Offer","price":"68.00","priceCurrency":"USD","availability":"https://schema.org/PreOrder","url":"https://k3bapothecary.com/"}},
 {"@type":"Product","position":6,"name":"Kansa Dual Wand","image":"https://k3bapothecary.com/products/kansa-wand-cut.png","description":"High-purity bronze facial detoxification & sculpting wand. Dual-dome system.","brand":{"@type":"Brand","name":"K3B Apothecary"},"category":"Ritual","offers":{"@type":"Offer","price":"68.00","priceCurrency":"USD","availability":"https://schema.org/PreOrder","url":"https://k3bapothecary.com/"}}
 ]}
 ]}
@@ -945,7 +946,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
       <button class="brand-gateway__card anim d1" onclick="switchView('k3b')">
         <img data-img="K3B Arc Mark" class="brand-mark" width="56" height="56" alt="K3B Ritual Arc">
         <p class="brand-gateway__name">K3B APOTHECARY</p>
-        <p class="brand-gateway__cat">Kokum-Led Skincare Rituals<br>Western Ghats Botanicals</p>
+        <p class="brand-gateway__cat">Kokum-Led Skincare Rituals<br>Sahyadri Botanicals</p>
         <span class="brand-gateway__cta">Explore K3B &rarr;</span>
       </button>
     </div>
@@ -967,7 +968,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
         <div class="kokum-orb">
           <div style="text-align:center;z-index:1">
             <span class="kokum-orb__name">KOKUM</span>
-            <span class="kokum-orb__origin" style="display:block;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--txt3)">Garcinia Indica &middot; Western Ghats</span>
+            <span class="kokum-orb__origin" style="display:block;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--txt3)">Garcinia Indica &middot; Sahyadri</span>
           </div>
         </div>
       </div>
@@ -1006,16 +1007,16 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
     </div>
     <div class="expr-grid">
       <button class="expr-card anim" onclick="switchView('koda')">
-        <span class="expr-card__watermark">KODA</span>
-        <p class="expr-card__tag">Botanical Ritual Drinks</p>
+        <img data-img="KODA Flame Mark" class="expr-card__watermark expr-card__watermark--mark" alt="" aria-hidden="true" loading="lazy" decoding="async">
+        <p class="expr-card__tag">Botanical Ritual Drinks<br>Decoction-Crafted &middot; Patent-Pending</p>
         <h3 class="expr-card__name">KODA</h3>
         <div class="expr-card__rule"></div>
         <p class="expr-card__body">Botanical ritual drinks designed for different moments of the day. Polyphenol-rich tonics crafted with kokum, amla, jamun, saffron, and cacao. Not soda. Not alcohol. A botanical ritual.</p>
         <span class="expr-card__link">Enter KODA</span>
       </button>
       <button class="expr-card anim d2" onclick="switchView('k3b')">
-        <span class="expr-card__watermark">K3B</span>
-        <p class="expr-card__tag">Kokum-Led Skincare</p>
+        <img data-img="K3B Arc Mark" class="expr-card__watermark expr-card__watermark--mark" alt="" aria-hidden="true" loading="lazy" decoding="async">
+        <p class="expr-card__tag">Kokum-Led Skincare<br>Sahyadri Botanicals</p>
         <h3 class="expr-card__name">K3B Apothecary</h3>
         <div class="expr-card__rule"></div>
         <p class="expr-card__body">Kokum-led skincare designed to support calm, nourished skin. Plant-derived lipids, botanical intelligence, and daily ritual. Calm skin, not cosmetic perfection.</p>
@@ -1049,7 +1050,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
         <h2 class="display anim d1">Built Around<br><em>Daily Rituals</em></h2>
         <span class="rule anim d2"></span>
         <p class="s-founder__headline anim d2">&#x201C;Wellness should not feel separate from everyday life.&#x201D;</p>
-        <p class="s-founder__body anim d3">Kaya Botanicals was created from a simple belief: wellness should not feel separate from everyday life. It should live in what we drink, how we care for our skin, and the moments we choose for ourselves and our families.<br><br>We did not set out to build a beauty brand or a beverage company.</p><p class="s-founder__body anim d3">We set out to find ingredients that were honest, deeply rooted, and genuinely effective &#x2014; and build rituals around them that families could actually live with. Kokum was there from the beginning.</p>
+        <p class="s-founder__body anim d3">Kaya Botanicals was created from a simple belief: wellness should not feel separate from everyday life. It should live in what we drink, how we care for our skin, and the moments we choose for ourselves and our families.<br><br>We did not set out to build a beauty brand or a beverage company.</p><p class="s-founder__body anim d3">We set out to find ingredients that were honest, deeply rooted, and genuinely effective &#x2014; and build rituals around them that families could actually live with. Kokum was there from the beginning.</p><p class="s-founder__body anim d3">Drink with intention. Care with intention. Live with intention.</p>
         <div class="anim d4">
           <p class="s-founder__sig">Rutu Jadhav</p>
           <p class="s-founder__sigtitle">Founder &middot; Kaya Botanicals</p>
@@ -1076,27 +1077,24 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
           <p style="font-size:9px;letter-spacing:.38em;text-transform:uppercase;color:var(--gold2);margin-bottom:20px">The Brand</p>
           <h3 style="font-family:var(--fd);font-size:1.2rem;font-weight:600;letter-spacing:.14em;color:var(--cream);margin-bottom:20px;text-transform:uppercase">Kaya Botanicals</h3>
           <div style="width:28px;height:1px;background:var(--gold);margin-bottom:20px;opacity:.4"></div>
-          <p style="font-family:var(--fb);font-size:.88rem;font-weight:300;color:var(--txt2);line-height:1.85">A botanical ritual house rooted in kokum — bringing two expressions of one plant philosophy into daily life. Founder story coming soon.</p>
+          <p style="font-family:var(--fb);font-size:.88rem;font-weight:300;color:var(--txt2);line-height:1.85">A botanical ritual house rooted in kokum — bringing two expressions of one plant philosophy into daily life. It began with a single question: what would it look like if ancient botanicals were treated with modern discipline? The answer became a family of rituals — made for daily life, not display.</p>
         </div>
-        <p style="font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--txt3);margin-top:32px">Coming Soon</p>
       </div>
       <div style="background:var(--surface2);padding:52px 40px;display:flex;flex-direction:column;justify-content:space-between;min-height:320px">
         <div>
           <p style="font-size:9px;letter-spacing:.38em;text-transform:uppercase;color:var(--gold2);margin-bottom:20px">The Drinks</p>
           <h3 style="font-family:var(--fd);font-size:1.2rem;font-weight:600;letter-spacing:.14em;color:var(--cream);margin-bottom:20px;text-transform:uppercase">KODA</h3>
           <div style="width:28px;height:1px;background:var(--gold);margin-bottom:20px;opacity:.4"></div>
-          <p style="font-family:var(--fb);font-size:.88rem;font-weight:300;color:var(--txt2);line-height:1.85">Five botanical ritual beverages. Each one a different moment. Each one rooted in the same philosophy. The KODA origin story coming soon.</p>
+          <p style="font-family:var(--fb);font-size:.88rem;font-weight:300;color:var(--txt2);line-height:1.85">Five botanical ritual beverages. Each one a different moment. Each one rooted in the same philosophy. Every recipe is decoction-crafted — botanicals simmered, reduced, and layered the way they have been for centuries, then finished for the modern palate.</p>
         </div>
-        <p style="font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--txt3);margin-top:32px">Coming Soon</p>
       </div>
       <div style="background:var(--surface);padding:52px 40px;display:flex;flex-direction:column;justify-content:space-between;min-height:320px">
         <div>
           <p style="font-size:9px;letter-spacing:.38em;text-transform:uppercase;color:var(--gold2);margin-bottom:20px">The Skincare</p>
           <h3 style="font-family:var(--fd);font-size:1.2rem;font-weight:600;letter-spacing:.14em;color:var(--cream);margin-bottom:20px;text-transform:uppercase">K3B Apothecary</h3>
           <div style="width:28px;height:1px;background:var(--gold);margin-bottom:20px;opacity:.4"></div>
-          <p style="font-family:var(--fb);font-size:.88rem;font-weight:300;color:var(--txt2);line-height:1.85">A kokum-first botanical skincare system built for daily ritual. The K3B Apothecary origin story coming soon.</p>
+          <p style="font-family:var(--fb);font-size:.88rem;font-weight:300;color:var(--txt2);line-height:1.85">A kokum-first botanical skincare system built for daily ritual. Built around kokum butter from the Sahyadri, refined through modern formulation discipline, and designed to be lived with — morning and night.</p>
         </div>
-        <p style="font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--txt3);margin-top:32px">Coming Soon</p>
       </div>
     </div>
   </div>
@@ -1138,7 +1136,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
           </span>
         </div>
         <p class="footer__tagline">Botanical rituals for<br>inner and outer wellness.</p>
-        <div class="footer__badge">Rooted in Kokum &middot; Western Ghats, India</div>
+        <div class="footer__badge">Rooted in Kokum &middot; Sahyadri, India</div>
       </div>
       <div class="footer__col">
         <p class="footer__col-title">KODA</p>
@@ -1422,16 +1420,6 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
       <h3 class="pillars__callout-headline">Observe. Prevent. Ritualize.</h3>
       <span class="rule rule--c" style="margin:28px auto"></span>
       <p class="pillars__callout-body">K3B Apothecary believes facial wellness should be approached with the same intention used to care for the rest of the body. Movement. Recovery. Nourishment. Protection. Consistency. Together, these practices form a long-term approach to facial wellness rooted in calm rather than correction.</p>
-    </div>
-
-    <!-- COMING SOON TEASER -->
-    <div class="pillars__teaser anim">
-      <div class="pillars__teaser-inner">
-        <p class="pillars__teaser-tag">Coming Soon</p>
-        <p class="pillars__teaser-name">K3B Facial Wellness&trade;</p>
-        <div class="pillar__rule" style="margin:16px auto;width:28px"></div>
-        <p class="pillars__teaser-body">A ritual journal for the face. A future companion designed to help users understand facial wellness trends, build personalized rituals, and maintain long-term consistency.</p>
-      </div>
     </div>
 
     <div class="section-cta-row anim">
@@ -2693,8 +2681,8 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
 <div id="view-prod-k3b-everyday-magic" class="view"><nav class="pnav"><button class="pnav__link" onclick="switchView('k3b')">&#8592; K3B</button><button onclick="switchView('brand')" class="pnav__logo">KAYA BOTANICALS</button><button aria-label="Shopping cart" onclick="toggleCart()" class="pnav__cart">Cart<span class="cart-badge" id="badge-prod-k3b-everyday-magic">0</span></button></nav><div style="height:68px"></div><section class="s-hero">
   <div class="hero__left">
     <p class="hero__brand-tag anim">K3B Apothecary &mdash; Universal Barrier Support</p>
-    <h1 class="hero__name anim d1">EVERYDAY
-MAGIC CREAM</h1>
+    <h1 class="hero__name anim d1">TRI-LIPID
+BARRIER MOISTURIZER</h1>
     <p class="hero__sub anim d2">Daily Phyto-Lipid Barrier Moisturizer</p>
     <span class="rule anim d2"></span>
     <p class="hero__arch anim d2">Kokum-cradled. Barrier-first. Universal-comfort.</p>
@@ -2844,8 +2832,8 @@ MAGIC CREAM</h1>
   <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 50% 60% at 72% 52%,rgba(200,150,50,.1),transparent 65%)"></div>
   <div class="hero__left">
     <p class="hero__brand-tag anim">K3B Apothecary &mdash; Full-Body Barrier Support</p>
-    <h1 class="hero__name anim d1">FACE & BODY
-GHEE</h1>
+    <h1 class="hero__name anim d1">KOKUM
+BODY BUTTER</h1>
     <p class="hero__sub anim d2">Advanced Botanical Restorative Body Melt</p>
     <span class="rule anim d2"></span>
     <p class="hero__arch anim d2">Ghee-textured. Saffron-infused. Deeply-nourishing.</p>
@@ -3040,7 +3028,7 @@ GUA SHA</h1>
   <p class="ritual__num">III &mdash; Apothecary Pairing</p>
   <h3 class="ritual__title">Ritual Elixir or Moisturizer</h3>
   <div class="ritual__rule"></div>
-  <p class="ritual__body">Designed to glide beautifully over the Phyto Lipid Ritual Elixir or Tri-Lipid Barrier Moisturizer for optimal slip and skin protection.</p>
+  <p class="ritual__body">Designed to glide beautifully over the Phyto-Lipid Ritual Elixir or Tri-Lipid Barrier Moisturizer for optimal slip and skin protection.</p>
 </div><div class="ritual__card anim d4">
   <p class="ritual__num">IV &mdash; System Benefit</p>
   <h3 class="ritual__title">Structural Definition</h3>
@@ -3097,7 +3085,7 @@ GUA SHA</h1>
     <p class="eyebrow anim" style="text-align:center">The Application Ritual</p>
     <h2 style="font-family:var(--fd);font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--cream)" class="anim d1">The Utthana <em class="em-g">Lift</em></h2>
     <div class="serving__decoration anim d2"><div class="serving__deco-line"></div><div class="serving__deco-text">THE RITUAL</div><div class="serving__deco-line serving__deco-line--r"></div></div>
-    <p class="serving__body anim d2">Generously coat your face and neck with Phyto Lipid Ritual Elixir to ensure a smooth, silky glide. Hold the Kansa B-Shaped Gua Sha flat at a 15-degree angle against your skin. Anchor the tool in the center of your chin using the deep notch, and glide it slowly outward along your jawbone to the earlobe with firm, steady pressure.</p><p class="serving__body anim d2">Repeat this stroke 5 to 7 times on each side. Use the long flat edge to sweep down the neck to complete the fluid purge, revealing an instantly defined, lifted, and radiant facial structure.</p>
+    <p class="serving__body anim d2">Generously coat your face and neck with Phyto-Lipid Ritual Elixir to ensure a smooth, silky glide. Hold the Kansa B-Shaped Gua Sha flat at a 15-degree angle against your skin. Anchor the tool in the center of your chin using the deep notch, and glide it slowly outward along your jawbone to the earlobe with firm, steady pressure.</p><p class="serving__body anim d2">Repeat this stroke 5 to 7 times on each side. Use the long flat edge to sweep down the neck to complete the fluid purge, revealing an instantly defined, lifted, and radiant facial structure.</p>
     <div class="serving__stamp anim d3">Care with Intention &middot; K3B Apothecary &middot; Kaya Botanicals</div>
   </div></div>
 </section>
@@ -3188,9 +3176,9 @@ DUAL WAND</h1>
   <p class="ritual__body">Five minutes during your evening wind-down to erase daytime stress and tech fatigue, or after your morning skincare sequence.</p>
 </div><div class="ritual__card anim d3">
   <p class="ritual__num">III &mdash; Apothecary Pairing</p>
-  <h3 class="ritual__title">Phyto Lipid Ritual Elixir</h3>
+  <h3 class="ritual__title">Phyto-Lipid Ritual Elixir</h3>
   <div class="ritual__rule"></div>
-  <p class="ritual__body">Must be used with a rich lipid medium. Perfectly optimized for the Phyto Lipid Ritual Elixir for maximum slip and tool glide.</p>
+  <p class="ritual__body">Must be used with a rich lipid medium. Perfectly optimized for the Phyto-Lipid Ritual Elixir for maximum slip and tool glide.</p>
 </div><div class="ritual__card anim d4">
   <p class="ritual__num">IV &mdash; The Effect</p>
   <h3 class="ritual__title">Kansa Metallurgy</h3>
@@ -3247,7 +3235,7 @@ DUAL WAND</h1>
     <p class="eyebrow anim" style="text-align:center">The Application Ritual</p>
     <h2 style="font-family:var(--fd);font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--cream)" class="anim d1">The Marma <em class="em-g">Practice</em></h2>
     <div class="serving__decoration anim d2"><div class="serving__deco-line"></div><div class="serving__deco-text">THE RITUAL</div><div class="serving__deco-line serving__deco-line--r"></div></div>
-    <p class="serving__body anim d2">Apply 4 drops of Phyto Lipid Ritual Elixir across your face to create a slick, protective cushion. Hold the Kansa Dual Wand by its hardwood handle. Using the large dome, trace firm figure-eight patterns across your forehead, then sweep outward from the nose to the ears along the cheekbones.</p><p class="serving__body anim d2">Switch to the small dome to perform gentle, circular sweeps around the eyes and temples. If graying occurs, simply wipe it away with a damp cloth to reveal a bright, fully detoxified, and beautifully sculpted complexion.</p>
+    <p class="serving__body anim d2">Apply 4 drops of Phyto-Lipid Ritual Elixir across your face to create a slick, protective cushion. Hold the Kansa Dual Wand by its hardwood handle. Using the large dome, trace firm figure-eight patterns across your forehead, then sweep outward from the nose to the ears along the cheekbones.</p><p class="serving__body anim d2">Switch to the small dome to perform gentle, circular sweeps around the eyes and temples. If graying occurs, simply wipe it away with a damp cloth to reveal a bright, fully detoxified, and beautifully sculpted complexion.</p>
     <div class="serving__stamp anim d3">Care with Intention &middot; K3B Apothecary &middot; Kaya Botanicals</div>
   </div></div>
 </section>
@@ -3446,8 +3434,8 @@ RITUAL BODY OIL</h1>
 <div id="view-prod-k3b-mineral-veil" class="view"><nav class="pnav"><button class="pnav__link" onclick="switchView('k3b')">&#8592; K3B</button><button onclick="switchView('brand')" class="pnav__logo">KAYA BOTANICALS</button><button aria-label="Shopping cart" onclick="toggleCart()" class="pnav__cart">Cart<span class="cart-badge" id="badge-prod-k3b-mineral-veil">0</span></button></nav><div style="height:68px"></div><section class="s-hero">
   <div class="hero__left">
     <p class="hero__brand-tag anim">K3B Apothecary &mdash; Broad-Spectrum Mineral Defense</p>
-    <h1 class="hero__name anim d1">KOKUM
-MINERAL VEIL SPF</h1>
+    <h1 class="hero__name anim d1">MINERAL VEIL
+BARRIER DEFENSE SPF 40</h1>
     <p class="hero__sub anim d2">Phyto-Lipid Zinc Oxide Environmental Shield</p>
     <span class="rule anim d2"></span>
     <p class="hero__arch anim d2">Zinc-shielded. Amaranth-fortified. Zero-white-cast.</p>
@@ -3604,12 +3592,12 @@ RITUAL ELIXIR</h1>
     <p class="hero__hook anim d3">&ldquo;The gold standard of botanical equilibrium.&rdquo;</p>
     <p class="hero__identity anim d3">Deep botanical nourishment through sacred Ayurvedic lipid physics.</p>
     <div class="hero__actions anim d4">
-      <button class="btn btn--gold" onclick="addToCart('k3b-serum','K3B PHYTO LIPID RITUAL ELIXIR',68.0,'Marma Phyto-Glow Facial Ritual','')">Add to Ritual Cart &mdash; $68.00</button>
+      <button class="btn btn--gold" onclick="addToCart('k3b-serum','K3B PHYTO-LIPID RITUAL ELIXIR',68.0,'Marma Phyto-Glow Facial Ritual','')">Add to Ritual Cart &mdash; $68.00</button>
     </div>
     <p class="hero__launch anim d4">Launching Fall 2026 &mdash; Care with Intention&trade;</p>
   </div>
   <div class="hero__right">
-    <div class="hero__render-wrap"><img src="products/k3b-elixir.webp" alt="K3B Phyto Lipid Ritual Elixir" loading="eager" decoding="async" style="aspect-ratio:750/1000;width:min(360px,86%);height:auto;display:block;margin:0 auto;position:relative;z-index:1;background:transparent" onerror="this.style.display='none'"/></div>
+    <div class="hero__render-wrap"><img src="products/k3b-elixir.webp" alt="K3B Phyto-Lipid Ritual Elixir" loading="eager" decoding="async" style="aspect-ratio:750/1000;width:min(360px,86%);height:auto;display:block;margin:0 auto;position:relative;z-index:1;background:transparent" onerror="this.style.display='none'"/></div>
   </div>
   <div class="hero__scroll"><span>Explore</span><div class="hero__scroll-line"></div></div>
 </section>
@@ -3619,14 +3607,14 @@ RITUAL ELIXIR</h1>
     <p class="eyebrow anim" style="text-align:center">The Core Narrative</p>
     <p class="narrative__quote anim d1">&ldquo;Completely waterless. Pure Ayurvedic lipid intelligence.&rdquo;</p>
     <span class="rule rule--c anim d2"></span>
-    <div class="narrative__body anim d2"><p>Phyto Lipid Ritual Elixir is a completely waterless (anhydrous) treatment serum engineered to optimize facial massage rituals.</p><p>Mainstream active serums are often loaded with water and fillers, requiring heavy synthetic preservation networks and industrial gums that add zero value to your skin barrier. K3B completely bypasses this, ensuring every single molecule in this bottle is pure, unadulterated skin nourishment.</p><p>Lauded for its physical mechanical glide, the serum features a cold-pressed Broccoli Seed Oil architecture. Its natural erucic acid profile mimics the smooth, cushiony slip of synthetic silicones, providing the perfect friction-free cushion for deep Gua Sha and Kansa wand work without ever tugging the skin.</p><p>Driven by pure Bakuchiol — a botanical retinol alternative — it addresses fine lines and skin clarity with zero redness or irritation. It finishes with an astronomical garnet-ruby hue derived from oil-soluble Manjistha root, and grounds the mind with an exquisite, meditative accord of Vetiver and Cardamom.</p></div>
+    <div class="narrative__body anim d2"><p>Phyto-Lipid Ritual Elixir is a completely waterless (anhydrous) treatment serum engineered to optimize facial massage rituals.</p><p>Mainstream active serums are often loaded with water and fillers, requiring heavy synthetic preservation networks and industrial gums that add zero value to your skin barrier. K3B completely bypasses this, ensuring every single molecule in this bottle is pure, unadulterated skin nourishment.</p><p>Lauded for its physical mechanical glide, the serum features a cold-pressed Broccoli Seed Oil architecture. Its natural erucic acid profile mimics the smooth, cushiony slip of synthetic silicones, providing the perfect friction-free cushion for deep Gua Sha and Kansa wand work without ever tugging the skin.</p><p>Driven by pure Bakuchiol — a botanical retinol alternative — it addresses fine lines and skin clarity with zero redness or irritation. It finishes with an astronomical garnet-ruby hue derived from oil-soluble Manjistha root, and grounds the mind with an exquisite, meditative accord of Vetiver and Cardamom.</p></div>
   </div></div>
 </section>
 
 <section class="s-ritual">
   <div class="wrap">
     <p class="eyebrow anim">The Marma Ritual System</p>
-    <h2 class="anim d1 u-h2 u-h2--tight">How to <em class="em-g">Use</em> Ruby Serum</h2>
+    <h2 class="anim d1 u-h2 u-h2--tight">How to <em class="em-g">Use</em> the Ritual Elixir</h2>
     <div class="ritual__grid"><div class="ritual__card anim ">
   <p class="ritual__num">I &mdash; The Ritual</p>
   <h3 class="ritual__title">Marma Phyto-Glow Ritual</h3>
@@ -3943,7 +3931,7 @@ const K3B_PRODUCTS=[
   {id:'k3b-sun',img:'products/k3b-mineral-veil.webp',name:'Mineral Veil Barrier Defense SPF 40',tag:'Environmental Shield',price:48,ingredients:'Zinc Oxide · Kokum · Amaranth · Saffron',body:'Phyto-lipid zinc oxide environmental shield. Zero white cast. Reef safe.',detail:'prod-k3b-mineral-veil'},
   {id:'k3b-body',img:'products/k3b-ghee.png',name:'Kokum Body Butter',tag:'Full-Body Restoration',price:52,ingredients:'Kokum · Mango Butter · Saffron · Gotu Kola',body:'Advanced botanical restorative body melt. Ghee-textured. Saffron-infused.',detail:'prod-k3b-face-body-ghee'},
   {id:'k3b-oil',img:'products/k3b-body-oil2.png',name:'Kokum Ritual Body Oil',tag:'Anhydrous Treatment',price:58,ingredients:'Squalane · MCT Oil · Kokum · Neroli · Tulsi',body:'Anhydrous dry-touch botanical body treatment. Waterless. Satin finish.',detail:'prod-k3b-kokum-body-oil'},
-  {id:'k3b-serum',img:'products/k3b-elixir.webp',name:'Phyto Lipid Ritual Elixir',tag:'Intensive Treatment',price:68,ingredients:'Broccoli Seed · Bakuchiol · Manjistha · Vetiver',body:'Waterless retinol-alternative serum. Velvet-glide. Massage-engineered.',detail:'prod-k3b-ruby-serum'}
+  {id:'k3b-serum',img:'products/k3b-elixir.webp',name:'Phyto-Lipid Ritual Elixir',tag:'Intensive Treatment',price:68,ingredients:'Broccoli Seed · Bakuchiol · Manjistha · Vetiver',body:'Waterless retinol-alternative serum. Velvet-glide. Massage-engineered.',detail:'prod-k3b-ruby-serum'}
 ];
 const K3B_TOOLS=[
   {id:'k3b-wand',name:'Kansa Dual Wand',tag:'Sacred Bronze Tool',price:68,body:'High-purity bronze facial detoxification & sculpting wand. Dual-dome system.',detail:'prod-k3b-kansa-wand'},
@@ -4197,7 +4185,7 @@ const VIEW_TITLES={
   'prod-k3b-mineral-veil':'Mineral Veil Barrier Defense SPF 40 — K3B Apothecary',
   'prod-k3b-face-body-ghee':'Kokum Body Butter — K3B Apothecary',
   'prod-k3b-kokum-body-oil':'Kokum Ritual Body Oil — K3B Apothecary',
-  'prod-k3b-ruby-serum':'Phyto Lipid Ritual Elixir — K3B Apothecary',
+  'prod-k3b-ruby-serum':'Phyto-Lipid Ritual Elixir — K3B Apothecary',
   'prod-k3b-kansa-wand':'Kansa Dual Wand — K3B Apothecary',
   'prod-k3b-gua-sha':'Kansa B-Shaped Gua Sha — K3B Apothecary',
   'prod-k3b-scalp-massager':'Kansa Scalp Massager — K3B Apothecary',
@@ -5100,7 +5088,7 @@ function enhanceCardA11y(){
     <p style="font-family:var(--fb);font-size:.78rem;color:var(--txt3);margin-bottom:48px">The questions we hear most, answered.</p>
     <div style="font-family:var(--fb);font-size:.88rem;color:var(--txt2);line-height:1.9;display:flex;flex-direction:column;gap:32px">
       <div><h3 style="font-family:var(--fd);font-size:1rem;letter-spacing:.1em;color:var(--cream);margin-bottom:10px;text-transform:uppercase">When do you launch?</h3><p>KODA and K3B Apothecary launch Fall 2026. Join the Ritual for first access and launch-day offers.</p></div>
-      <div><h3 style="font-family:var(--fd);font-size:1rem;letter-spacing:.1em;color:var(--cream);margin-bottom:10px;text-transform:uppercase">What is kokum?</h3><p>Kokum butter is one of the most stable, skin-compatible plant lipids on earth, sourced from the Western Ghats of India. It&rsquo;s the barrier-supportive heart of K3B.</p></div>
+      <div><h3 style="font-family:var(--fd);font-size:1rem;letter-spacing:.1em;color:var(--cream);margin-bottom:10px;text-transform:uppercase">What is kokum?</h3><p>Kokum butter is one of the most stable, skin-compatible plant lipids on earth, sourced from the Sahyadri (Western Ghats) of India. It&rsquo;s the barrier-supportive heart of K3B.</p></div>
       <div><h3 style="font-family:var(--fd);font-size:1rem;letter-spacing:.1em;color:var(--cream);margin-bottom:10px;text-transform:uppercase">Are your products natural?</h3><p>Our formulas are botanically led and barrier-first &mdash; no unnecessary complexity or cosmetic theater. Full ingredient lists appear on each product at launch.</p></div>
       <div><h3 style="font-family:var(--fd);font-size:1rem;letter-spacing:.1em;color:var(--cream);margin-bottom:10px;text-transform:uppercase">Shipping &amp; returns?</h3><p>Flat $6.95 US shipping, free over $75, 30-day returns. See our <button onclick="switchView('shipping')" style="background:none;border:none;padding:0;color:var(--gold2);cursor:pointer;font:inherit">Shipping</button> and <button onclick="switchView('returns')" style="background:none;border:none;padding:0;color:var(--gold2);cursor:pointer;font:inherit">Returns</button> pages.</p></div>
       <div><h3 style="font-family:var(--fd);font-size:1rem;letter-spacing:.1em;color:var(--cream);margin-bottom:10px;text-transform:uppercase">Do you offer wholesale?</h3><p>Yes &mdash; reach out via our <button onclick="switchView('contact')" style="background:none;border:none;padding:0;color:var(--gold2);cursor:pointer;font:inherit">Contact</button> page for wholesale and press inquiries.</p></div>
