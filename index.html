@@ -4745,9 +4745,12 @@ function enhanceCardA11y(){
     var favLink = document.querySelector('link[rel="icon"]');
     if (favLink) { favLink.href = favMap[host]; favLink.type = 'image/png'; }
   }
-  if (entryView && typeof switchView === 'function') {
+  /* V62: skip the entry transition when landing on a product deep link — the router boots the view directly */
+  var _dl=/^\/(gut|glow|grit|cacao|amber|barrier-moisturizer|mineral-veil|body-butter|body-oil|elixir|kansa-wand|gua-sha|scalp-massager)\/?$/.test(location.pathname);
+  if (entryView && !_dl && typeof switchView === 'function') {
     try { switchView(entryView); } catch (e) {}
   }
+  if (_dl && entryView) { try { currentView = currentView; } catch(e){} window.__kbEntryView = entryView; }
 
   /* 2. Cross-domain nav: BRAND/KODA/K3B tabs hop to their own domain */
   if (isProd && typeof switchView === 'function') {
@@ -5067,5 +5070,147 @@ function enhanceCardA11y(){
 </div>
 </div>
 
+<script>
+/* ══ V62 — URL-AWARE PRODUCT ROUTING (History API) ══
+   Every product gets its own URL; SPA transitions preserved; per-URL SEO meta,
+   JSON-LD Product+Breadcrumb schema, GA4 page_views. No changes to cart/Shopify. */
+(function(){
+  var HOSTS={brand:'kayabotanicals.com',koda:'drinkkoda.com',k3b:'k3bapothecary.com'};
+  var host=location.hostname.replace(/^www\./,'');
+  var ROUTES={
+    'prod-koda-gut':{slug:'gut',brand:'koda'},
+    'prod-koda-glow':{slug:'glow',brand:'koda'},
+    'prod-koda-grit':{slug:'grit',brand:'koda'},
+    'prod-koda-cacao':{slug:'cacao',brand:'koda'},
+    'prod-koda-amber':{slug:'amber',brand:'koda'},
+    'prod-k3b-everyday-magic':{slug:'barrier-moisturizer',brand:'k3b'},
+    'prod-k3b-mineral-veil':{slug:'mineral-veil',brand:'k3b'},
+    'prod-k3b-face-body-ghee':{slug:'body-butter',brand:'k3b'},
+    'prod-k3b-kokum-body-oil':{slug:'body-oil',brand:'k3b'},
+    'prod-k3b-ruby-serum':{slug:'elixir',brand:'k3b'},
+    'prod-k3b-kansa-wand':{slug:'kansa-wand',brand:'k3b'},
+    'prod-k3b-gua-sha':{slug:'gua-sha',brand:'k3b'},
+    'prod-k3b-scalp-massager':{slug:'scalp-massager',brand:'k3b'}
+  };
+  var SLUG2VIEW={};for(var v in ROUTES)SLUG2VIEW[ROUTES[v].slug]=v;
+  /* defaults captured for restoring on non-product views */
+  function attr(sel,a){var e=document.querySelector(sel);return e?e.getAttribute(a):'';}
+  var DEF={desc:attr('meta[name="description"]','content'),ogd:attr('meta[property="og:description"]','content'),twd:attr('meta[name="twitter:description"]','content'),ogi:attr('meta[property="og:image"]','content'),twi:attr('meta[name="twitter:image"]','content')};
+
+  function prodData(view){
+    var all=[].concat(typeof KODA_PRODUCTS!=='undefined'?KODA_PRODUCTS:[],typeof K3B_PRODUCTS!=='undefined'?K3B_PRODUCTS:[],typeof K3B_TOOLS!=='undefined'?K3B_TOOLS:[]);
+    for(var i=0;i<all.length;i++)if(all[i].detail===view)return all[i];
+    return null;
+  }
+  function canonicalUrl(view){var r=ROUTES[view];return 'https://'+HOSTS[r.brand]+'/'+r.slug;}
+  function imgUrl(view){
+    var p=prodData(view);var r=ROUTES[view];var base='https://'+HOSTS[r.brand];
+    if(!p||!p.img)return DEF.ogi||'https://kayabotanicals.com/og-image.jpg';
+    var src=(typeof IMG_MAP!=='undefined'&&IMG_MAP[p.img])?IMG_MAP[p.img]:String(p.img);
+    if(src.charAt(0)!=='/')src='/'+src;
+    return base+src;
+  }
+  function metaDesc(view){var p=prodData(view);if(!p)return '';return ((p.tagline||p.tag||'')+' — '+(p.body||'')).replace(/^ — /,'').trim().slice(0,155);}
+  function setTag(sel,a,val){var e=document.querySelector(sel);if(e)e.setAttribute(a,val);}
+
+  function removeLD(){var e=document.getElementById('route-ld');if(e)e.remove();}
+  function injectLD(view,canon,desc,img){
+    removeLD();
+    var p=prodData(view);if(!p)return;
+    var r=ROUTES[view];var brandName=r.brand==='koda'?'KODA':'K3B Apothecary';
+    var data={'@context':'https://schema.org','@graph':[
+      {'@type':'Product','name':p.name,'image':img,'description':desc,'brand':{'@type':'Brand','name':brandName},'offers':{'@type':'Offer','price':Number(p.price).toFixed(2),'priceCurrency':'USD','availability':'https://schema.org/PreOrder','url':canon}},
+      {'@type':'BreadcrumbList','itemListElement':[
+        {'@type':'ListItem','position':1,'name':brandName,'item':'https://'+HOSTS[r.brand]+'/'},
+        {'@type':'ListItem','position':2,'name':p.name,'item':canon}]}]};
+    var s=document.createElement('script');s.type='application/ld+json';s.id='route-ld';s.textContent=JSON.stringify(data);document.head.appendChild(s);
+  }
+
+  function updateMeta(view){
+    var title=VIEW_TITLES[view]||document.title;
+    if(ROUTES[view]){
+      var canon=canonicalUrl(view),d=metaDesc(view),im=imgUrl(view);
+      setTag('link[rel="canonical"]','href',canon);
+      setTag('meta[property="og:url"]','content',canon);
+      setTag('meta[name="twitter:url"]','content',canon);
+      setTag('meta[property="og:title"]','content',title);
+      setTag('meta[name="twitter:title"]','content',title);
+      if(d){setTag('meta[name="description"]','content',d);setTag('meta[property="og:description"]','content',d);setTag('meta[name="twitter:description"]','content',d);}
+      setTag('meta[property="og:image"]','content',im);
+      setTag('meta[name="twitter:image"]','content',im);
+      injectLD(view,canon,d,im);
+    } else {
+      var root='https://'+host+'/';
+      setTag('link[rel="canonical"]','href',root);
+      setTag('meta[property="og:url"]','content',root);
+      setTag('meta[name="twitter:url"]','content',root);
+      setTag('meta[property="og:title"]','content',title);
+      setTag('meta[name="twitter:title"]','content',title);
+      if(DEF.desc)setTag('meta[name="description"]','content',DEF.desc);
+      if(DEF.ogd)setTag('meta[property="og:description"]','content',DEF.ogd);
+      if(DEF.twd)setTag('meta[name="twitter:description"]','content',DEF.twd);
+      if(DEF.ogi)setTag('meta[property="og:image"]','content',DEF.ogi);
+      if(DEF.twi)setTag('meta[name="twitter:image"]','content',DEF.twi);
+      removeLD();
+    }
+  }
+
+  /* instant view switch (deep links + back/forward) — mirrors switchView end-state, no cube */
+  function instantView(to,skipTrack){
+    if(to===currentView)return;
+    var toEl=document.getElementById('view-'+to);if(!toEl)return;
+    var fromEl=document.getElementById('view-'+currentView);
+    var _gNav=document.getElementById('nav');
+    var _pn=(to.indexOf('prod-')===0)||!!toEl.querySelector('.pnav');
+    if(_gNav)_gNav.style.display=_pn?'none':'';
+    var _ms=document.querySelector('.mseg');if(_ms)_ms.style.display=_pn?'none':'';
+    document.title=VIEW_TITLES[to]||'Kaya Botanicals';
+    if(fromEl)fromEl.classList.remove('active','cube-exit','cube-enter');
+    toEl.classList.add('active');
+    document.querySelectorAll('.nav__links button').forEach(function(b){b.classList.remove('active')});
+    var nb=document.getElementById('nav-'+to);if(nb)nb.classList.add('active');
+    document.querySelectorAll('.mseg button').forEach(function(b){b.classList.toggle('active',b.dataset.v===to)});
+    window.scrollTo({top:0,behavior:'instant'});
+    currentView=to;
+    try{triggerViewAnimations(to);}catch(e){}
+    if(!skipTrack&&typeof kbTrack==='function')kbTrack('page_view',{page_title:document.title,page_location:location.href,view_name:to});
+  }
+
+  /* wrap switchView: push product URLs (and root path) before the transition */
+  var inner=window.switchView;
+  var suppress=false;
+  window.switchView=function(to){
+    if(!suppress){
+      var r=ROUTES[to];
+      if(r){try{history.pushState({v:to},'','/'+r.slug);}catch(e){}}
+      else if(to==='brand'||to==='koda'||to==='k3b'){
+        var th=HOSTS[to];
+        if(th===host&&location.pathname!=='/'){try{history.pushState({v:to},'','/');}catch(e){}}
+      }
+    }
+    var out=inner.apply(this,arguments);
+    try{updateMeta(to);}catch(e){}
+    return out;
+  };
+
+  window.addEventListener('popstate',function(){
+    var slug=location.pathname.replace(/^\/+|\/+$/g,'');
+    var view=(slug&&SLUG2VIEW[slug])?SLUG2VIEW[slug]:(host===HOSTS.koda?'koda':host===HOSTS.k3b?'k3b':'brand');
+    var go=function(){suppress=true;try{instantView(view,false);updateMeta(view);}finally{suppress=false;}};
+    if(typeof isSwitching!=='undefined'&&isSwitching){setTimeout(go,1900);}else{go();}
+  });
+
+  /* deep-link boot */
+  var slug0=location.pathname.replace(/^\/+|\/+$/g,'');
+  if(slug0&&SLUG2VIEW[slug0]){
+    var v0=SLUG2VIEW[slug0];
+    try{history.replaceState({v:v0},'','/'+slug0);}catch(e){}
+    suppress=true;
+    try{instantView(v0,true);updateMeta(v0);}finally{suppress=false;}
+  }else{
+    try{history.replaceState({v:currentView},'',location.pathname+location.search+location.hash);}catch(e){}
+  }
+})();
+</script>
 </body>
 </html>
