@@ -1235,7 +1235,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
 <div class="wrap" style="padding-top:34px">
   <nav aria-label="K3B collections" style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap">
     <button class="pack-opt active" style="flex-direction:row" onclick="document.getElementById(&#39;k3bGrid&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">Skincare</button>
-    <button class="pack-opt" style="flex-direction:row" onclick="switchView(&#39;tools&#39;)">Ritual Tools</button>
+    <button class="pack-opt" style="flex-direction:row" onclick="switchView(&#39;tools&#39;)">Ritual Instruments</button>
   </nav>
 </div>
 
@@ -1399,7 +1399,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
 <div class="wrap" style="padding-top:118px">
   <nav aria-label="K3B collections" style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap">
     <button class="pack-opt" style="flex-direction:row" onclick="switchView(&#39;k3b&#39;)">Skincare</button>
-    <button class="pack-opt active" style="flex-direction:row" aria-current="page">Ritual Tools</button>
+    <button class="pack-opt active" style="flex-direction:row" aria-current="page">Ritual Instruments</button>
   </nav>
 </div>
 <!-- K3B RITUAL TOOLS -->
@@ -2949,7 +2949,7 @@ RITUAL SCULPTOR</h1>
     <p class="hero__launch anim d4">Launching Fall 2026 &mdash; Care with Intention&trade;</p>
   </div>
   <div class="hero__right">
-    <div class="hero__render-wrap"><img src="/products/k3b-ritual-sculptor.png" alt="K3B Kansa Ritual Sculptor — kansa bronze facial sculpting tool" loading="eager" decoding="async" style="width:min(250px,68%);height:auto;display:block;margin:0 auto;position:relative;z-index:1"/></div>
+    <div class="hero__render-wrap"><img src="/products/k3b-ritual-sculptor.png" alt="K3B Kansa Ritual Sculptor — kansa bronze facial sculpting tool" loading="eager" decoding="async" style="width:clamp(240px,26vw,380px);height:auto;display:block;margin:0 auto;position:relative;z-index:1"/></div>
   </div>
   <div class="hero__scroll"><span>Explore</span><div class="hero__scroll-line"></div></div>
 </section>
@@ -3099,7 +3099,7 @@ DUAL WAND</h1>
     <p class="hero__launch anim d4">Launching Fall 2026 &mdash; Care with Intention&trade;</p>
   </div>
   <div class="hero__right">
-    <div class="hero__render-wrap"><img src="/products/k3b-kansa-wand.png" alt="K3B Kansa Dual Wand — bronze facial sculpting tool" loading="eager" decoding="async" style="width:min(250px,68%);height:auto;display:block;margin:0 auto;position:relative;z-index:1"/></div>
+    <div class="hero__render-wrap"><img src="/products/k3b-kansa-wand.png" alt="K3B Kansa Dual Wand — bronze facial sculpting tool" loading="eager" decoding="async" style="width:clamp(240px,26vw,380px);height:auto;display:block;margin:0 auto;position:relative;z-index:1"/></div>
   </div>
   <div class="hero__scroll"><span>Explore</span><div class="hero__scroll-line"></div></div>
 </section>
@@ -3701,7 +3701,7 @@ RITUAL MASSAGER</h1>
     <p class="hero__launch anim d4">Launching Fall 2026 &mdash; Care with Intention&trade;</p>
   </div>
   <div class="hero__right">
-    <div class="hero__render-wrap"><img src="/products/k3b-scalp-massager.png" alt="K3B Kansa Scalp Ritual Massager — matte black body with kansa bronze nodes" loading="eager" decoding="async" style="width:min(250px,68%);height:auto;display:block;margin:0 auto;position:relative;z-index:1"/></div>
+    <div class="hero__render-wrap"><img src="/products/k3b-scalp-massager.png" alt="K3B Kansa Scalp Ritual Massager — matte black body with kansa bronze nodes" loading="eager" decoding="async" style="width:clamp(240px,26vw,380px);height:auto;display:block;margin:0 auto;position:relative;z-index:1"/></div>
   </div>
   <div class="hero__scroll"><span>Explore</span><div class="hero__scroll-line"></div></div>
 </section>
@@ -4809,7 +4809,7 @@ function enhanceCardA11y(){
 :focus-visible{outline:2px solid var(--gold2);outline-offset:2px}
 
 /* Mobile spacing refinement — mobile only; desktop unchanged */
-.tools-grid .k3b-card__img{max-height:132px}
+.tools-grid .k3b-card__imgslot{height:clamp(190px,19vw,300px)}.tools-grid .k3b-card__img{max-height:clamp(150px,15vw,250px);max-width:88%}
 @media (max-width:1100px){.s-expressions{padding:104px 0}}
 @media (max-width:768px){.expr-card{padding:56px 32px !important}}
 </style>
