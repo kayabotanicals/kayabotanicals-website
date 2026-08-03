@@ -4703,36 +4703,94 @@ function enhanceCardA11y(){
   var isProd = false;
   for (var k in DOMAINS) { if (DOMAINS[k] === host) { isProd = true; } }
 
-  /* 1. Landing view: open the section that matches the domain */
+  /* V64 — slug <-> view map. Keep in sync with _redirects and sitemap.xml. */
+  var SLUG_TO_VIEW = {
+    'gut':'prod-koda-gut', 'glow':'prod-koda-glow', 'grit':'prod-koda-grit',
+    'cacao':'prod-koda-cacao', 'amber':'prod-koda-amber',
+    'barrier-moisturizer':'prod-k3b-everyday-magic', 'mineral-veil':'prod-k3b-mineral-veil',
+    'body-butter':'prod-k3b-face-body-ghee', 'body-oil':'prod-k3b-kokum-body-oil',
+    'elixir':'prod-k3b-ruby-serum', 'kansa-wand':'prod-k3b-kansa-wand',
+    'gua-sha':'prod-k3b-gua-sha', 'scalp-massager':'prod-k3b-scalp-massager'
+  };
+  var VIEW_TO_SLUG = {};
+  for (var _s in SLUG_TO_VIEW) { VIEW_TO_SLUG[SLUG_TO_VIEW[_s]] = _s; }
+  var homeView = (host === DOMAINS.koda) ? 'koda' : (host === DOMAINS.k3b) ? 'k3b' : 'brand';
+  function viewForPath() {
+    var slug = location.pathname.replace(/^\/+|\/+$/g, '').toLowerCase();
+    var v = SLUG_TO_VIEW[slug];
+    return (v && document.getElementById('view-' + v)) ? v : null;
+  }
+  function pathForView(v) { return VIEW_TO_SLUG[v] ? '/' + VIEW_TO_SLUG[v] : '/'; }
+  function syncCanonical(v) {
+    if (!isProd) return;
+    var url = 'https://' + host + pathForView(v);
+    var c = document.querySelector('link[rel="canonical"]'); if (c) c.href = url;
+    var o = document.querySelector('meta[property="og:url"]'); if (o) o.setAttribute('content', url);
+  }
+
+  /* 1. Landing view: a deep-linked product wins, otherwise the domain's home section */
   var entryView = null;
   if (host === DOMAINS.koda) entryView = 'koda';
   if (host === DOMAINS.k3b) entryView = 'k3b';
+  var deepView = viewForPath();
+  if (deepView) entryView = deepView;
 
-  /* 1b. Per-domain favicon (V44/V45 — official brand marks) */
-  var favMap = {};
-  favMap[DOMAINS.koda] = '/favicon-koda.png';
-  favMap[DOMAINS.k3b] = '/favicon-k3b.png';
-  if (favMap[host]) {
-    var favLink = document.querySelector('link[rel="icon"]');
-    if (favLink) { favLink.href = favMap[host]; favLink.type = 'image/png'; }
+  /* 1b. Per-domain favicon — rebuild every icon link so no KB mark leaks through */
+  var ICONS = {};
+  ICONS[DOMAINS.koda] = { png: '/favicon-koda.png', svg: '/favicon-koda.svg' };
+  ICONS[DOMAINS.k3b]  = { png: '/favicon-k3b.png',  svg: '/favicon-k3b.svg'  };
+  if (ICONS[host]) {
+    var ic = ICONS[host];
+    var stale = document.querySelectorAll('link[rel~="icon"],link[rel="apple-touch-icon"],link[rel="mask-icon"],link[rel="shortcut icon"]');
+    for (var q = 0; q < stale.length; q++) { stale[q].parentNode.removeChild(stale[q]); }
+    var addIcon = function (rel, href, type, sizes, color) {
+      var l = document.createElement('link');
+      l.setAttribute('rel', rel); l.setAttribute('href', href);
+      if (type) l.setAttribute('type', type);
+      if (sizes) l.setAttribute('sizes', sizes);
+      if (color) l.setAttribute('color', color);
+      document.head.appendChild(l);
+    };
+    addIcon('icon', ic.svg, 'image/svg+xml');
+    addIcon('icon', ic.png, 'image/png', '32x32');
+    addIcon('apple-touch-icon', ic.png, null, '180x180');
+    addIcon('mask-icon', ic.svg, null, null, '#B8872E');
   }
+
   if (entryView && typeof switchView === 'function') {
     try { switchView(entryView); } catch (e) {}
   }
+  syncCanonical(entryView || homeView);
 
-  /* 2. Cross-domain nav: BRAND/KODA/K3B tabs hop to their own domain */
-  if (isProd && typeof switchView === 'function') {
+  /* 2. Cross-domain nav + 3. per-product URLs (History API) */
+  if (typeof switchView === 'function') {
     var origSwitchView = window.switchView;
     window.switchView = function(to) {
       var targetHost = DOMAINS[to];
-      if (targetHost && targetHost !== host) {
+      if (isProd && targetHost && targetHost !== host) {
         var _h='';try{if(cart&&cart.length)_h='#kc='+encodeURIComponent(JSON.stringify(cart));}catch(e){}
         try{var _gaC=(document.cookie.match(/(?:^|;\s*)_ga=([^;]+)/)||[])[1];if(_gaC){var _gp=_gaC.split('.');if(_gp.length>=4)_h+=(_h?'&':'#')+'gcid='+_gp[_gp.length-2]+'.'+_gp[_gp.length-1];}}catch(e){}
         window.location.href = 'https://' + targetHost + '/' + _h;
         return;
       }
-      return origSwitchView.apply(this, arguments);
+      /* mirror switchView's own guard so a blocked call never rewrites the URL */
+      var accepted = (typeof currentView === 'undefined') || (to !== currentView && !isSwitching);
+      var r = origSwitchView.apply(this, arguments);
+      if (accepted) {
+        try {
+          var path = pathForView(to);
+          if (location.pathname !== path) history.pushState({ kbView: to }, '', path + location.search);
+          syncCanonical(to);
+        } catch (e) {}
+      }
+      return r;
     };
+
+    window.addEventListener('popstate', function () {
+      var v = viewForPath() || homeView;
+      if (typeof currentView !== 'undefined' && v === currentView) return;
+      try { origSwitchView(v); syncCanonical(v); } catch (e) {}
+    });
   }
 })();
 </script>
