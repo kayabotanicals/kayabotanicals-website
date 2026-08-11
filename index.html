@@ -386,7 +386,7 @@ button{cursor:pointer;font-family:var(--fi)}
 .s-hero{min-height:100vh;display:grid;align-items:center;position:relative;overflow:hidden;background:var(--bg);grid-template-columns:1fr 1fr}
 .hero__ambient{position:absolute;inset:0;pointer-events:none}
 .hero__left{display:flex;flex-direction:column;justify-content:center;padding:110px 64px 80px;position:relative;z-index:2}
-.hero__right{position:relative;display:flex;align-items:center;justify-content:center;overflow:visible;align-self:stretch;min-height:70vh;padding:40px 40px 40px 0}@media(min-width:901px){.hero__right img{transform:translateY(-130px)}}
+.hero__right{position:relative;display:flex;align-items:center;justify-content:center;overflow:visible;align-self:stretch;min-height:70vh;padding:40px 40px 40px 0}@media(min-width:901px){.hero__right img{transform:translateY(-130px)}}@media(min-width:1101px){.s-hero{grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr)}.hero__right img{max-height:min(68vh,600px)}}
 .hero__can-wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
 .hero__can{max-height:85%;max-width:90%;width:auto;mix-blend-mode:screen;filter:brightness(1.08);object-fit:contain;position:relative;z-index:1}
 .hero__brand-tag{font-size:9px;letter-spacing:.45em;text-transform:uppercase;color:var(--gold2);margin-bottom:20px;display:flex;align-items:center;gap:12px}
@@ -766,6 +766,31 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
 ]}
 </script>
 
+<style>
+/* ══ v65 — CINEMATIC MOTION ══════════════════════════════════════════
+   Appended last so it wins on equal specificity. Reduced-motion safe. */
+
+/* Scroll reveal: longer travel, slower settle, wider stagger */
+.anim{transform:translateY(30px);transition:opacity 1.15s var(--ease),transform 1.15s var(--ease)}
+.anim.d1{transition-delay:.12s}
+.anim.d2{transition-delay:.26s}
+.anim.d3{transition-delay:.40s}
+.anim.d4{transition-delay:.54s}
+
+/* Hover push-in — slow, intentional, no layout shift.
+   KODA + related cards previously sat at scale(1.04) at rest AND on hover,
+   so their zoom never fired; rest state is now 1. */
+.koda-card__img,.related__img{transform:scale(1);transition:transform 1.25s cubic-bezier(.22,.61,.36,1)}
+.koda-card:hover .koda-card__img,.related__card:hover .related__img{transform:scale(1.07)}
+
+.k3b-card__img{transition:transform 1.25s cubic-bezier(.22,.61,.36,1),filter 1.25s cubic-bezier(.22,.61,.36,1)}
+.k3b-card:hover .k3b-card__img{transform:scale(1.06);filter:drop-shadow(0 16px 38px rgba(184,135,46,.20))}
+
+@media(prefers-reduced-motion:reduce){
+  .koda-card__img,.related__img,.k3b-card__img{transition:none!important;transform:none!important;filter:none!important}
+  .koda-card:hover .koda-card__img,.related__card:hover .related__img,.k3b-card:hover .k3b-card__img{transform:none!important;filter:none!important}
+}
+</style>
 </head>
 <body>
 <a href="#views" class="skip-link">Skip to content</a>
@@ -940,15 +965,18 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
     <div class="s-kokum__grid">
       <div>
         <p class="eyebrow anim">The Foundation</p>
-        <h2 class="display anim d1">Why Kokum.</h2>
+        <h2 class="display anim d1">The K3B<br>Foundation.</h2>
         <span class="rule anim d2"></span>
-        <p style="font-size:.95rem;font-weight:300;color:var(--txt2);line-height:1.95;max-width:540px" class="anim d2">Kokum is a rare botanical fruit from the Garcinia family, traditionally used across coastal India in cooling drinks, digestive preparations, and skin-nourishing rituals. Naturally rich in polyphenols, fruit acids, and deep botanical character, kokum sits at the heart of Kaya Botanicals.</p>
+        <p style="font-size:.95rem;font-weight:300;color:var(--txt2);line-height:1.95;max-width:540px" class="anim d2">Every formulation begins with a single question:</p>
+        <p style="font-size:.95rem;font-weight:300;color:var(--txt2);line-height:1.95;max-width:540px;margin-top:16px;font-style:italic;color:var(--cream)" class="anim d2">&ldquo;Does this deserve a place in someone&rsquo;s daily ritual?&rdquo;</p>
+        <p style="font-size:.95rem;font-weight:300;color:var(--txt2);line-height:1.95;max-width:540px;margin-top:16px" class="anim d2">That question guides every decision we make&mdash;from the botanical lipids we select, to the way we extract plants, to the ingredients we intentionally leave out, and the ritual instruments we thoughtfully pair with each formulation.</p>
+        <p style="font-size:.95rem;font-weight:300;color:var(--txt2);line-height:1.95;max-width:540px;margin-top:16px" class="anim d2">K3B is not built around trends. It is built around enduring principles.</p>
       </div>
       <div style="display:flex;justify-content:center" class="anim d3">
         <div class="kokum-orb">
           <div style="text-align:center;z-index:1">
-            <span class="kokum-orb__name">KOKUM</span>
-            <span class="kokum-orb__origin" style="display:block;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--txt3)">Garcinia Indica &middot; Sahyadri</span>
+            <span class="kokum-orb__name">The K3B<br>Foundation</span>
+            <span class="kokum-orb__origin" style="display:block;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--txt3)">Botanical Ritual House</span>
           </div>
         </div>
       </div>
@@ -956,18 +984,18 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
     <div class="pillars" id="science-anchor">
       <div class="pillar anim">
         <p class="pillar__num">01</p>
-        <h3 class="pillar__title">Digestive Intelligence</h3>
-        <p class="pillar__body">Kokum has been used in traditional coastal Indian beverages as a natural digestive and cooling tonic for generations. KODA brings this ritual to modern daily rhythm.</p>
+        <h3 class="pillar__title">Kokum-Centered<br>Botanical Lipids</h3>
+        <p class="pillar__body">Kokum remains the quiet foundation of every K3B formulation. Chosen for its elegant skin feel and compatibility with the skin barrier, it anchors every product with calm consistency rather than trend-driven ingredients.</p>
       </div>
       <div class="pillar anim d2">
         <p class="pillar__num">02</p>
-        <h3 class="pillar__title">Botanical Lipid Care</h3>
-        <p class="pillar__body">Kokum butter is one of the most stable, skin-compatible plant lipids available. K3B Apothecary is built entirely around its barrier-supportive, non-comedogenic properties.</p>
+        <h3 class="pillar__title">CO&#8322; Botanical<br>Extracts</h3>
+        <p class="pillar__body">Whenever it serves the formulation, we favor supercritical CO&#8322; botanical extracts to preserve the natural character of botanicals while remaining true to our Purposefully Minimalist Formulation philosophy.</p>
       </div>
       <div class="pillar anim d3">
         <p class="pillar__num">03</p>
-        <h3 class="pillar__title">Ancient Ingredient, Modern Ritual</h3>
-        <p class="pillar__body">Long overlooked by the global wellness industry, kokum is experiencing its moment &#x2014; not as a trend, but as a botanical correction to synthetic over-engineering.</p>
+        <h3 class="pillar__title">Purposefully<br>Minimalist<br>Formulations</h3>
+        <p class="pillar__body">Every ingredient must earn its place.<br><br>Our formulations are intentionally free from essential oils, synthetic fragrance, silicones, PEGs, and unnecessary additives&mdash;because thoughtful restraint is just as important as thoughtful inclusion.</p>
       </div>
     </div>
     <div class="section-cta-row anim">
@@ -4185,8 +4213,20 @@ function alignHeroRender(){
     if(Math.abs(diff)>4){img.style.transform='translateY('+diff.toFixed(1)+'px)';}
   }catch(e){}
 }
+function fitHeroName(){
+  try{
+    var v=document.querySelector('.view.active'); if(!v)return;
+    var h=v.querySelector('.hero__name'); if(!h)return;
+    h.style.fontSize='';
+    if(window.innerWidth<=1100)return;
+    var base=parseFloat(getComputedStyle(h).fontSize)||0;
+    var avail=h.clientWidth, need=h.scrollWidth;
+    if(base&&avail&&need>avail){h.style.fontSize=Math.floor(base*(avail/need)*0.99)+'px';}
+  }catch(e){}
+}
 function alignHeroRetry(){
   try{
+    fitHeroName();
     alignHeroRender();
     var n=0;var iv=setInterval(function(){alignHeroRender();if(++n>12)clearInterval(iv);},160);
     var v=document.querySelector('.view.active');
@@ -4513,7 +4553,7 @@ function syncMobileNavActive(){
     if(b)b.classList.toggle('active',v===currentView);
   });
 }
-window.addEventListener('resize',function(){alignHeroRender();});
+window.addEventListener('resize',function(){fitHeroName();alignHeroRender();});
 window.addEventListener('load',function(){setTimeout(alignHeroRender,300);});
 (function(){var _t=0;function ta(){var n=Date.now();if(n-_t>70){_t=n;alignHeroRender();}}window.addEventListener('scroll',ta,{passive:true});var k=0;var iv=setInterval(function(){alignHeroRender();if(++k>16)clearInterval(iv);},220);})();
 window.addEventListener('resize',function(){
