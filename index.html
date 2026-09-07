@@ -10,6 +10,9 @@
 <meta property="og:description" content="A botanical ritual house rooted in kokum. KODA ritual beverages and K3B Apothecary skincare. Launching Fall 2026."/>
 <meta property="og:type" content="website"/>
 <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="https://kayabotanicals.com/og-image.jpg"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
 <meta name="twitter:title" content="Kaya Botanicals — KODA · K3B Apothecary"/>
 <meta name="twitter:description" content="A botanical ritual house rooted in kokum. Two expressions. One plant philosophy."/>
 <title>Kaya Botanicals — KODA · K3B Apothecary · Botanical Rituals</title>
@@ -139,7 +142,16 @@ img{display:block;max-width:100%}
 .koda-hero__left{display:flex;flex-direction:column;justify-content:center;padding:120px 64px 80px;position:relative;z-index:2}
 .koda-hero__right{position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .koda-hero__cans-wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-.koda-hero__cans-img{max-height:88%;max-width:100%;width:auto;mix-blend-mode:screen;filter:brightness(1.05);object-fit:contain}
+/* V65 — the approved five-can master carries its own coloured glow to the frame edge.
+   Without this the image reads as a lit rectangle pasted on the page. Vignette in the
+   page background so the render dissolves instead of ending on a hard border. */
+.koda-hero__cans-wrap::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:2;
+  background:radial-gradient(ellipse 66% 62% at 50% 50%,transparent 0%,transparent 46%,rgba(13,11,9,.9) 98%)}
+.koda-hero__cans-img{max-height:88%;max-width:100%;width:auto;height:auto;mix-blend-mode:screen;filter:brightness(1.05);object-fit:contain;
+  -webkit-mask-image:linear-gradient(to right,transparent 0,#000 5%,#000 95%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 6%,#000 86%,transparent 100%);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(to right,transparent 0,#000 5%,#000 95%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 6%,#000 86%,transparent 100%);
+  mask-composite:intersect}
 .koda-hero__kicker{font-size:9px;letter-spacing:.45em;text-transform:uppercase;color:var(--gold2);margin-bottom:24px;display:flex;align-items:center;gap:12px}
 .koda-hero__kicker::before{content:'';display:block;width:28px;height:1px;background:var(--gold)}
 .koda-hero__headline{font-family:var(--fd);font-size:clamp(3rem,6vw,5rem);font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--cream);line-height:.95;margin-bottom:28px}
@@ -198,6 +210,10 @@ img{display:block;max-width:100%}
 .koda-card__name{font-family:var(--fd);font-size:1.4rem;font-weight:700;letter-spacing:.1em;color:var(--cream);margin-bottom:8px}
 .koda-card__ingredients{font-size:.76rem;font-weight:300;color:var(--gold3);margin-bottom:12px;letter-spacing:.04em;line-height:1.6}
 .koda-card__tagline{font-size:.82rem;font-style:italic;font-weight:300;color:var(--txt2);margin-bottom:20px;flex:1;line-height:1.7}
+.koda-card__cta{display:inline-flex;align-items:center;gap:8px;font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold2);text-decoration:none;padding-bottom:4px;margin-bottom:20px;border-bottom:1px solid rgba(184,135,46,.3);transition:color .3s,border-color .3s,gap .3s;align-self:flex-start}
+.koda-card__cta::after{content:'\2192';font-size:11px;line-height:1}
+.koda-card__cta:hover{color:var(--gold);border-bottom-color:var(--gold);gap:12px}
+.koda-card__cta:focus-visible,.koda-card__name:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
 .koda-card__footer{padding:0 24px;display:flex;align-items:center;justify-content:space-between;margin-top:auto}
 .koda-card__price{font-family:var(--fd);font-size:.9rem;font-weight:600;color:var(--gold2)}
 .add-cart-btn{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--txt2);background:var(--surface2);border:1px solid var(--border);padding:8px 14px;transition:all .2s}
@@ -870,7 +886,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
           <p class="ritual-card__tagline" id="rc-tagline"></p>
         </div>
         <div class="ritual-card__can" id="rc-can">
-          <img id="rc-can-img" src="/products/gut-can-image-for-product-page-final-mar.jpg" alt="" class="ritual-card__can-img" loading="lazy" aria-hidden="true"/>
+          <img id="rc-can-img" src="/products/koda-gut-can-640.webp" width="1024" height="1536" alt="" class="ritual-card__can-img" loading="lazy" decoding="async" aria-hidden="true"/>
         </div>
         <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
           <button class="ritual-card__cta" id="rc-cta" style="opacity:0" onclick="event.stopPropagation();addFromWheel()">Add to Cart</button>
@@ -1100,8 +1116,8 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
       <div class="footer__col">
         <p class="footer__col-title">KODA</p>
         <ul>
-          <li><button onclick="switchView('prod-koda-gut')">GUT &#x2014; Restore</button></li>
-          <li><button onclick="switchView('prod-koda-glow')">GLOW &#x2014; Radiate</button></li>
+          <li><button onclick="switchView('prod-koda-gut')">GUT &#x2014; The Digestive Ritual</button></li>
+          <li><button onclick="switchView('prod-koda-glow')">GLOW &#x2014; The Radiance Ritual</button></li>
           <li><button onclick="switchView('prod-koda-grit')">GRIT &#x2014; Defense</button></li>
           <li><button onclick="switchView('prod-koda-amber')">AMBER &#x2014; Unwind</button></li>
           <li><button onclick="switchView('prod-koda-cacao')">CACAO &#x2014; Clarity</button></li>
@@ -1174,8 +1190,12 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
   <div class="koda-hero__right">
     <div class="koda-hero__cans-wrap">
       <img class="koda-hero__cans-img"
-           src="/products/koda-hero-cans.jpg" loading="eager" decoding="async"
-           alt="KODA Ritual Collection"/>
+           src="/products/koda-five-rituals-hero.webp"
+           srcset="/products/koda-five-rituals-hero-768.webp 768w, /products/koda-five-rituals-hero-1152.webp 1152w, /products/koda-five-rituals-hero.webp 1536w"
+           sizes="(max-width:900px) 96vw, 50vw"
+           width="1536" height="1024"
+           loading="eager" fetchpriority="high" decoding="async"
+           alt="Five KODA botanical ritual beverages &mdash; GLOW, GRIT, GUT, AMBER and CACAO"/>
     </div>
   </div>
 </section>
@@ -1449,7 +1469,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
 <section class="s-hero">
   <div class="hero__ambient" style="background:radial-gradient(ellipse 55% 65% at 75% 55%,rgba(195,150,35,.12),transparent 65%)"></div>
   <div class="hero__left">
-    <p class="hero__brand-tag anim">KODA &mdash; Calm &amp; Unwind</p>
+    <p class="hero__brand-tag anim">KODA &mdash; The Stillness Ritual</p>
     <h1 class="hero__name anim d1">AMBER</h1>
     <p class="hero__sub anim d2">Sparkling Saffron-Orange Aperitivo Botanical</p>
     <span class="rule anim d2"></span>
@@ -1457,7 +1477,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
     <p class="hero__hook anim d3">&ldquo;Stillness in every drop.&rdquo;</p>
     <p class="hero__identity anim d3">The gold standard of calm.</p>
     <div class="hero__actions anim d4">
-      <div class="pack-select" role="radiogroup" aria-label="Choose pack size" data-id="koda-amber" data-name="KODA AMBER" data-price="6.50" data-sub="Calm &amp; Unwind" data-img="AMBER CAN FInal Mar 8 Website Product Page.png"><button class="pack-opt" data-qty="1" role="radio" aria-checked="false" onclick="packPick(this)">Single Can<span>$6.50</span></button><button class="pack-opt active" data-qty="4" role="radio" aria-checked="true" onclick="packPick(this)">4-Pack<span>$26.00</span></button><button class="pack-opt" data-qty="12" role="radio" aria-checked="false" onclick="packPick(this)">12-Can Collection<span>$78.00</span></button></div><button class="btn btn--gold pack-cta" onclick="packAdd(this)">Add 4-Pack to Ritual Cart &mdash; $26.00</button><p class="pack-note">Free US shipping on orders over $75</p>
+      <div class="pack-select" role="radiogroup" aria-label="Choose pack size" data-id="koda-amber" data-name="KODA AMBER" data-price="6.50" data-sub="The Stillness Ritual" data-img="AMBER CAN FInal Mar 8 Website Product Page.png"><button class="pack-opt" data-qty="1" role="radio" aria-checked="false" onclick="packPick(this)">Single Can<span>$6.50</span></button><button class="pack-opt active" data-qty="4" role="radio" aria-checked="true" onclick="packPick(this)">4-Pack<span>$26.00</span></button><button class="pack-opt" data-qty="12" role="radio" aria-checked="false" onclick="packPick(this)">12-Can Collection<span>$78.00</span></button></div><button class="btn btn--gold pack-cta" onclick="packAdd(this)">Add 4-Pack to Ritual Cart &mdash; $26.00</button><p class="pack-note">Free US shipping on orders over $75</p>
     </div>
     <p class="hero__launch anim d4">Launching Fall 2026 &mdash; Patent-Pending Botanical Decoction System&trade;</p>
   </div>
@@ -1524,7 +1544,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
       
 <div class="functional__row">
   <span class="functional__label">Functional Lane</span>
-  <span class="functional__value">Calm &amp; Unwind</span>
+  <span class="functional__value">The Stillness Ritual</span>
 </div>
 <div class="functional__row">
   <span class="functional__label">Aroma Profile</span>
@@ -1634,45 +1654,45 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
     <span class="rule anim d2"></span>
     <div class="related__grid anim d2">
       
-<a href="#" onclick="event.preventDefault();switchView('prod-koda-gut')" class="related__card related__card--gut">
+<a href="/gut" onclick="event.preventDefault();switchView('prod-koda-gut')" class="related__card related__card--gut">
   <div class="related__img-wrap">
     <img loading="lazy" decoding="async" class="related__img" data-img="GUT Can Image for Product Page Final Mar 7th.png" alt="KODA GUT"/>
   </div>
   <div class="related__body">
-    <p class="related__lane">Restore</p>
+    <p class="related__lane">The Digestive Ritual</p>
     <p class="related__name">GUT</p>
     <p class="related__hook">Nature's original digestive.</p>
     <span class="related__link">View Ritual</span>
   </div>
 </a>
-<a href="#" onclick="event.preventDefault();switchView('prod-koda-glow')" class="related__card related__card--glow">
+<a href="/glow" onclick="event.preventDefault();switchView('prod-koda-glow')" class="related__card related__card--glow">
   <div class="related__img-wrap">
     <img loading="lazy" decoding="async" class="related__img" data-img="GLOW Can Final Design for Website Product Page Mar 8th 2026.png" alt="KODA GLOW"/>
   </div>
   <div class="related__body">
-    <p class="related__lane">Radiate</p>
+    <p class="related__lane">The Radiance Ritual</p>
     <p class="related__name">GLOW</p>
     <p class="related__hook">Inner light. Outer glow.</p>
     <span class="related__link">View Ritual</span>
   </div>
 </a>
-<a href="#" onclick="event.preventDefault();switchView('prod-koda-grit')" class="related__card related__card--grit">
+<a href="/grit" onclick="event.preventDefault();switchView('prod-koda-grit')" class="related__card related__card--grit">
   <div class="related__img-wrap">
     <img loading="lazy" decoding="async" class="related__img" data-img="GRIT CAN Final Product Image for Website Mar 7.png" alt="KODA GRIT"/>
   </div>
   <div class="related__body">
-    <p class="related__lane">Daily Defense</p>
+    <p class="related__lane">The Resilience Ritual</p>
     <p class="related__name">GRIT</p>
     <p class="related__hook">Resilience, brewed with heat.</p>
     <span class="related__link">View Ritual</span>
   </div>
 </a>
-<a href="#" onclick="event.preventDefault();switchView('prod-koda-cacao')" class="related__card related__card--cacao">
+<a href="/cacao" onclick="event.preventDefault();switchView('prod-koda-cacao')" class="related__card related__card--cacao">
   <div class="related__img-wrap">
     <img loading="lazy" decoding="async" class="related__img" data-img="CACAO CAN Final Website Ready.png" alt="KODA CACAO"/>
   </div>
   <div class="related__body">
-    <p class="related__lane">Clarity &amp; Focus</p>
+    <p class="related__lane">The Clarity Ritual</p>
     <p class="related__name">CACAO</p>
     <p class="related__hook">Focus, without the noise.</p>
     <span class="related__link">View Ritual</span>
@@ -1690,7 +1710,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
 <section class="s-hero">
   <div class="hero__ambient" style="background:radial-gradient(ellipse 55% 65% at 75% 55%,rgba(115,75,40,.12),transparent 65%)"></div>
   <div class="hero__left">
-    <p class="hero__brand-tag anim">KODA &mdash; Clarity &amp; Focus</p>
+    <p class="hero__brand-tag anim">KODA &mdash; The Clarity Ritual</p>
     <h1 class="hero__name anim d1">CACAO</h1>
     <p class="hero__sub anim d2">Sparkling Cacao &amp; Spiced Kokum Infusion</p>
     <span class="rule anim d2"></span>
@@ -1698,7 +1718,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
     <p class="hero__hook anim d3">&ldquo;Focus, without the noise.&rdquo;</p>
     <p class="hero__identity anim d3">Sharp mind. Still heart.</p>
     <div class="hero__actions anim d4">
-      <div class="pack-select" role="radiogroup" aria-label="Choose pack size" data-id="koda-cacao" data-name="KODA CACAO" data-price="6.50" data-sub="Clarity &amp; Focus" data-img="CACAO CAN Final Website Ready.png"><button class="pack-opt" data-qty="1" role="radio" aria-checked="false" onclick="packPick(this)">Single Can<span>$6.50</span></button><button class="pack-opt active" data-qty="4" role="radio" aria-checked="true" onclick="packPick(this)">4-Pack<span>$26.00</span></button><button class="pack-opt" data-qty="12" role="radio" aria-checked="false" onclick="packPick(this)">12-Can Collection<span>$78.00</span></button></div><button class="btn btn--gold pack-cta" onclick="packAdd(this)">Add 4-Pack to Ritual Cart &mdash; $26.00</button><p class="pack-note">Free US shipping on orders over $75</p>
+      <div class="pack-select" role="radiogroup" aria-label="Choose pack size" data-id="koda-cacao" data-name="KODA CACAO" data-price="6.50" data-sub="The Clarity Ritual" data-img="CACAO CAN Final Website Ready.png"><button class="pack-opt" data-qty="1" role="radio" aria-checked="false" onclick="packPick(this)">Single Can<span>$6.50</span></button><button class="pack-opt active" data-qty="4" role="radio" aria-checked="true" onclick="packPick(this)">4-Pack<span>$26.00</span></button><button class="pack-opt" data-qty="12" role="radio" aria-checked="false" onclick="packPick(this)">12-Can Collection<span>$78.00</span></button></div><button class="btn btn--gold pack-cta" onclick="packAdd(this)">Add 4-Pack to Ritual Cart &mdash; $26.00</button><p class="pack-note">Free US shipping on orders over $75</p>
     </div>
     <p class="hero__launch anim d4">Launching Fall 2026 &mdash; Patent-Pending Botanical Decoction System&trade;</p>
   </div>
@@ -1721,7 +1741,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
       <p class="narrative__quote anim d1">&ldquo;Zero added sugars. Brutally dry. Elegant.&rdquo;</p>
       <span class="rule rule--c anim d2"></span>
       <div class="narrative__body anim d2">
-        <p>CACAO reimagines the sacred heritage of the cacao bean as an ultra-dry, sparkling culinary beverage engineered for cognitive alignment. Moving completely away from the sweet, syrupy chocolate profiles of mass-market sodas, CACAO delivers an authentic, aroma-forward adult profile built for deep work and creative flow.</p><p>Crafted through our proprietary botanical decoction process, the true volatile perfume of cracked cacao nibs is fully captured without the heavy, brothy bitterness of traditional brewing.</p><p>A botanical foundation of sun-dried figs yields a velvety, weighted body, while the sharp, digestive brightness of exotic kokum rind carves out a crisp, tongue-cleansing acidity. Nuances of warm cinnamon, whole clove, and sweet vanilla bean swirl into a surprising mid-palate finish anchored by earthy vetiver root and functional reishi mushroom.</p>
+        <p>CACAO reimagines the sacred heritage of the cacao bean as an ultra-dry, sparkling culinary beverage thoughtfully crafted for cognitive alignment. Moving completely away from the sweet, syrupy chocolate profiles of mass-market sodas, CACAO delivers an authentic, aroma-forward adult profile built for deep work and creative flow.</p><p>Crafted through our proprietary botanical decoction process, the true volatile perfume of cracked cacao nibs is fully captured without the heavy, brothy bitterness of traditional brewing.</p><p>A botanical foundation of sun-dried figs yields a velvety, weighted body, while the sharp, digestive brightness of exotic kokum rind carves out a crisp, tongue-cleansing acidity. Nuances of warm cinnamon, whole clove, and sweet vanilla bean swirl into a surprising mid-palate finish anchored by earthy vetiver root and functional reishi mushroom.</p>
       </div>
     </div>
   </div>
@@ -1765,7 +1785,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
       
 <div class="functional__row">
   <span class="functional__label">Functional Lane</span>
-  <span class="functional__value">Clarity &amp; Focus</span>
+  <span class="functional__value">The Clarity Ritual</span>
 </div>
 <div class="functional__row">
   <span class="functional__label">Aroma Profile</span>
@@ -1875,45 +1895,45 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
     <span class="rule anim d2"></span>
     <div class="related__grid anim d2">
       
-<a href="#" onclick="event.preventDefault();switchView('prod-koda-gut')" class="related__card related__card--gut">
+<a href="/gut" onclick="event.preventDefault();switchView('prod-koda-gut')" class="related__card related__card--gut">
   <div class="related__img-wrap">
     <img loading="lazy" decoding="async" class="related__img" data-img="GUT Can Image for Product Page Final Mar 7th.png" alt="KODA GUT"/>
   </div>
   <div class="related__body">
-    <p class="related__lane">Restore</p>
+    <p class="related__lane">The Digestive Ritual</p>
     <p class="related__name">GUT</p>
     <p class="related__hook">Nature's original digestive.</p>
     <span class="related__link">View Ritual</span>
   </div>
 </a>
-<a href="#" onclick="event.preventDefault();switchView('prod-koda-glow')" class="related__card related__card--glow">
+<a href="/glow" onclick="event.preventDefault();switchView('prod-koda-glow')" class="related__card related__card--glow">
   <div class="related__img-wrap">
     <img loading="lazy" decoding="async" class="related__img" data-img="GLOW Can Final Design for Website Product Page Mar 8th 2026.png" alt="KODA GLOW"/>
   </div>
   <div class="related__body">
-    <p class="related__lane">Radiate</p>
+    <p class="related__lane">The Radiance Ritual</p>
     <p class="related__name">GLOW</p>
     <p class="related__hook">Inner light. Outer glow.</p>
     <span class="related__link">View Ritual</span>
   </div>
 </a>
-<a href="#" onclick="event.preventDefault();switchView('prod-koda-grit')" class="related__card related__card--grit">
+<a href="/grit" onclick="event.preventDefault();switchView('prod-koda-grit')" class="related__card related__card--grit">
   <div class="related__img-wrap">
     <img loading="lazy" decoding="async" class="related__img" data-img="GRIT CAN Final Product Image for Website Mar 7.png" alt="KODA GRIT"/>
   </div>
   <div class="related__body">
-    <p class="related__lane">Daily Defense</p>
+    <p class="related__lane">The Resilience Ritual</p>
     <p class="related__name">GRIT</p>
     <p class="related__hook">Resilience, brewed with heat.</p>
     <span class="related__link">View Ritual</span>
   </div>
 </a>
-<a href="#" onclick="event.preventDefault();switchView('prod-koda-amber')" class="related__card related__card--amber">
+<a href="/amber" onclick="event.preventDefault();switchView('prod-koda-amber')" class="related__card related__card--amber">
   <div class="related__img-wrap">
     <img loading="lazy" decoding="async" class="related__img" data-img="AMBER CAN FInal Mar 8 Website Product Page.png" alt="KODA AMBER"/>
   </div>
   <div class="related__body">
-    <p class="related__lane">Calm &amp; Unwind</p>
+    <p class="related__lane">The Stillness Ritual</p>
     <p class="related__name">AMBER</p>
     <p class="related__hook">Stillness in every drop.</p>
     <span class="related__link">View Ritual</span>
@@ -1931,7 +1951,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
 <section class="s-hero">
   <div class="hero__ambient" style="background:radial-gradient(ellipse 55% 65% at 75% 55%,rgba(120,65,165,.12),transparent 65%)"></div>
   <div class="hero__left">
-    <p class="hero__brand-tag anim">KODA &mdash; Radiate</p>
+    <p class="hero__brand-tag anim">KODA &mdash; The Radiance Ritual</p>
     <h1 class="hero__name anim d1">GLOW</h1>
     <p class="hero__sub anim d2">Sparkling Jamun &amp; Phyto-Botanical Radiant Tonic</p>
     <span class="rule anim d2"></span>
@@ -1939,7 +1959,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
     <p class="hero__hook anim d3">&ldquo;Inner light. Outer glow.&rdquo;</p>
     <p class="hero__identity anim d3">Vitality you can see.</p>
     <div class="hero__actions anim d4">
-      <div class="pack-select" role="radiogroup" aria-label="Choose pack size" data-id="koda-glow" data-name="KODA GLOW" data-price="6.50" data-sub="Radiate" data-img="GLOW Can Final Design for Website Product Page Mar 8th 2026.png"><button class="pack-opt" data-qty="1" role="radio" aria-checked="false" onclick="packPick(this)">Single Can<span>$6.50</span></button><button class="pack-opt active" data-qty="4" role="radio" aria-checked="true" onclick="packPick(this)">4-Pack<span>$26.00</span></button><button class="pack-opt" data-qty="12" role="radio" aria-checked="false" onclick="packPick(this)">12-Can Collection<span>$78.00</span></button></div><button class="btn btn--gold pack-cta" onclick="packAdd(this)">Add 4-Pack to Ritual Cart &mdash; $26.00</button><p class="pack-note">Free US shipping on orders over $75</p>
+      <div class="pack-select" role="radiogroup" aria-label="Choose pack size" data-id="koda-glow" data-name="KODA GLOW" data-price="6.50" data-sub="The Radiance Ritual" data-img="GLOW Can Final Design for Website Product Page Mar 8th 2026.png"><button class="pack-opt" data-qty="1" role="radio" aria-checked="false" onclick="packPick(this)">Single Can<span>$6.50</span></button><button class="pack-opt active" data-qty="4" role="radio" aria-checked="true" onclick="packPick(this)">4-Pack<span>$26.00</span></button><button class="pack-opt" data-qty="12" role="radio" aria-checked="false" onclick="packPick(this)">12-Can Collection<span>$78.00</span></button></div><button class="btn btn--gold pack-cta" onclick="packAdd(this)">Add 4-Pack to Ritual Cart &mdash; $26.00</button><p class="pack-note">Free US shipping on orders over $75</p>
     </div>
     <p class="hero__launch anim d4">Launching Fall 2026 &mdash; Patent-Pending Botanical Decoction System&trade;</p>
   </div>
@@ -2006,7 +2026,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
       
 <div class="functional__row">
   <span class="functional__label">Functional Lane</span>
-  <span class="functional__value">Radiate</span>
+  <span class="functional__value">The Radiance Ritual</span>
 </div>
 <div class="functional__row">
   <span class="functional__label">Aroma Profile</span>
@@ -2116,45 +2136,45 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
     <span class="rule anim d2"></span>
     <div class="related__grid anim d2">
       
-<a href="#" onclick="event.preventDefault();switchView('prod-koda-gut')" class="related__card related__card--gut">
+<a href="/gut" onclick="event.preventDefault();switchView('prod-koda-gut')" class="related__card related__card--gut">
   <div class="related__img-wrap">
     <img loading="lazy" decoding="async" class="related__img" data-img="GUT Can Image for Product Page Final Mar 7th.png" alt="KODA GUT"/>
   </div>
   <div class="related__body">
-    <p class="related__lane">Restore</p>
+    <p class="related__lane">The Digestive Ritual</p>
     <p class="related__name">GUT</p>
     <p class="related__hook">Nature's original digestive.</p>
     <span class="related__link">View Ritual</span>
   </div>
 </a>
-<a href="#" onclick="event.preventDefault();switchView('prod-koda-grit')" class="related__card related__card--grit">
+<a href="/grit" onclick="event.preventDefault();switchView('prod-koda-grit')" class="related__card related__card--grit">
   <div class="related__img-wrap">
     <img loading="lazy" decoding="async" class="related__img" data-img="GRIT CAN Final Product Image for Website Mar 7.png" alt="KODA GRIT"/>
   </div>
   <div class="related__body">
-    <p class="related__lane">Daily Defense</p>
+    <p class="related__lane">The Resilience Ritual</p>
     <p class="related__name">GRIT</p>
     <p class="related__hook">Resilience, brewed with heat.</p>
     <span class="related__link">View Ritual</span>
   </div>
 </a>
-<a href="#" onclick="event.preventDefault();switchView('prod-koda-amber')" class="related__card related__card--amber">
+<a href="/amber" onclick="event.preventDefault();switchView('prod-koda-amber')" class="related__card related__card--amber">
   <div class="related__img-wrap">
     <img loading="lazy" decoding="async" class="related__img" data-img="AMBER CAN FInal Mar 8 Website Product Page.png" alt="KODA AMBER"/>
   </div>
   <div class="related__body">
-    <p class="related__lane">Calm &amp; Unwind</p>
+    <p class="related__lane">The Stillness Ritual</p>
     <p class="related__name">AMBER</p>
     <p class="related__hook">Stillness in every drop.</p>
     <span class="related__link">View Ritual</span>
   </div>
 </a>
-<a href="#" onclick="event.preventDefault();switchView('prod-koda-cacao')" class="related__card related__card--cacao">
+<a href="/cacao" onclick="event.preventDefault();switchView('prod-koda-cacao')" class="related__card related__card--cacao">
   <div class="related__img-wrap">
     <img loading="lazy" decoding="async" class="related__img" data-img="CACAO CAN Final Website Ready.png" alt="KODA CACAO"/>
   </div>
   <div class="related__body">
-    <p class="related__lane">Clarity &amp; Focus</p>
+    <p class="related__lane">The Clarity Ritual</p>
     <p class="related__name">CACAO</p>
     <p class="related__hook">Focus, without the noise.</p>
     <span class="related__link">View Ritual</span>
@@ -2172,7 +2192,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
 <section class="s-hero">
   <div class="hero__ambient" style="background:radial-gradient(ellipse 55% 65% at 75% 55%,rgba(60,140,75,.12),transparent 65%)"></div>
   <div class="hero__left">
-    <p class="hero__brand-tag anim">KODA &mdash; Daily Defense</p>
+    <p class="hero__brand-tag anim">KODA &mdash; The Resilience Ritual</p>
     <h1 class="hero__name anim d1">GRIT</h1>
     <p class="hero__sub anim d2">Sparkling Amla &amp; Fiery Green Botanical Tonic</p>
     <span class="rule anim d2"></span>
@@ -2180,7 +2200,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
     <p class="hero__hook anim d3">&ldquo;Resilience, brewed with heat.&rdquo;</p>
     <p class="hero__identity anim d3">Your daily armor.</p>
     <div class="hero__actions anim d4">
-      <div class="pack-select" role="radiogroup" aria-label="Choose pack size" data-id="koda-grit" data-name="KODA GRIT" data-price="6.50" data-sub="Daily Defense" data-img="GRIT CAN Final Product Image for Website Mar 7.png"><button class="pack-opt" data-qty="1" role="radio" aria-checked="false" onclick="packPick(this)">Single Can<span>$6.50</span></button><button class="pack-opt active" data-qty="4" role="radio" aria-checked="true" onclick="packPick(this)">4-Pack<span>$26.00</span></button><button class="pack-opt" data-qty="12" role="radio" aria-checked="false" onclick="packPick(this)">12-Can Collection<span>$78.00</span></button></div><button class="btn btn--gold pack-cta" onclick="packAdd(this)">Add 4-Pack to Ritual Cart &mdash; $26.00</button><p class="pack-note">Free US shipping on orders over $75</p>
+      <div class="pack-select" role="radiogroup" aria-label="Choose pack size" data-id="koda-grit" data-name="KODA GRIT" data-price="6.50" data-sub="The Resilience Ritual" data-img="GRIT CAN Final Product Image for Website Mar 7.png"><button class="pack-opt" data-qty="1" role="radio" aria-checked="false" onclick="packPick(this)">Single Can<span>$6.50</span></button><button class="pack-opt active" data-qty="4" role="radio" aria-checked="true" onclick="packPick(this)">4-Pack<span>$26.00</span></button><button class="pack-opt" data-qty="12" role="radio" aria-checked="false" onclick="packPick(this)">12-Can Collection<span>$78.00</span></button></div><button class="btn btn--gold pack-cta" onclick="packAdd(this)">Add 4-Pack to Ritual Cart &mdash; $26.00</button><p class="pack-note">Free US shipping on orders over $75</p>
     </div>
     <p class="hero__launch anim d4">Launching Fall 2026 &mdash; Patent-Pending Botanical Decoction System&trade;</p>
   </div>
@@ -2203,7 +2223,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
       <p class="narrative__quote anim d1">&ldquo;Zero refined sugars. Absolute resilience.&rdquo;</p>
       <span class="rule rule--c anim d2"></span>
       <div class="narrative__body anim d2">
-        <p>GRIT is a high-octane metabolic catalyst and cellular shield, engineered for an intense, green-botanical flavor experience. Moving completely away from the sweet, cloying ginger ales of the past, GRIT delivers an unapologetically bracing, multi-layered tonic built around real, whole-ingredient heat.</p><p>The structural core is built from vitamin-C-packed fresh amla pulp, fresh ginger root, turmeric root, and a precise prick of green chili — crafted through our proprietary botanical decoction process.</p><p>A grounding botanical matrix of fennel, coriander, and wild gotu kola delivers rich mid-palate depth, while fresh spearmint adds a cooling aromatic contrast. Balanced with fresh cucumber, green grape, crisp kaffir lime, and lemongrass — finished with mineral-dense Himalayan salt and organic agave.</p>
+        <p>GRIT is a high-octane metabolic catalyst and cellular shield, thoughtfully crafted for an intense, green-botanical flavor experience. Moving completely away from the sweet, cloying ginger ales of the past, GRIT delivers an unapologetically bracing, multi-layered tonic built around real, whole-ingredient heat.</p><p>The structural core is built from vitamin-C-packed fresh amla pulp, fresh ginger root, turmeric root, and a precise prick of green chili — crafted through our proprietary botanical decoction process.</p><p>A grounding botanical matrix of fennel, coriander, and wild gotu kola delivers rich mid-palate depth, while fresh spearmint adds a cooling aromatic contrast. Balanced with fresh cucumber, green grape, crisp kaffir lime, and lemongrass — finished with mineral-dense Himalayan salt and organic agave.</p>
       </div>
     </div>
   </div>
@@ -2247,7 +2267,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
       
 <div class="functional__row">
   <span class="functional__label">Functional Lane</span>
-  <span class="functional__value">Daily Defense</span>
+  <span class="functional__value">The Resilience Ritual</span>
 </div>
 <div class="functional__row">
   <span class="functional__label">Aroma Profile</span>
@@ -2357,45 +2377,45 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
     <span class="rule anim d2"></span>
     <div class="related__grid anim d2">
       
-<a href="#" onclick="event.preventDefault();switchView('prod-koda-gut')" class="related__card related__card--gut">
+<a href="/gut" onclick="event.preventDefault();switchView('prod-koda-gut')" class="related__card related__card--gut">
   <div class="related__img-wrap">
     <img loading="lazy" decoding="async" class="related__img" data-img="GUT Can Image for Product Page Final Mar 7th.png" alt="KODA GUT"/>
   </div>
   <div class="related__body">
-    <p class="related__lane">Restore</p>
+    <p class="related__lane">The Digestive Ritual</p>
     <p class="related__name">GUT</p>
     <p class="related__hook">Nature's original digestive.</p>
     <span class="related__link">View Ritual</span>
   </div>
 </a>
-<a href="#" onclick="event.preventDefault();switchView('prod-koda-glow')" class="related__card related__card--glow">
+<a href="/glow" onclick="event.preventDefault();switchView('prod-koda-glow')" class="related__card related__card--glow">
   <div class="related__img-wrap">
     <img loading="lazy" decoding="async" class="related__img" data-img="GLOW Can Final Design for Website Product Page Mar 8th 2026.png" alt="KODA GLOW"/>
   </div>
   <div class="related__body">
-    <p class="related__lane">Radiate</p>
+    <p class="related__lane">The Radiance Ritual</p>
     <p class="related__name">GLOW</p>
     <p class="related__hook">Inner light. Outer glow.</p>
     <span class="related__link">View Ritual</span>
   </div>
 </a>
-<a href="#" onclick="event.preventDefault();switchView('prod-koda-amber')" class="related__card related__card--amber">
+<a href="/amber" onclick="event.preventDefault();switchView('prod-koda-amber')" class="related__card related__card--amber">
   <div class="related__img-wrap">
     <img loading="lazy" decoding="async" class="related__img" data-img="AMBER CAN FInal Mar 8 Website Product Page.png" alt="KODA AMBER"/>
   </div>
   <div class="related__body">
-    <p class="related__lane">Calm &amp; Unwind</p>
+    <p class="related__lane">The Stillness Ritual</p>
     <p class="related__name">AMBER</p>
     <p class="related__hook">Stillness in every drop.</p>
     <span class="related__link">View Ritual</span>
   </div>
 </a>
-<a href="#" onclick="event.preventDefault();switchView('prod-koda-cacao')" class="related__card related__card--cacao">
+<a href="/cacao" onclick="event.preventDefault();switchView('prod-koda-cacao')" class="related__card related__card--cacao">
   <div class="related__img-wrap">
     <img loading="lazy" decoding="async" class="related__img" data-img="CACAO CAN Final Website Ready.png" alt="KODA CACAO"/>
   </div>
   <div class="related__body">
-    <p class="related__lane">Clarity &amp; Focus</p>
+    <p class="related__lane">The Clarity Ritual</p>
     <p class="related__name">CACAO</p>
     <p class="related__hook">Focus, without the noise.</p>
     <span class="related__link">View Ritual</span>
@@ -2413,7 +2433,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
 <section class="s-hero">
   <div class="hero__ambient" style="background:radial-gradient(ellipse 55% 65% at 75% 55%,rgba(180,80,55,.12),transparent 65%)"></div>
   <div class="hero__left">
-    <p class="hero__brand-tag anim">KODA &mdash; Restore</p>
+    <p class="hero__brand-tag anim">KODA &mdash; The Digestive Ritual</p>
     <h1 class="hero__name anim d1">GUT</h1>
     <p class="hero__sub anim d2">Sparkling Kokum &amp; Ayurvedic Herb Digestive Tonic</p>
     <span class="rule anim d2"></span>
@@ -2421,7 +2441,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
     <p class="hero__hook anim d3">&ldquo;Nature's original digestive.&rdquo;</p>
     <p class="hero__identity anim d3">The future of digestive ritual.</p>
     <div class="hero__actions anim d4">
-      <div class="pack-select" role="radiogroup" aria-label="Choose pack size" data-id="koda-gut" data-name="KODA GUT" data-price="6.50" data-sub="Restore" data-img="GUT Can Image for Product Page Final Mar 7th.png"><button class="pack-opt" data-qty="1" role="radio" aria-checked="false" onclick="packPick(this)">Single Can<span>$6.50</span></button><button class="pack-opt active" data-qty="4" role="radio" aria-checked="true" onclick="packPick(this)">4-Pack<span>$26.00</span></button><button class="pack-opt" data-qty="12" role="radio" aria-checked="false" onclick="packPick(this)">12-Can Collection<span>$78.00</span></button></div><button class="btn btn--gold pack-cta" onclick="packAdd(this)">Add 4-Pack to Ritual Cart &mdash; $26.00</button><p class="pack-note">Free US shipping on orders over $75</p>
+      <div class="pack-select" role="radiogroup" aria-label="Choose pack size" data-id="koda-gut" data-name="KODA GUT" data-price="6.50" data-sub="The Digestive Ritual" data-img="GUT Can Image for Product Page Final Mar 7th.png"><button class="pack-opt" data-qty="1" role="radio" aria-checked="false" onclick="packPick(this)">Single Can<span>$6.50</span></button><button class="pack-opt active" data-qty="4" role="radio" aria-checked="true" onclick="packPick(this)">4-Pack<span>$26.00</span></button><button class="pack-opt" data-qty="12" role="radio" aria-checked="false" onclick="packPick(this)">12-Can Collection<span>$78.00</span></button></div><button class="btn btn--gold pack-cta" onclick="packAdd(this)">Add 4-Pack to Ritual Cart &mdash; $26.00</button><p class="pack-note">Free US shipping on orders over $75</p>
     </div>
     <p class="hero__launch anim d4">Launching Fall 2026 &mdash; Patent-Pending Botanical Decoction System&trade;</p>
   </div>
@@ -2444,7 +2464,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
       <p class="narrative__quote anim d1">&ldquo;Zero added refined sugars. A definitive, systemic reset.&rdquo;</p>
       <span class="rule rule--c anim d2"></span>
       <div class="narrative__body anim d2">
-        <p>GUT honors thousands of years of Ayurvedic wisdom, transforming traditional digestive rituals into a crisp, high-contrast sparkling experience. Engineered specifically to ground, prime, and restore the digestive system, this formula trades standard, heavily processed gut health drinks for a patent-pending proprietary decoction of real, whole botanicals.</p><p>The undisputed engine of this blend is a proprietary multi-stage botanical extraction of exotic sun-dried kokum fruit and ruby amsul rind, providing a brilliantly tart, palate-cleansing fruit acidity.</p><p>This sharp top note is structured with a deeply grounding spice matrix of toasted fennel, coriander, and cumin seeds, balanced with adaptogenic gotu kola, ashwagandha, and rare moringa leaves. Layered with a clear, unsweetened fruit matrix of raw mango, black grape, and watermelon — finished with a touch of organic agave and mineral-dense Himalayan salt.</p>
+        <p>GUT honors thousands of years of Ayurvedic wisdom, transforming traditional digestive rituals into a crisp, high-contrast sparkling experience. Thoughtfully crafted to ground, prime, and restore the digestive system, this formula trades standard, heavily processed gut health drinks for a patent-pending proprietary decoction of real, whole botanicals.</p><p>The undisputed engine of this blend is a proprietary multi-stage botanical extraction of exotic sun-dried kokum fruit and ruby amsul rind, providing a brilliantly tart, palate-cleansing fruit acidity.</p><p>This sharp top note is structured with a deeply grounding spice matrix of toasted fennel, coriander, and cumin seeds, balanced with adaptogenic gotu kola, ashwagandha, and rare moringa leaves. Layered with a clear, unsweetened fruit matrix of raw mango, black grape, and watermelon — finished with a touch of organic agave and mineral-dense Himalayan salt.</p>
       </div>
     </div>
   </div>
@@ -2488,7 +2508,7 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
       
 <div class="functional__row">
   <span class="functional__label">Functional Lane</span>
-  <span class="functional__value">Restore</span>
+  <span class="functional__value">The Digestive Ritual</span>
 </div>
 <div class="functional__row">
   <span class="functional__label">Aroma Profile</span>
@@ -2598,45 +2618,45 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
     <span class="rule anim d2"></span>
     <div class="related__grid anim d2">
       
-<a href="#" onclick="event.preventDefault();switchView('prod-koda-glow')" class="related__card related__card--glow">
+<a href="/glow" onclick="event.preventDefault();switchView('prod-koda-glow')" class="related__card related__card--glow">
   <div class="related__img-wrap">
     <img loading="lazy" decoding="async" class="related__img" data-img="GLOW Can Final Design for Website Product Page Mar 8th 2026.png" alt="KODA GLOW"/>
   </div>
   <div class="related__body">
-    <p class="related__lane">Radiate</p>
+    <p class="related__lane">The Radiance Ritual</p>
     <p class="related__name">GLOW</p>
     <p class="related__hook">Inner light. Outer glow.</p>
     <span class="related__link">View Ritual</span>
   </div>
 </a>
-<a href="#" onclick="event.preventDefault();switchView('prod-koda-grit')" class="related__card related__card--grit">
+<a href="/grit" onclick="event.preventDefault();switchView('prod-koda-grit')" class="related__card related__card--grit">
   <div class="related__img-wrap">
     <img loading="lazy" decoding="async" class="related__img" data-img="GRIT CAN Final Product Image for Website Mar 7.png" alt="KODA GRIT"/>
   </div>
   <div class="related__body">
-    <p class="related__lane">Daily Defense</p>
+    <p class="related__lane">The Resilience Ritual</p>
     <p class="related__name">GRIT</p>
     <p class="related__hook">Resilience, brewed with heat.</p>
     <span class="related__link">View Ritual</span>
   </div>
 </a>
-<a href="#" onclick="event.preventDefault();switchView('prod-koda-amber')" class="related__card related__card--amber">
+<a href="/amber" onclick="event.preventDefault();switchView('prod-koda-amber')" class="related__card related__card--amber">
   <div class="related__img-wrap">
     <img loading="lazy" decoding="async" class="related__img" data-img="AMBER CAN FInal Mar 8 Website Product Page.png" alt="KODA AMBER"/>
   </div>
   <div class="related__body">
-    <p class="related__lane">Calm &amp; Unwind</p>
+    <p class="related__lane">The Stillness Ritual</p>
     <p class="related__name">AMBER</p>
     <p class="related__hook">Stillness in every drop.</p>
     <span class="related__link">View Ritual</span>
   </div>
 </a>
-<a href="#" onclick="event.preventDefault();switchView('prod-koda-cacao')" class="related__card related__card--cacao">
+<a href="/cacao" onclick="event.preventDefault();switchView('prod-koda-cacao')" class="related__card related__card--cacao">
   <div class="related__img-wrap">
     <img loading="lazy" decoding="async" class="related__img" data-img="CACAO CAN Final Website Ready.png" alt="KODA CACAO"/>
   </div>
   <div class="related__body">
-    <p class="related__lane">Clarity &amp; Focus</p>
+    <p class="related__lane">The Clarity Ritual</p>
     <p class="related__name">CACAO</p>
     <p class="related__hook">Focus, without the noise.</p>
     <span class="related__link">View Ritual</span>
@@ -3876,10 +3896,17 @@ RITUAL MASSAGER</h1>
 <div class="toast" id="toast"></div>
 
 <script>
-const IMG_MAP={"GUT Can Image for Product Page Final Mar 7th.png": "/products/gut-can-image-for-product-page-final-mar.jpg","AMBER CAN FInal Mar 8 Website Product Page.png": "/products/amber-can-final-mar-8-website-product-pa.jpg","GLOW Can Final Design for Website Product Page Mar 8th 2026.png": "/products/glow-can-final-design-for-website-produc.jpg","CACAO CAN Final Website Ready.png": "/products/cacao-can-final-website-ready-png.jpg","GRIT CAN Final Product Image for Website Mar 7.png": "/products/grit-can-final-product-image-for-website.jpg","KODA Flame Mark": "/products/koda-flame-mark.png","K3B Arc Mark": "/products/k3b-arc-mark.png"};
+const IMG_MAP={"GUT Can Image for Product Page Final Mar 7th.png": "/products/koda-gut-can.webp","AMBER CAN FInal Mar 8 Website Product Page.png": "/products/koda-amber-can.webp","GLOW Can Final Design for Website Product Page Mar 8th 2026.png": "/products/koda-glow-can.webp","CACAO CAN Final Website Ready.png": "/products/koda-cacao-can.webp","GRIT CAN Final Product Image for Website Mar 7.png": "/products/koda-grit-can.webp","KODA Flame Mark": "/products/koda-flame-mark.png","K3B Arc Mark": "/products/k3b-arc-mark.png"};
+/* V65 — responsive sources for the five approved can renders (2:3, 1024w master) */
+const IMG_SRCSET={"/products/koda-gut-can.webp":"/products/koda-gut-can-400.webp 400w, /products/koda-gut-can-640.webp 640w, /products/koda-gut-can.webp 1024w","/products/koda-glow-can.webp":"/products/koda-glow-can-400.webp 400w, /products/koda-glow-can-640.webp 640w, /products/koda-glow-can.webp 1024w","/products/koda-grit-can.webp":"/products/koda-grit-can-400.webp 400w, /products/koda-grit-can-640.webp 640w, /products/koda-grit-can.webp 1024w","/products/koda-amber-can.webp":"/products/koda-amber-can-400.webp 400w, /products/koda-amber-can-640.webp 640w, /products/koda-amber-can.webp 1024w","/products/koda-cacao-can.webp":"/products/koda-cacao-can-400.webp 400w, /products/koda-cacao-can-640.webp 640w, /products/koda-cacao-can.webp 1024w"};
+const IMG_ALT={"/products/koda-gut-can.webp":"KODA GUT botanical ritual beverage can","/products/koda-glow-can.webp":"KODA GLOW botanical ritual beverage can","/products/koda-grit-can.webp":"KODA GRIT botanical ritual beverage can","/products/koda-amber-can.webp":"KODA AMBER botanical ritual beverage can","/products/koda-cacao-can.webp":"KODA CACAO botanical ritual beverage can"};
 const IMG='';
 /* V40: each image asset is embedded exactly once in IMG_MAP; all <img data-img> tags hydrate from it */
-document.querySelectorAll('img[data-img]').forEach(function(im){var k=im.getAttribute('data-img');if(IMG_MAP[k])im.src=IMG_MAP[k];});
+document.querySelectorAll('img[data-img]').forEach(function(im){var k=im.getAttribute('data-img');var u=IMG_MAP[k];if(!u)return;im.src=u;
+  if(IMG_SRCSET[u]){im.srcset=IMG_SRCSET[u];if(!im.sizes)im.sizes='(max-width:768px) 60vw, 360px';}
+  if(IMG_ALT[u]&&!im.getAttribute('data-keep-alt'))im.alt=IMG_ALT[u];
+  if(!im.getAttribute('width')&&/koda-\w+-can\.webp$/.test(u)){im.setAttribute('width','1024');im.setAttribute('height','1536');}
+});
 
 /* ══ PRODUCT DATA ══
    TODO (Shopify): Replace these arrays with Shopify Storefront API product fetches.
@@ -3889,11 +3916,11 @@ document.querySelectorAll('img[data-img]').forEach(function(im){var k=im.getAttr
    K3B pricing: Moisturizer $38, Mineral Veil $44, Kokum Body Butter $48, Body Oil $56, Elixir $68
 ══ */
 const KODA_PRODUCTS=[
-  {id:'koda-gut',  name:'GUT',  ritual:'Restore',       price:6.50, ingredients:'Kokum · Moringa · Fenugreek',         tagline:'Nature\'s original digestive.',    img:"GUT Can Image for Product Page Final Mar 7th.png",                              detail:'prod-koda-gut'},
-  {id:'koda-glow', name:'GLOW', ritual:'Radiate',        price:6.50, ingredients:'Purple Berry · Gotu Kola',            tagline:'Inner light. Outer glow.',         img:"GLOW Can Final Design for Website Product Page Mar 8th 2026.png",             detail:'prod-koda-glow'},
-  {id:'koda-grit', name:'GRIT', ritual:'Daily Defense',  price:6.50, ingredients:'Amla · Ginger · Tulsi',              tagline:'Resilience, brewed with heat.',    img:"GRIT CAN Final Product Image for Website Mar 7.png",                          detail:'prod-koda-grit'},
-  {id:'koda-amber',name:'AMBER',ritual:'Calm & Unwind',  price:6.50, ingredients:'Saffron · Cardamom',                 tagline:'The gold standard of calm.',       img:"AMBER CAN FInal Mar 8 Website Product Page.png",                             detail:'prod-koda-amber'},
-  {id:'koda-cacao',name:'CACAO',ritual:'Clarity & Focus',price:6.50, ingredients:'Cacao · Cinnamon · Vanilla',         tagline:'Focus, without the noise.',        img:"CACAO CAN Final Website Ready.png",                                           detail:'prod-koda-cacao'}
+  {id:'koda-gut',  name:'GUT',  slug:'gut',  ritual:'The Digestive Ritual',  price:6.50, ingredients:'Kokum · Fennel',        tagline:'Nature\'s original digestive.', img:"GUT Can Image for Product Page Final Mar 7th.png",                              detail:'prod-koda-gut'},
+  {id:'koda-glow', name:'GLOW', slug:'glow', ritual:'The Radiance Ritual',   price:6.50, ingredients:'Jamun · Gotu Kola',     tagline:'Inner light. Outer glow.',      img:"GLOW Can Final Design for Website Product Page Mar 8th 2026.png",             detail:'prod-koda-glow'},
+  {id:'koda-grit', name:'GRIT', slug:'grit', ritual:'The Resilience Ritual', price:6.50, ingredients:'Amla · Turmeric',       tagline:'Resilience, brewed with heat.', img:"GRIT CAN Final Product Image for Website Mar 7.png",                          detail:'prod-koda-grit'},
+  {id:'koda-amber',name:'AMBER',slug:'amber',ritual:'The Stillness Ritual',  price:6.50, ingredients:'Saffron · Goji Berry',  tagline:'The gold standard of calm.',    img:"AMBER CAN FInal Mar 8 Website Product Page.png",                             detail:'prod-koda-amber'},
+  {id:'koda-cacao',name:'CACAO',slug:'cacao',ritual:'The Clarity Ritual',    price:6.50, ingredients:'Reishi · Vetiver',      tagline:'Focus, without the noise.',     img:"CACAO CAN Final Website Ready.png",                                           detail:'prod-koda-cacao'}
 ];
 const K3B_PRODUCTS=[
   {id:'k3b-face',img:'products/k3b-moisturizer.webp',name:'Tri-Lipid Barrier Moisturizer',tag:'Daily Barrier Ritual',price:38,ingredients:'Gotu Kola · Moringa · Amaranth',body:'Daily phyto-lipid barrier moisturizer. 50 ml. Non-comedogenic. Family-safe. AM/PM.',detail:'prod-k3b-everyday-magic'},
@@ -4145,11 +4172,11 @@ const VIEW_TITLES={
   'shipping':'Shipping | Kaya Botanicals',
   'returns':'Returns | Kaya Botanicals',
   'accessibility':'Accessibility | Kaya Botanicals',
-  'prod-koda-gut':'KODA GUT — Digestive Reset | Kaya Botanicals',
-  'prod-koda-glow':'KODA GLOW — Skin Health & Radiance | Kaya Botanicals',
-  'prod-koda-grit':'KODA GRIT — Immunity & Vitality | Kaya Botanicals',
-  'prod-koda-amber':'KODA AMBER — Calm & Unwind | Kaya Botanicals',
-  'prod-koda-cacao':'KODA CACAO — Clarity & Focus | Kaya Botanicals',
+  'prod-koda-gut':'GUT Botanical Ritual Beverage | KODA',
+  'prod-koda-glow':'GLOW Botanical Ritual Beverage | KODA',
+  'prod-koda-grit':'GRIT Botanical Ritual Beverage | KODA',
+  'prod-koda-amber':'AMBER Botanical Ritual Beverage | KODA',
+  'prod-koda-cacao':'CACAO Botanical Ritual Beverage | KODA',
   'prod-k3b-everyday-magic':'Tri-Lipid Barrier Moisturizer — K3B Apothecary',
   'prod-k3b-mineral-veil':'Mineral Veil Barrier Defense SPF 40 — K3B Apothecary',
   'prod-k3b-face-body-ghee':'Kokum Body Butter — K3B Apothecary',
@@ -4268,15 +4295,17 @@ function buildKodaGrid(){
   KODA_PRODUCTS.forEach(p=>{
     const d=document.createElement('div');d.className='koda-card koda-card--'+p.id.replace('koda-','');
     if(p.detail){d.style.cursor='pointer';d.onclick=(e)=>{if(!e.target.closest('.add-cart-btn'))switchView(p.detail);}}
+    const _u=IMG_MAP[p.img]||p.img, _h='/'+p.slug, _go=`event.preventDefault();switchView('${p.detail}')`;
     d.innerHTML=`
-      <div class="koda-card__img-wrap" onclick="switchView('${p.detail}')" style="display:block;cursor:pointer">
-        <img loading="lazy" decoding="async" class="koda-card__img" src="${IMG_MAP[p.img]||p.img}" alt="KODA ${p.name}"/>
-      </div>
+      <a href="${_h}" onclick="${_go}" class="koda-card__img-wrap" style="display:block;cursor:pointer" tabindex="-1" aria-hidden="true">
+        <img loading="lazy" decoding="async" class="koda-card__img" src="${_u}" srcset="${IMG_SRCSET[_u]||''}" sizes="(max-width:768px) 46vw, 20vw" width="1024" height="1536" alt=""/>
+      </a>
       <div class="koda-card__body">
         <p class="koda-card__ritual">${p.ritual}</p>
-        <span onclick="switchView('${p.detail}')" class="koda-card__name" style="display:block;cursor:pointer;color:inherit">${p.name}</span>
+        <a href="${_h}" onclick="${_go}" class="koda-card__name" style="display:block;cursor:pointer;color:inherit;text-decoration:none">${p.name}</a>
         <p class="koda-card__ingredients">${p.ingredients}</p>
         <p class="koda-card__tagline">${p.tagline}</p>
+        <a href="${_h}" onclick="${_go}" class="koda-card__cta">Explore the Ritual</a>
       </div>
       <div class="koda-card__footer">
         <span class="koda-card__price">$${p.price.toFixed(2)}</span>
@@ -4355,11 +4384,11 @@ function addK3b(btn,id,name,price,sub){
 
 /* ══ RITUAL WHEEL ══ */
 const SKUS=[
-  {name:'GUT',ingredient:'Kokum',moment:'After meals',ritual:'Digestive Reset',role:'Digestive Reset',tagline:'Tart. Grounded. Digestive.',ingredients:'Kokum · Fenugreek · Ashwagandha · Moringa',fillBase:'#1A0E08',fillHover:'#2A1509',gold:'rgba(184,135,46,.6)',image:"GUT Can Image for Product Page Final Mar 7th.png",detail:'prod-koda-gut'},
-  {name:'GLOW',ingredient:'Jamun',moment:'Daily wellness',ritual:'Skin Health & Radiance',role:'Skin Health & Radiance',tagline:'Deep berry. Luminous. Antioxidant.',ingredients:'Jamun · Licorice',fillBase:'#12081E',fillHover:'#1E0E2E',gold:'rgba(138,92,180,.6)',image:"GLOW Can Final Design for Website Product Page Mar 8th 2026.png",detail:'prod-koda-glow'},
-  {name:'GRIT',ingredient:'Amla',moment:'Afternoon / active day',ritual:'Immunity & Vitality',role:'Immunity & Vitality',tagline:'Bright. Crisp. Vital.',ingredients:'Amla · Tulsi · Lemongrass',fillBase:'#081408',fillHover:'#0E200E',gold:'rgba(72,140,88,.6)',image:"GRIT CAN Final Product Image for Website Mar 7.png",detail:'prod-koda-grit'},
-  {name:'AMBER',ingredient:'Saffron',moment:'Evening / gatherings / relaxation',ritual:'Calm & Unwind',role:'Calm & Unwind',tagline:'Warm. Aromatic. Unwinding.',ingredients:'Saffron · Cardamom',fillBase:'#1A1208',fillHover:'#261A0A',gold:'rgba(184,155,46,.6)',image:"AMBER CAN FInal Mar 8 Website Product Page.png",detail:'prod-koda-amber'},
-  {name:'CACAO',ingredient:'Cacao',moment:'Work time / reflective focus',ritual:'Clarity & Focus',role:'Clarity & Focus',tagline:'Earthy. Sharp. Focused.',ingredients:'Cacao · Cinnamon · Vanilla',fillBase:'#100A06',fillHover:'#1A0E08',gold:'rgba(120,80,40,.6)',image:"CACAO CAN Final Website Ready.png",detail:'prod-koda-cacao'}
+  {name:'GUT',ingredient:'Kokum',moment:'After meals',ritual:'The Digestive Ritual',role:'The Digestive Ritual',tagline:'Tart. Grounded. Digestive.',ingredients:'Kokum · Fennel',fillBase:'#1A0E08',fillHover:'#2A1509',gold:'rgba(184,135,46,.6)',image:"GUT Can Image for Product Page Final Mar 7th.png",detail:'prod-koda-gut'},
+  {name:'GLOW',ingredient:'Jamun',moment:'Daily wellness',ritual:'The Radiance Ritual',role:'The Radiance Ritual',tagline:'Deep berry. Luminous. Antioxidant.',ingredients:'Jamun · Gotu Kola',fillBase:'#12081E',fillHover:'#1E0E2E',gold:'rgba(138,92,180,.6)',image:"GLOW Can Final Design for Website Product Page Mar 8th 2026.png",detail:'prod-koda-glow'},
+  {name:'GRIT',ingredient:'Amla',moment:'Afternoon / active day',ritual:'The Resilience Ritual',role:'The Resilience Ritual',tagline:'Bright. Crisp. Vital.',ingredients:'Amla · Turmeric',fillBase:'#081408',fillHover:'#0E200E',gold:'rgba(72,140,88,.6)',image:"GRIT CAN Final Product Image for Website Mar 7.png",detail:'prod-koda-grit'},
+  {name:'AMBER',ingredient:'Saffron',moment:'Evening / gatherings / relaxation',ritual:'The Stillness Ritual',role:'The Stillness Ritual',tagline:'Warm. Aromatic. Unwinding.',ingredients:'Saffron · Goji Berry',fillBase:'#1A1208',fillHover:'#261A0A',gold:'rgba(184,155,46,.6)',image:"AMBER CAN FInal Mar 8 Website Product Page.png",detail:'prod-koda-amber'},
+  {name:'CACAO',ingredient:'Cacao',moment:'Work time / reflective focus',ritual:'The Clarity Ritual',role:'The Clarity Ritual',tagline:'Earthy. Sharp. Focused.',ingredients:'Reishi · Vetiver',fillBase:'#100A06',fillHover:'#1A0E08',gold:'rgba(120,80,40,.6)',image:"CACAO CAN Final Website Ready.png",detail:'prod-koda-cacao'}
 ];
 
 function polarToXY(cx,cy,r,deg){const rad=(deg-90)*Math.PI/180;return{x:+(cx+r*Math.cos(rad)).toFixed(3),y:+(cy+r*Math.sin(rad)).toFixed(3)}}
@@ -4761,11 +4790,47 @@ function enhanceCardA11y(){
     return (v && document.getElementById('view-' + v)) ? v : null;
   }
   function pathForView(v) { return VIEW_TO_SLUG[v] ? '/' + VIEW_TO_SLUG[v] : '/'; }
+  /* V65 — per-view metadata. Kept identical to functions/_middleware.js, which is what
+     social scrapers and Googlebot actually read (they do not execute this script). */
+  var VIEW_META = {
+    'koda':            { t:'KODA — Five Botanical Rituals | Drink with Intention',
+                         d:'KODA is a botanical ritual beverage house rooted in kokum. Five rituals — GUT, GRIT, GLOW, CACAO and AMBER. Launching Fall 2026.',
+                         i:'/products/og-koda-home.jpg' },
+    'prod-koda-gut':   { t:'GUT Botanical Ritual Beverage | KODA',
+                         d:'GUT — The Digestive Ritual. Sparkling kokum and fennel, built on a patent-pending botanical decoction. Zero added refined sugars. 12 fl oz.',
+                         i:'/products/og-koda-gut.jpg' },
+    'prod-koda-grit':  { t:'GRIT Botanical Ritual Beverage | KODA',
+                         d:'GRIT — The Resilience Ritual. Sparkling amla and turmeric with a bracing green-botanical edge. Zero refined sugars. 12 fl oz.',
+                         i:'/products/og-koda-grit.jpg' },
+    'prod-koda-glow':  { t:'GLOW Botanical Ritual Beverage | KODA',
+                         d:'GLOW — The Radiance Ritual. Sparkling jamun and gotu kola, polyphenol-dense and velvet-dry. No artificial dyes. 12 fl oz.',
+                         i:'/products/og-koda-glow.jpg' },
+    'prod-koda-cacao': { t:'CACAO Botanical Ritual Beverage | KODA',
+                         d:'CACAO — The Clarity Ritual. Ultra-dry sparkling cacao with reishi and vetiver. Aroma-forward, built for deep work. 12 fl oz.',
+                         i:'/products/og-koda-cacao.jpg' },
+    'prod-koda-amber': { t:'AMBER Botanical Ritual Beverage | KODA',
+                         d:'AMBER — The Stillness Ritual. A non-alcoholic botanical aperitivo of real saffron and goji berry. Zero added sugars. 12 fl oz.',
+                         i:'/products/og-koda-amber.jpg' }
+  };
+  function setMeta(sel, val) {
+    var el = document.querySelector(sel);
+    if (el && val) el.setAttribute('content', val);
+  }
   function syncCanonical(v) {
     if (!isProd) return;
     var url = 'https://' + host + pathForView(v);
     var c = document.querySelector('link[rel="canonical"]'); if (c) c.href = url;
     var o = document.querySelector('meta[property="og:url"]'); if (o) o.setAttribute('content', url);
+    var m = VIEW_META[v];
+    if (!m) return;
+    setMeta('meta[name="description"]', m.d);
+    setMeta('meta[property="og:title"]', m.t);
+    setMeta('meta[property="og:description"]', m.d);
+    setMeta('meta[name="twitter:title"]', m.t);
+    setMeta('meta[name="twitter:description"]', m.d);
+    var abs = 'https://' + host + m.i;
+    setMeta('meta[property="og:image"]', abs);
+    setMeta('meta[name="twitter:image"]', abs);
   }
 
   /* 1. Landing view: a deep-linked product wins, otherwise the domain's home section */
