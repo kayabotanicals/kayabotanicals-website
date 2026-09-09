@@ -289,6 +289,35 @@ img{display:block;max-width:100%}
 
 
 
+/* ══ V66 DISCOVERY SETS — one pre-launch discovery moment above each footer ══
+   Temporary renders. When final photography arrives, replace the files in
+   /products/discovery/ under the same names (full, -960, -640); markup stays. */
+.s-disc{padding:156px 0;background:var(--bg2);position:relative;overflow:hidden}
+.s-disc::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 70% at 30% 50%,rgba(184,135,46,.05),transparent 68%);pointer-events:none}
+.s-disc__inner{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr 1fr;gap:96px;align-items:center}
+.s-disc--brand .s-disc__inner{grid-template-columns:.85fr 1fr}
+.s-disc__visual{position:relative;margin:0;border:1px solid var(--border);background:var(--surface);line-height:0}
+.s-disc__visual::before{content:'';position:absolute;top:-10px;left:-10px;right:10px;bottom:10px;border:1px solid rgba(184,135,46,.1);pointer-events:none}
+.s-disc__visual img{display:block;width:100%;height:auto}
+.s-disc__headline{font-family:var(--fd);font-size:clamp(1.7rem,3vw,2.6rem);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--cream);line-height:1.15;text-wrap:balance}
+.s-disc__headline em{font-style:normal;color:var(--gold3)}
+.s-disc__sub{font-family:var(--fb);font-size:clamp(.9rem,1.4vw,1rem);font-weight:300;color:var(--txt2);line-height:1.95;max-width:520px;margin-bottom:22px}
+.s-disc__note{font-size:9px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);line-height:2;margin-bottom:40px}
+.s-disc__form{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:520px;margin-top:28px;opacity:0;transform:translateY(8px);transition:opacity .3s ease-in,transform .3s ease-in}
+.s-disc__form[hidden]{display:none}
+.s-disc__form.is-open{opacity:1;transform:none}
+.s-disc__input{width:100%;padding:14px 18px;background:rgba(237,232,222,.04);border:1px solid var(--border2);border-radius:0;color:var(--cream);font-family:var(--fi);font-size:.85rem;letter-spacing:.04em;outline:none;transition:border-color .2s;-webkit-appearance:none;appearance:none}
+.s-disc__input::placeholder{color:var(--txt3)}
+.s-disc__input:focus{border-color:var(--gold)}
+.s-disc__select{grid-column:1/-1;cursor:pointer;color:var(--txt3);padding-right:44px;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' fill='none' stroke='%23CCA04A' stroke-width='1.2'/></svg>");background-repeat:no-repeat;background-position:right 18px center}
+.s-disc__select:valid{color:var(--cream)}
+.s-disc__select option{background:#1C1915;color:#EDE8DE}
+.s-disc__form .btn{grid-column:1/-1;justify-content:center}
+.s-disc__msg{grid-column:1/-1;font-size:.75rem;letter-spacing:.04em;min-height:20px;color:var(--gold2)}
+.s-disc .anim{transform:translateY(14px);transition:opacity .35s ease-in,transform .35s ease-in}
+@media(max-width:1100px){.s-disc{padding:98px 0}.s-disc__inner,.s-disc--brand .s-disc__inner{grid-template-columns:1fr;gap:56px}.s-disc__visual{width:100%;max-width:640px;margin:0 auto}.s-disc--brand .s-disc__visual{max-width:460px}.s-disc__copy{text-align:center}.s-disc__sub,.s-disc__form{margin-left:auto;margin-right:auto}.s-disc .rule{margin-left:auto;margin-right:auto}}
+@media(max-width:560px){.s-disc__form{grid-template-columns:1fr}.s-disc__visual::before{display:none}.s-disc__note{letter-spacing:.24em}}
+@media(prefers-reduced-motion:reduce){.s-disc__form{transition:none;opacity:1;transform:none}}
 /* ══ BRAND FOOTER ══ */
 .s-founder{padding:156px 0;background:var(--bg2)}
 .s-founder__inner{display:grid;grid-template-columns:1fr 1.4fr;gap:100px;align-items:center}
@@ -1093,6 +1122,40 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
   </div>
 </section>
 
+<!-- V66 DISCOVERY SET (BRAND) — temporary render; swap files in /products/discovery/ when final photography arrives -->
+<section class="s-disc s-disc--brand" id="ritual-collections" aria-labelledby="disc-brand-h">
+  <div class="wrap">
+    <div class="s-disc__inner">
+      <figure class="s-disc__visual anim">
+        <img src="/products/discovery/kaya-ritual-collections-960.webp"
+             srcset="/products/discovery/kaya-ritual-collections-640.webp 640w, /products/discovery/kaya-ritual-collections-960.webp 960w, /products/discovery/kaya-ritual-collections.webp 1122w"
+             sizes="(max-width:1100px) min(100vw, 460px), 440px" width="1122" height="1402" loading="lazy" decoding="async"
+             alt="The Kaya Botanicals Ritual Discovery Set: KODA AMBER and CACAO cans, the K3B Phyto-Lipid Ritual Elixir and a kansa ritual sculptor, presented in a black and gold box"/>
+      </figure>
+      <div class="s-disc__copy">
+        <p class="eyebrow anim">Explore the Ritual Houses</p>
+        <h2 class="s-disc__headline anim d1" id="disc-brand-h">The Kaya Botanicals<br><em>Ritual Collections</em></h2>
+        <span class="rule anim d2"></span>
+        <p class="s-disc__sub anim d2">Bringing together botanical beverage rituals and botanical skincare rituals under one coherent philosophy of intentional daily practice.</p>
+        <p class="s-disc__note anim d3">KODA &middot; K3B Apothecary &middot; Kansa Ritual<br>Pre-Launch Discovery &amp; Gifting</p>
+        <div class="anim d3">
+          <button class="btn btn--gold" type="button" onclick="openDiscoveryForm('brand',this)" aria-expanded="false" aria-controls="disc-brand-form">Explore Pre-Launch Discovery &amp; Gifting</button>
+        </div>
+        <form class="s-disc__form" id="disc-brand-form" hidden novalidate onsubmit="handleDiscoveryInquiry(event,'brand')">
+          <input class="s-disc__input" type="text" name="name" placeholder="First name" autocomplete="given-name" aria-label="First name"/>
+          <input class="s-disc__input" type="email" name="email" placeholder="Email address" autocomplete="email" aria-label="Email address"/>
+          <select class="s-disc__input s-disc__select" name="interest" required aria-label="Area of interest">
+            <option value="" disabled selected>Area of interest</option>
+            <option>Retail</option><option>Hospitality</option><option>Corporate Gifting</option><option>Collaboration</option><option>Press</option>
+          </select>
+          <button class="btn btn--gold" type="submit">Submit Inquiry</button>
+          <p class="s-disc__msg" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- BRAND FOOTER -->
 <footer class="footer">
   <div class="wrap">
@@ -1214,6 +1277,40 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
     </div>
     <div class="koda-grid anim" id="kodaGrid">
       <!-- Injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- V66 DISCOVERY SET (KODA) — temporary render; swap files in /products/discovery/ when final photography arrives -->
+<section class="s-disc s-disc--koda" id="discovery" aria-labelledby="disc-koda-h">
+  <div class="wrap">
+    <div class="s-disc__inner">
+      <figure class="s-disc__visual anim">
+        <img src="/products/discovery/koda-ritual-discovery-set-960.webp"
+             srcset="/products/discovery/koda-ritual-discovery-set-640.webp 640w, /products/discovery/koda-ritual-discovery-set-960.webp 960w, /products/discovery/koda-ritual-discovery-set.webp 1448w"
+             sizes="(max-width:1100px) min(100vw, 640px), 560px" width="1448" height="1086" loading="lazy" decoding="async"
+             alt="The KODA Ritual Discovery Set: GUT, GLOW and GRIT cans presented in a black and gold box with a founder card signed Rutu"/>
+      </figure>
+      <div class="s-disc__copy">
+        <p class="eyebrow anim">Pre-Launch Discovery</p>
+        <h2 class="s-disc__headline anim d1" id="disc-koda-h">The KODA Ritual<br><em>Discovery Set</em></h2>
+        <span class="rule anim d2"></span>
+        <p class="s-disc__sub anim d2">A curated three-expression introduction to traditional hot-decoction craftsmanship and heritage botanical flavor.</p>
+        <p class="s-disc__note anim d3">GUT &middot; GLOW &middot; GRIT<br>Coming with Commercial Launch</p>
+        <div class="anim d3">
+          <button class="btn btn--gold" type="button" onclick="openDiscoveryForm('koda',this)" aria-expanded="false" aria-controls="disc-koda-form">Join the Pre-Launch Discovery List</button>
+        </div>
+        <form class="s-disc__form" id="disc-koda-form" hidden novalidate onsubmit="handleDiscoveryInquiry(event,'koda')">
+          <input class="s-disc__input" type="text" name="name" placeholder="First name" autocomplete="given-name" aria-label="First name"/>
+          <input class="s-disc__input" type="email" name="email" placeholder="Email address" autocomplete="email" aria-label="Email address"/>
+          <select class="s-disc__input s-disc__select" name="interest" required aria-label="Area of interest">
+            <option value="" disabled selected>Area of interest</option>
+            <option>Retailer</option><option>Restaurant</option><option>Hospitality</option><option>Specialty Grocery</option><option>Beverage Program</option><option>Press / Media</option><option>Other</option>
+          </select>
+          <button class="btn btn--gold" type="submit">Submit Inquiry</button>
+          <p class="s-disc__msg" aria-live="polite"></p>
+        </form>
+      </div>
     </div>
   </div>
 </section>
@@ -1415,6 +1512,40 @@ fbq('init','META_PIXEL_ID');fbq('track','PageView');
       <button class="section-cta" onclick="document.getElementById('k3b-products-section').scrollIntoView({behavior:'smooth'})">Explore the Collection</button>
     </div>
 
+  </div>
+</section>
+
+<!-- V66 DISCOVERY SET (K3B) — temporary render; swap files in /products/discovery/ when final photography arrives -->
+<section class="s-disc s-disc--k3b" id="rituals" aria-labelledby="disc-k3b-h">
+  <div class="wrap">
+    <div class="s-disc__inner">
+      <figure class="s-disc__visual anim">
+        <img src="/products/discovery/k3b-apothecary-ritual-set-960.webp"
+             srcset="/products/discovery/k3b-apothecary-ritual-set-640.webp 640w, /products/discovery/k3b-apothecary-ritual-set-960.webp 960w, /products/discovery/k3b-apothecary-ritual-set.webp 1254w"
+             sizes="(max-width:1100px) min(100vw, 560px), 520px" width="1254" height="1254" loading="lazy" decoding="async"
+             alt="The K3B Apothecary Ritual Set: the Kansa Dual Wand, Kokum Ritual Body Oil and Kokum Body Butter presented in a black and gold box"/>
+      </figure>
+      <div class="s-disc__copy">
+        <p class="eyebrow anim">Spa &amp; Retail Discovery</p>
+        <h2 class="s-disc__headline anim d1" id="disc-k3b-h">The K3B Apothecary<br><em>Ritual Set</em></h2>
+        <span class="rule anim d2"></span>
+        <p class="s-disc__sub anim d2">A botanical body-care and massage ritual pairing Kokum-centered formulations with intentional Kansa practice. Care with Intention.</p>
+        <p class="s-disc__note anim d3">Dual Kansa Wand &middot; Kokum Ritual Body Oil &middot; Botanical Body Butter<br>Coming with Commercial Launch</p>
+        <div class="anim d3">
+          <button class="btn btn--gold" type="button" onclick="openDiscoveryForm('k3b',this)" aria-expanded="false" aria-controls="disc-k3b-form">Inquire for Spa &amp; Retail Discovery</button>
+        </div>
+        <form class="s-disc__form" id="disc-k3b-form" hidden novalidate onsubmit="handleDiscoveryInquiry(event,'k3b')">
+          <input class="s-disc__input" type="text" name="name" placeholder="First name" autocomplete="given-name" aria-label="First name"/>
+          <input class="s-disc__input" type="email" name="email" placeholder="Email address" autocomplete="email" aria-label="Email address"/>
+          <select class="s-disc__input s-disc__select" name="interest" required aria-label="Area of interest">
+            <option value="" disabled selected>Area of interest</option>
+            <option>Spa</option><option>Apothecary</option><option>Esthetician</option><option>Boutique</option><option>Natural Retail</option><option>Hotel / Hospitality</option><option>Corporate Gifting</option><option>Other</option>
+          </select>
+          <button class="btn btn--gold" type="submit">Submit Inquiry</button>
+          <p class="s-disc__msg" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -4494,13 +4625,13 @@ document.querySelectorAll('#view-brand .s-hero .anim').forEach((el,i)=>setTimeou
 /* ── V42: Klaviyo email capture ── */
 const KLAVIYO_COMPANY_ID='RJR7QD';
 const KLAVIYO_LIST_ID='WZXZJZ';
-function klaviyoSubscribe(email,firstName,source){
+function klaviyoSubscribe(email,firstName,source,extra){
   if(typeof kbTrack==='function')kbTrack('sign_up',{method:source||'newsletter'});
   try{
     fetch('https://a.klaviyo.com/client/subscriptions/?company_id='+KLAVIYO_COMPANY_ID,{
       method:'POST',
       headers:{'Content-Type':'application/vnd.api+json','revision':'2024-10-15'},
-      body:JSON.stringify({data:{type:'subscription',attributes:{profile:{data:{type:'profile',attributes:Object.assign({email:email,properties:{signup_source:source,site:location.hostname}},firstName?{first_name:firstName}:{})}}},relationships:{list:{data:{type:'list',id:KLAVIYO_LIST_ID}}}}})
+      body:JSON.stringify({data:{type:'subscription',attributes:{profile:{data:{type:'profile',attributes:Object.assign({email:email,properties:Object.assign({signup_source:source,site:location.hostname},extra||{})},firstName?{first_name:firstName}:{})}}},relationships:{list:{data:{type:'list',id:KLAVIYO_LIST_ID}}}}})
     }).catch(function(){});
   }catch(err){}
 }
@@ -4519,6 +4650,36 @@ function handleEmailJoin(e){
   msg.textContent="You're on the list — welcome to the ritual.";
   if(nameEl)nameEl.value='';
   if(emailEl)emailEl.value='';
+}
+
+/* ── V66: Discovery set inquiry (pre-launch). Posts to the same Klaviyo list with
+   discovery_brand / discovery_interest profile properties for segmentation. ── */
+var DISCOVERY_SOURCE={brand:'kaya-ritual-collections',koda:'koda-ritual-discovery-set',k3b:'k3b-apothecary-ritual-set'};
+function openDiscoveryForm(brand,btn){
+  var f=document.getElementById('disc-'+brand+'-form');
+  if(!f)return;
+  var first=f.querySelector('input');
+  if(f.hidden){
+    f.hidden=false;
+    requestAnimationFrame(function(){f.classList.add('is-open');});
+    if(btn)btn.setAttribute('aria-expanded','true');
+    if(typeof kbTrack==='function')kbTrack('discovery_interest_open',{brand:brand});
+  }
+  if(first)setTimeout(function(){first.focus();},60);
+}
+function handleDiscoveryInquiry(e,brand){
+  e.preventDefault();
+  var f=e.target,msg=f.querySelector('.s-disc__msg');
+  var el=function(n){return f.elements.namedItem(n);};
+  var name=(el('name').value||'').trim(),email=(el('email').value||'').trim(),interest=el('interest').value;
+  var fail=function(t,field){msg.style.color='#e07070';msg.textContent=t;if(field)field.focus();};
+  if(!name){fail('Please enter your first name.',el('name'));return;}
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){fail('Please enter a valid email address.',el('email'));return;}
+  if(!interest){fail('Please choose an area of interest.',el('interest'));return;}
+  klaviyoSubscribe(email,name,DISCOVERY_SOURCE[brand]||('discovery-'+brand),{discovery_brand:brand,discovery_interest:interest});
+  msg.style.color='var(--gold2)';
+  msg.textContent='Thank you — you’re on the discovery list. We’ll be in touch ahead of commercial launch.';
+  f.reset();
 }
 
 // ── Contact tab switcher ──
