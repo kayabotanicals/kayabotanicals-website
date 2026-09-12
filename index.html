@@ -186,7 +186,7 @@ img{display:block;max-width:100%}
 .ritual-card__tagline{font-size:.88rem;font-style:italic;font-weight:300;color:var(--txt2);line-height:1.75;margin-bottom:24px}
 .ritual-card__can{position:absolute;right:0;top:0;bottom:0;width:190px;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:0;transition:opacity .5s var(--ease)}
 .ritual-card.active .ritual-card__can{opacity:1}
-.ritual-card__can-img{max-height:90%;width:auto;mix-blend-mode:screen;filter:brightness(1.08)}
+.ritual-card__can-img{max-height:90%;max-width:100%;width:auto;height:auto;flex:none;object-fit:contain;mix-blend-mode:screen;filter:brightness(1.08)}
 .ritual-card__cta{font-size:10px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--gold2);display:inline-flex;align-items:center;gap:10px;transition:gap .2s;background:none;border:none;padding:0}
 .ritual-card__cta:hover{gap:16px;color:var(--gold)}
 .ritual-card__cta::after{content:'→'}
