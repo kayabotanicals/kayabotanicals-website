@@ -3,9 +3,9 @@
 Marketing site for **Kaya Botanicals**, a botanical ritual house rooted in kokum, home to two lines:
 
 - **KODA** — botanical ritual drinks
-- **K3B Apothecary** — kokum-led skincare
+- **K3B Apothecary** — botanical ritual skincare
 
-Launching Fall 2026.
+Coming Spring 2027.
 
 ## Tech
 

@@ -27,17 +27,17 @@ const SITE = {
 const HOME = {
   koda: {
     t: 'KODA — Five Botanical Rituals | Drink with Intention',
-    d: 'KODA is a botanical ritual beverage house rooted in kokum. Five rituals — GUT, GRIT, GLOW, CACAO and AMBER. Launching Fall 2026.',
+    d: 'KODA is a botanical ritual beverage house rooted in kokum. Five rituals — GUT, GRIT, GLOW, CACAO and AMBER. Coming Spring 2027.',
     i: '/products/og-koda-home.jpg',
   },
   k3b: {
-    t: 'K3B Apothecary — Kokum-Led Skincare | Care with Intention',
-    d: 'K3B Apothecary is kokum-led skincare and kansa ritual instruments from Kaya Botanicals. Launching Fall 2026.',
+    t: 'K3B Apothecary — Botanical Ritual Skincare | Care with Intention',
+    d: 'K3B Apothecary is botanical ritual skincare from Kaya Botanicals — kokum-centered formulations and purpose-built kansa ritual instruments. Care with Intention. Coming Spring 2027.',
     i: '/og-image.jpg',
   },
   brand: {
     t: 'Kaya Botanicals — KODA · K3B Apothecary · Botanical Rituals',
-    d: 'A botanical ritual house rooted in kokum. KODA ritual beverages and K3B Apothecary skincare. Launching Fall 2026.',
+    d: 'A botanical ritual house rooted in kokum. KODA ritual beverages and K3B Apothecary skincare. Coming Spring 2027.',
     i: '/og-image.jpg',
   },
 };
@@ -70,42 +70,42 @@ const ROUTES = {
   },
   'barrier-moisturizer': {
     t: 'Tri-Lipid Barrier Moisturizer | K3B Apothecary',
-    d: 'A daily phyto-lipid barrier moisturizer. 50 ml. Non-comedogenic, family-safe, AM/PM. K3B Apothecary by Kaya Botanicals.',
+    d: 'Tri-Lipid Barrier Moisturizer — kokum-led daily facial moisturization designed around comfort, consistency and intentional care. K3B Apothecary.',
     i: '/og-image.jpg',
   },
   'mineral-veil': {
-    t: 'Mineral Veil Barrier Defense SPF 40 | K3B Apothecary',
-    d: 'Kokum Mineral Veil Barrier Defense SPF 40 — broad-spectrum mineral protection that supports the skin barrier. K3B Apothecary.',
+    t: 'Mineral Veil Sunscreen | K3B Apothecary',
+    d: 'Mineral Veil Sunscreen — mineral protection in a kokum-rich lipid base, made to be a normal part of the daily ritual. K3B Apothecary.',
     i: '/og-image.jpg',
   },
-  'body-butter': {
-    t: 'Kokum Body Butter | K3B Apothecary',
-    d: 'Kokum Body Butter — a rich, kokum-led body treatment from K3B Apothecary by Kaya Botanicals.',
+  'body-cream': {
+    t: 'Kokum Body Cream | K3B Apothecary',
+    d: 'Kokum Body Cream — a rich, kokum-led daily body moisturizer from K3B Apothecary by Kaya Botanicals.',
     i: '/og-image.jpg',
   },
   'body-oil': {
     t: 'Kokum Ritual Body Oil | K3B Apothecary',
-    d: 'Kokum Ritual Body Oil — a waterless body treatment for instant absorption and non-comedogenic glide. K3B Apothecary.',
+    d: 'Kokum Ritual Body Oil — a waterless kokum body oil with a dry satin finish. K3B Apothecary.',
     i: '/og-image.jpg',
   },
   'elixir': {
     t: 'Phyto-Lipid Ritual Elixir | K3B Apothecary',
-    d: 'Phyto-Lipid Ritual Elixir — a completely waterless treatment serum made for facial massage rituals. K3B Apothecary.',
+    d: 'Phyto-Lipid Ritual Elixir — a waterless botanical facial oil made for intentional facial massage. K3B Apothecary.',
     i: '/og-image.jpg',
   },
-  'kansa-wand': {
-    t: 'Kansa Dual Wand | K3B Apothecary',
-    d: 'The Kansa Dual Wand — a handcrafted high-purity kansa bronze ritual instrument from K3B Apothecary.',
+  'dual-kansa-wand': {
+    t: 'Dual Kansa Wand | K3B Apothecary',
+    d: 'The Dual Kansa Wand — a purpose-built two-dome kansa bronze instrument for intentional facial massage. K3B Apothecary.',
     i: '/og-image.jpg',
   },
-  'gua-sha': {
-    t: 'Kansa Ritual Sculptor | K3B Apothecary',
-    d: 'The Kansa Ritual Sculptor — a handcrafted kansa bronze instrument for contour-defining facial ritual. K3B Apothecary.',
+  'wing-gua-sha': {
+    t: 'Wing Kansa Gua Sha | K3B Apothecary',
+    d: 'The Wing Kansa Gua Sha — a hand-finished kansa bronze instrument shaped to the face for intentional facial massage. K3B Apothecary.',
     i: '/og-image.jpg',
   },
-  'scalp-massager': {
-    t: 'Kansa Scalp Ritual Massager | K3B Apothecary',
-    d: 'The Kansa Scalp Ritual Massager — a handcrafted kansa bronze instrument for the scalp ritual. K3B Apothecary.',
+  'kansa-massager': {
+    t: '19-Pin Kansa Massager | K3B Apothecary',
+    d: 'The 19-Pin Kansa Massager — a purpose-built multi-node kansa instrument for unhurried scalp and body massage. K3B Apothecary.',
     i: '/og-image.jpg',
   },
 };
