@@ -45,27 +45,27 @@ const HOME = {
 const ROUTES = {
   'gut': {
     t: 'GUT Botanical Ritual Beverage | KODA',
-    d: 'GUT — The Digestive Ritual. Sparkling kokum and fennel, built on a patent-pending botanical decoction. Zero added refined sugars. 12 fl oz.',
+    d: 'GUT — The Digestive Ritual. Kokum, mangosteen’s Garcinia cousin, reimagined for the modern table—bright, slow-decocted and layered with grounding botanicals. 12 fl oz.',
     i: '/products/og-koda-gut.jpg',
   },
   'grit': {
     t: 'GRIT Botanical Ritual Beverage | KODA',
-    d: 'GRIT — The Resilience Ritual. Sparkling amla and turmeric with a bracing green-botanical edge. Zero refined sugars. 12 fl oz.',
+    d: 'GRIT — The Resilience Ritual. Amla meets kaffir lime and lemongrass in a layered botanical decoction, finishing with a slow-creeping jalapeño warmth. 12 fl oz.',
     i: '/products/og-koda-grit.jpg',
   },
   'glow': {
     t: 'GLOW Botanical Ritual Beverage | KODA',
-    d: 'GLOW — The Radiance Ritual. Sparkling jamun and gotu kola, polyphenol-dense and velvet-dry. No artificial dyes. 12 fl oz.',
+    d: 'GLOW — The Radiance Ritual. Jamun, a wild purple berry, reimagined with gotu kola and nutmeg—vivid, slow-infused and gently spiced with botanical depth. 12 fl oz.',
     i: '/products/og-koda-glow.jpg',
   },
   'cacao': {
     t: 'CACAO Botanical Ritual Beverage | KODA',
-    d: 'CACAO — The Clarity Ritual. Ultra-dry sparkling cacao with reishi and vetiver. Aroma-forward, built for deep work. 12 fl oz.',
+    d: 'CACAO — The Clarity Ritual. Cacao, reimagined—slow-steeped with reishi and lifted by a touch of kokum for depth, brightness and balance. 12 fl oz.',
     i: '/products/og-koda-cacao.jpg',
   },
   'amber': {
     t: 'AMBER Botanical Ritual Beverage | KODA',
-    d: 'AMBER — The Stillness Ritual. A non-alcoholic botanical aperitivo of real saffron and goji berry. Zero added sugars. 12 fl oz.',
+    d: 'AMBER — The Stillness Ritual. Saffron, tulsi and rooibos unfold with goji, fig and star anise—warm, aromatic and slow-brewed for stillness, connection and unhurried evenings. 12 fl oz.',
     i: '/products/og-koda-amber.jpg',
   },
   'barrier-moisturizer': {
