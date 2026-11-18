@@ -519,12 +519,12 @@ details[open] .acc-icon{border-color:var(--gold);color:var(--gold);transform:rot
 .related__link::after{content:"→"}
 /* K3B related cards — real product renders. These classes had no rules at all, so the
    placeholder drawings sat top-left with the text flush to the card edge. Scoped to the
-   render cards; the KODA image cards (.related__img-wrap) are unchanged. */
+   render cards. The body padding applies to every related card, KODA included. */
 .related__render{height:264px;padding:36px 24px 12px;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse 62% 66% at 50% 56%,rgba(184,135,46,.09),transparent 72%)}
 .related__render-img{flex:none;width:auto;height:auto;max-width:76%;max-height:100%;object-fit:contain;display:block;transition:transform 1.25s cubic-bezier(.22,.61,.36,1),filter 1.25s cubic-bezier(.22,.61,.36,1)}
 .related__card:hover .related__render-img{transform:scale(1.05);filter:drop-shadow(0 14px 34px rgba(184,135,46,.2))}
-.related__render+.related__body{padding:22px 28px 34px}
-@media(max-width:768px){.related__render{height:184px;padding:26px 14px 8px}.related__render+.related__body{padding:16px 16px 26px}.related__render+.related__body .related__name{font-size:.86rem;letter-spacing:.08em;line-height:1.4}}
+.related__body{padding:22px 28px 34px}
+@media(max-width:768px){.related__render{height:184px;padding:26px 14px 8px}.related__body{padding:16px 14px 26px}.related__lane{letter-spacing:.14em}.related__render+.related__body .related__name{font-size:.86rem;letter-spacing:.08em;line-height:1.4}}
 @media(prefers-reduced-motion:reduce){.related__render-img{transition:none}.related__card:hover .related__render-img{transform:none;filter:none}}
 /* FOOTER */
 .sub-footer{background:#080705;padding:56px 0 36px;border-top:1px solid var(--border)}
