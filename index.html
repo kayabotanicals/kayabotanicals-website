@@ -517,6 +517,15 @@ details[open] .acc-icon{border-color:var(--gold);color:var(--gold);transform:rot
 .related__link{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold2);display:inline-flex;align-items:center;gap:8px;transition:gap .2s}
 .related__card:hover .related__link{gap:14px}
 .related__link::after{content:"→"}
+/* K3B related cards — real product renders. These classes had no rules at all, so the
+   placeholder drawings sat top-left with the text flush to the card edge. Scoped to the
+   render cards; the KODA image cards (.related__img-wrap) are unchanged. */
+.related__render{height:264px;padding:36px 24px 12px;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse 62% 66% at 50% 56%,rgba(184,135,46,.09),transparent 72%)}
+.related__render-img{flex:none;width:auto;height:auto;max-width:76%;max-height:100%;object-fit:contain;display:block;transition:transform 1.25s cubic-bezier(.22,.61,.36,1),filter 1.25s cubic-bezier(.22,.61,.36,1)}
+.related__card:hover .related__render-img{transform:scale(1.05);filter:drop-shadow(0 14px 34px rgba(184,135,46,.2))}
+.related__render+.related__body{padding:22px 28px 34px}
+@media(max-width:768px){.related__render{height:184px;padding:26px 14px 8px}.related__render+.related__body{padding:16px 16px 26px}.related__render+.related__body .related__name{font-size:.86rem;letter-spacing:.08em;line-height:1.4}}
+@media(prefers-reduced-motion:reduce){.related__render-img{transition:none}.related__card:hover .related__render-img{transform:none;filter:none}}
 /* FOOTER */
 .sub-footer{background:#080705;padding:56px 0 36px;border-top:1px solid var(--border)}
 .sub-footer__inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px}
@@ -2733,7 +2742,7 @@ BARRIER MOISTURIZER</h1>
     <h2 class="anim d1 u-h2">Complete Your <em class="em-g">Practice</em></h2>
     <span class="rule anim d2"></span>
     <div class="related__grid anim d2"><a class="related__card" href="#" onclick="switchView('prod-k3b-mineral-veil')">
-  <div class="related__render"><svg viewBox="0 0 80 180" xmlns="http://www.w3.org/2000/svg" style="width:55px"><rect x="34" y="2" width="12" height="24" rx="3" fill="#1C1810" stroke="rgba(184,135,46,.3)" stroke-width=".7"/><rect x="28" y="24" width="24" height="8" rx="2" fill="#241E14" stroke="rgba(184,135,46,.22)" stroke-width=".7"/><rect x="24" y="30" width="32" height="140" rx="6" fill="#110E09" stroke="rgba(184,135,46,.22)" stroke-width=".7"/><text x="40" y="108" font-family="serif" font-size="9" fill="rgba(220,186,120,.7)" text-anchor="middle" letter-spacing="2">K3B</text></svg></div>
+  <div class="related__render"><img loading="lazy" decoding="async" class="related__render-img" src="/products/related/k3b-mineral-veil.webp" width="208" height="520" alt="K3B Mineral Veil Sunscreen"/></div>
   <div class="related__body">
     <p class="related__lane">Daily Protection</p>
     <p class="related__name">MINERAL VEIL SUNSCREEN</p>
@@ -2741,7 +2750,7 @@ BARRIER MOISTURIZER</h1>
     <span class="related__link">Explore</span>
   </div>
 </a><a class="related__card" href="#" onclick="switchView('prod-k3b-face-body-ghee')">
-  <div class="related__render"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" style="width:70px"><rect x="15" y="10" width="70" height="20" rx="3" fill="#1C1810" stroke="rgba(184,135,46,.3)" stroke-width=".7"/><rect x="10" y="28" width="80" height="82" rx="5" fill="#110E09" stroke="rgba(184,135,46,.22)" stroke-width=".7"/><text x="50" y="76" font-family="serif" font-size="10" fill="rgba(220,186,120,.7)" text-anchor="middle" letter-spacing="2">K3B</text></svg></div>
+  <div class="related__render"><img loading="lazy" decoding="async" class="related__render-img" src="/products/related/k3b-body-cream.webp" width="520" height="438" alt="K3B Kokum Body Cream"/></div>
   <div class="related__body">
     <p class="related__lane">Daily Body Moisturization</p>
     <p class="related__name">KOKUM BODY CREAM</p>
@@ -2749,7 +2758,7 @@ BARRIER MOISTURIZER</h1>
     <span class="related__link">Explore</span>
   </div>
 </a><a class="related__card" href="#" onclick="switchView('prod-k3b-kansa-wand')">
-  <div class="related__render"><svg viewBox="0 0 80 200" xmlns="http://www.w3.org/2000/svg" style="width:55px"><circle cx="40" cy="26" r="22" fill="#9B7628" stroke="rgba(220,186,120,.4)" stroke-width=".8"/><rect x="34" y="48" width="12" height="140" rx="4" fill="#2A2018" stroke="rgba(120,90,40,.25)" stroke-width=".7"/></svg></div>
+  <div class="related__render"><img loading="lazy" decoding="async" class="related__render-img" src="/products/related/k3b-dual-kansa-wand.webp" width="191" height="520" alt="K3B Dual Kansa Wand"/></div>
   <div class="related__body">
     <p class="related__lane">Ritual Instrument</p>
     <p class="related__name">DUAL KANSA WAND</p>
@@ -2757,7 +2766,7 @@ BARRIER MOISTURIZER</h1>
     <span class="related__link">Explore</span>
   </div>
 </a><a class="related__card" href="#" onclick="switchView('prod-k3b-ruby-serum')">
-  <div class="related__render"><svg viewBox="0 0 80 200" xmlns="http://www.w3.org/2000/svg" style="width:55px"><rect x="34" y="2" width="12" height="30" rx="3" fill="#1C1810" stroke="rgba(184,135,46,.3)" stroke-width=".7"/><rect x="26" y="32" width="28" height="156" rx="6" fill="#130A08" stroke="rgba(120,55,35,.38)" stroke-width=".7"/><text x="40" y="124" font-family="serif" font-size="9" fill="rgba(220,186,120,.7)" text-anchor="middle" letter-spacing="2">K3B</text></svg></div>
+  <div class="related__render"><img loading="lazy" decoding="async" class="related__render-img" src="/products/related/k3b-elixir.webp" width="183" height="520" alt="K3B Phyto-Lipid Ritual Elixir"/></div>
   <div class="related__body">
     <p class="related__lane">Facial Ritual Oil</p>
     <p class="related__name">PHYTO-LIPID RITUAL ELIXIR</p>
@@ -2884,7 +2893,7 @@ BODY CREAM</h1>
     <h2 class="anim d1 u-h2">Complete Your <em class="em-g">Practice</em></h2>
     <span class="rule anim d2"></span>
     <div class="related__grid anim d2"><a class="related__card" href="#" onclick="switchView('prod-k3b-kokum-body-oil')">
-  <div class="related__render"><svg viewBox="0 0 80 180" xmlns="http://www.w3.org/2000/svg" style="width:55px"><rect x="34" y="2" width="12" height="24" rx="3" fill="#1C1810" stroke="rgba(184,135,46,.3)" stroke-width=".7"/><rect x="28" y="24" width="24" height="8" rx="2" fill="#241E14" stroke="rgba(184,135,46,.22)" stroke-width=".7"/><rect x="24" y="30" width="32" height="140" rx="6" fill="#110E09" stroke="rgba(184,135,46,.22)" stroke-width=".7"/><text x="40" y="108" font-family="serif" font-size="9" fill="rgba(220,186,120,.7)" text-anchor="middle" letter-spacing="2">K3B</text></svg></div>
+  <div class="related__render"><img loading="lazy" decoding="async" class="related__render-img" src="/products/related/k3b-body-oil.webp" width="182" height="520" alt="K3B Kokum Ritual Body Oil"/></div>
   <div class="related__body">
     <p class="related__lane">Waterless Body Oil</p>
     <p class="related__name">KOKUM RITUAL BODY OIL</p>
@@ -2892,7 +2901,7 @@ BODY CREAM</h1>
     <span class="related__link">Explore</span>
   </div>
 </a><a class="related__card" href="#" onclick="switchView('prod-k3b-scalp-massager')">
-  <div class="related__render"><svg viewBox="0 0 100 200" xmlns="http://www.w3.org/2000/svg" style="width:70px"><ellipse cx="50" cy="36" rx="36" ry="22" fill="#9B7628" stroke="rgba(220,186,120,.4)" stroke-width=".8"/><rect x="42" y="58" width="16" height="130" rx="5" fill="#2A2018" stroke="rgba(120,90,40,.25)" stroke-width=".7"/></svg></div>
+  <div class="related__render"><img loading="lazy" decoding="async" class="related__render-img" src="/products/related/k3b-kansa-massager.webp" width="516" height="520" alt="K3B 19-Pin Kansa Massager"/></div>
   <div class="related__body">
     <p class="related__lane">Ritual Instrument</p>
     <p class="related__name">19-PIN KANSA MASSAGER</p>
@@ -2900,7 +2909,7 @@ BODY CREAM</h1>
     <span class="related__link">Explore</span>
   </div>
 </a><a class="related__card" href="#" onclick="switchView('prod-k3b-everyday-magic')">
-  <div class="related__render"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" style="width:70px"><rect x="15" y="10" width="70" height="20" rx="3" fill="#1C1810" stroke="rgba(184,135,46,.3)" stroke-width=".7"/><rect x="10" y="28" width="80" height="82" rx="5" fill="#110E09" stroke="rgba(184,135,46,.22)" stroke-width=".7"/><text x="50" y="76" font-family="serif" font-size="10" fill="rgba(220,186,120,.7)" text-anchor="middle" letter-spacing="2">K3B</text></svg></div>
+  <div class="related__render"><img loading="lazy" decoding="async" class="related__render-img" src="/products/related/k3b-moisturizer.webp" width="520" height="476" alt="K3B Tri-Lipid Barrier Moisturizer"/></div>
   <div class="related__body">
     <p class="related__lane">Daily Barrier</p>
     <p class="related__name">TRI-LIPID BARRIER MOISTURIZER</p>
@@ -2908,7 +2917,7 @@ BODY CREAM</h1>
     <span class="related__link">Explore</span>
   </div>
 </a><a class="related__card" href="#" onclick="switchView('prod-k3b-ruby-serum')">
-  <div class="related__render"><svg viewBox="0 0 80 200" xmlns="http://www.w3.org/2000/svg" style="width:55px"><rect x="34" y="2" width="12" height="30" rx="3" fill="#1C1810" stroke="rgba(184,135,46,.3)" stroke-width=".7"/><rect x="26" y="32" width="28" height="156" rx="6" fill="#130A08" stroke="rgba(120,55,35,.38)" stroke-width=".7"/><text x="40" y="124" font-family="serif" font-size="9" fill="rgba(220,186,120,.7)" text-anchor="middle" letter-spacing="2">K3B</text></svg></div>
+  <div class="related__render"><img loading="lazy" decoding="async" class="related__render-img" src="/products/related/k3b-elixir.webp" width="183" height="520" alt="K3B Phyto-Lipid Ritual Elixir"/></div>
   <div class="related__body">
     <p class="related__lane">Facial Ritual Oil</p>
     <p class="related__name">PHYTO-LIPID RITUAL ELIXIR</p>
@@ -3035,7 +3044,7 @@ GUA SHA</h1>
     <h2 class="anim d1 u-h2">Complete Your <em class="em-g">Practice</em></h2>
     <span class="rule anim d2"></span>
     <div class="related__grid anim d2"><a class="related__card" href="#" onclick="switchView('prod-k3b-ruby-serum')">
-  <div class="related__render"><svg viewBox="0 0 80 200" xmlns="http://www.w3.org/2000/svg" style="width:55px"><rect x="34" y="2" width="12" height="30" rx="3" fill="#1C1810" stroke="rgba(184,135,46,.3)" stroke-width=".7"/><rect x="26" y="32" width="28" height="156" rx="6" fill="#130A08" stroke="rgba(120,55,35,.38)" stroke-width=".7"/><text x="40" y="124" font-family="serif" font-size="9" fill="rgba(220,186,120,.7)" text-anchor="middle" letter-spacing="2">K3B</text></svg></div>
+  <div class="related__render"><img loading="lazy" decoding="async" class="related__render-img" src="/products/related/k3b-elixir.webp" width="183" height="520" alt="K3B Phyto-Lipid Ritual Elixir"/></div>
   <div class="related__body">
     <p class="related__lane">Facial Ritual Oil</p>
     <p class="related__name">PHYTO-LIPID RITUAL ELIXIR</p>
@@ -3043,7 +3052,7 @@ GUA SHA</h1>
     <span class="related__link">Explore</span>
   </div>
 </a><a class="related__card" href="#" onclick="switchView('prod-k3b-kansa-wand')">
-  <div class="related__render"><svg viewBox="0 0 80 200" xmlns="http://www.w3.org/2000/svg" style="width:55px"><circle cx="40" cy="26" r="22" fill="#9B7628" stroke="rgba(220,186,120,.4)" stroke-width=".8"/><rect x="34" y="48" width="12" height="140" rx="4" fill="#2A2018" stroke="rgba(120,90,40,.25)" stroke-width=".7"/></svg></div>
+  <div class="related__render"><img loading="lazy" decoding="async" class="related__render-img" src="/products/related/k3b-dual-kansa-wand.webp" width="191" height="520" alt="K3B Dual Kansa Wand"/></div>
   <div class="related__body">
     <p class="related__lane">Ritual Instrument</p>
     <p class="related__name">DUAL KANSA WAND</p>
@@ -3051,7 +3060,7 @@ GUA SHA</h1>
     <span class="related__link">Explore</span>
   </div>
 </a><a class="related__card" href="#" onclick="switchView('prod-k3b-everyday-magic')">
-  <div class="related__render"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" style="width:70px"><rect x="15" y="10" width="70" height="20" rx="3" fill="#1C1810" stroke="rgba(184,135,46,.3)" stroke-width=".7"/><rect x="10" y="28" width="80" height="82" rx="5" fill="#110E09" stroke="rgba(184,135,46,.22)" stroke-width=".7"/><text x="50" y="76" font-family="serif" font-size="10" fill="rgba(220,186,120,.7)" text-anchor="middle" letter-spacing="2">K3B</text></svg></div>
+  <div class="related__render"><img loading="lazy" decoding="async" class="related__render-img" src="/products/related/k3b-moisturizer.webp" width="520" height="476" alt="K3B Tri-Lipid Barrier Moisturizer"/></div>
   <div class="related__body">
     <p class="related__lane">Daily Barrier</p>
     <p class="related__name">TRI-LIPID BARRIER MOISTURIZER</p>
@@ -3059,7 +3068,7 @@ GUA SHA</h1>
     <span class="related__link">Explore</span>
   </div>
 </a><a class="related__card" href="#" onclick="switchView('prod-k3b-mineral-veil')">
-  <div class="related__render"><svg viewBox="0 0 80 180" xmlns="http://www.w3.org/2000/svg" style="width:55px"><rect x="34" y="2" width="12" height="24" rx="3" fill="#1C1810" stroke="rgba(184,135,46,.3)" stroke-width=".7"/><rect x="28" y="24" width="24" height="8" rx="2" fill="#241E14" stroke="rgba(184,135,46,.22)" stroke-width=".7"/><rect x="24" y="30" width="32" height="140" rx="6" fill="#110E09" stroke="rgba(184,135,46,.22)" stroke-width=".7"/><text x="40" y="108" font-family="serif" font-size="9" fill="rgba(220,186,120,.7)" text-anchor="middle" letter-spacing="2">K3B</text></svg></div>
+  <div class="related__render"><img loading="lazy" decoding="async" class="related__render-img" src="/products/related/k3b-mineral-veil.webp" width="208" height="520" alt="K3B Mineral Veil Sunscreen"/></div>
   <div class="related__body">
     <p class="related__lane">Daily Protection</p>
     <p class="related__name">MINERAL VEIL SUNSCREEN</p>
@@ -3185,7 +3194,7 @@ WAND</h1>
     <h2 class="anim d1 u-h2">Complete Your <em class="em-g">Practice</em></h2>
     <span class="rule anim d2"></span>
     <div class="related__grid anim d2"><a class="related__card" href="#" onclick="switchView('prod-k3b-ruby-serum')">
-  <div class="related__render"><svg viewBox="0 0 80 200" xmlns="http://www.w3.org/2000/svg" style="width:55px"><rect x="34" y="2" width="12" height="30" rx="3" fill="#1C1810" stroke="rgba(184,135,46,.3)" stroke-width=".7"/><rect x="26" y="32" width="28" height="156" rx="6" fill="#130A08" stroke="rgba(120,55,35,.38)" stroke-width=".7"/><text x="40" y="124" font-family="serif" font-size="9" fill="rgba(220,186,120,.7)" text-anchor="middle" letter-spacing="2">K3B</text></svg></div>
+  <div class="related__render"><img loading="lazy" decoding="async" class="related__render-img" src="/products/related/k3b-elixir.webp" width="183" height="520" alt="K3B Phyto-Lipid Ritual Elixir"/></div>
   <div class="related__body">
     <p class="related__lane">Facial Ritual Oil</p>
     <p class="related__name">PHYTO-LIPID RITUAL ELIXIR</p>
@@ -3193,7 +3202,7 @@ WAND</h1>
     <span class="related__link">Explore</span>
   </div>
 </a><a class="related__card" href="#" onclick="switchView('prod-k3b-gua-sha')">
-  <div class="related__render"><svg viewBox="0 0 110 150" xmlns="http://www.w3.org/2000/svg" style="width:80px"><path d="M30 14 Q30 8 38 8 L80 8 Q88 8 88 16 L88 60 Q88 74 76 74 L64 74 Q76 74 76 82 L76 122 Q76 130 64 130 L46 130 Q34 130 34 122 L34 82 Q34 74 44 74 L32 74 Q20 74 20 60 L20 22 Q20 14 28 14 Z" fill="#9B7628" stroke="rgba(220,186,120,.4)" stroke-width="1"/></svg></div>
+  <div class="related__render"><img loading="lazy" decoding="async" class="related__render-img" src="/products/related/k3b-wing-gua-sha.webp" width="520" height="479" alt="K3B Wing Kansa Gua Sha"/></div>
   <div class="related__body">
     <p class="related__lane">Ritual Instrument</p>
     <p class="related__name">WING KANSA GUA SHA</p>
@@ -3201,7 +3210,7 @@ WAND</h1>
     <span class="related__link">Explore</span>
   </div>
 </a><a class="related__card" href="#" onclick="switchView('prod-k3b-everyday-magic')">
-  <div class="related__render"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" style="width:70px"><rect x="15" y="10" width="70" height="20" rx="3" fill="#1C1810" stroke="rgba(184,135,46,.3)" stroke-width=".7"/><rect x="10" y="28" width="80" height="82" rx="5" fill="#110E09" stroke="rgba(184,135,46,.22)" stroke-width=".7"/><text x="50" y="76" font-family="serif" font-size="10" fill="rgba(220,186,120,.7)" text-anchor="middle" letter-spacing="2">K3B</text></svg></div>
+  <div class="related__render"><img loading="lazy" decoding="async" class="related__render-img" src="/products/related/k3b-moisturizer.webp" width="520" height="476" alt="K3B Tri-Lipid Barrier Moisturizer"/></div>
   <div class="related__body">
     <p class="related__lane">Daily Barrier</p>
     <p class="related__name">TRI-LIPID BARRIER MOISTURIZER</p>
@@ -3209,7 +3218,7 @@ WAND</h1>
     <span class="related__link">Explore</span>
   </div>
 </a><a class="related__card" href="#" onclick="switchView('prod-k3b-mineral-veil')">
-  <div class="related__render"><svg viewBox="0 0 80 180" xmlns="http://www.w3.org/2000/svg" style="width:55px"><rect x="34" y="2" width="12" height="24" rx="3" fill="#1C1810" stroke="rgba(184,135,46,.3)" stroke-width=".7"/><rect x="28" y="24" width="24" height="8" rx="2" fill="#241E14" stroke="rgba(184,135,46,.22)" stroke-width=".7"/><rect x="24" y="30" width="32" height="140" rx="6" fill="#110E09" stroke="rgba(184,135,46,.22)" stroke-width=".7"/><text x="40" y="108" font-family="serif" font-size="9" fill="rgba(220,186,120,.7)" text-anchor="middle" letter-spacing="2">K3B</text></svg></div>
+  <div class="related__render"><img loading="lazy" decoding="async" class="related__render-img" src="/products/related/k3b-mineral-veil.webp" width="208" height="520" alt="K3B Mineral Veil Sunscreen"/></div>
   <div class="related__body">
     <p class="related__lane">Daily Protection</p>
     <p class="related__name">MINERAL VEIL SUNSCREEN</p>
@@ -3336,7 +3345,7 @@ RITUAL BODY OIL</h1>
     <h2 class="anim d1 u-h2">Complete Your <em class="em-g">Practice</em></h2>
     <span class="rule anim d2"></span>
     <div class="related__grid anim d2"><a class="related__card" href="#" onclick="switchView('prod-k3b-scalp-massager')">
-  <div class="related__render"><svg viewBox="0 0 100 200" xmlns="http://www.w3.org/2000/svg" style="width:70px"><ellipse cx="50" cy="36" rx="36" ry="22" fill="#9B7628" stroke="rgba(220,186,120,.4)" stroke-width=".8"/><rect x="42" y="58" width="16" height="130" rx="5" fill="#2A2018" stroke="rgba(120,90,40,.25)" stroke-width=".7"/></svg></div>
+  <div class="related__render"><img loading="lazy" decoding="async" class="related__render-img" src="/products/related/k3b-kansa-massager.webp" width="516" height="520" alt="K3B 19-Pin Kansa Massager"/></div>
   <div class="related__body">
     <p class="related__lane">Ritual Instrument</p>
     <p class="related__name">19-PIN KANSA MASSAGER</p>
@@ -3344,7 +3353,7 @@ RITUAL BODY OIL</h1>
     <span class="related__link">Explore</span>
   </div>
 </a><a class="related__card" href="#" onclick="switchView('prod-k3b-face-body-ghee')">
-  <div class="related__render"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" style="width:70px"><rect x="15" y="10" width="70" height="20" rx="3" fill="#1C1810" stroke="rgba(184,135,46,.3)" stroke-width=".7"/><rect x="10" y="28" width="80" height="82" rx="5" fill="#110E09" stroke="rgba(184,135,46,.22)" stroke-width=".7"/><text x="50" y="76" font-family="serif" font-size="10" fill="rgba(220,186,120,.7)" text-anchor="middle" letter-spacing="2">K3B</text></svg></div>
+  <div class="related__render"><img loading="lazy" decoding="async" class="related__render-img" src="/products/related/k3b-body-cream.webp" width="520" height="438" alt="K3B Kokum Body Cream"/></div>
   <div class="related__body">
     <p class="related__lane">Daily Body Moisturization</p>
     <p class="related__name">KOKUM BODY CREAM</p>
@@ -3352,7 +3361,7 @@ RITUAL BODY OIL</h1>
     <span class="related__link">Explore</span>
   </div>
 </a><a class="related__card" href="#" onclick="switchView('prod-k3b-ruby-serum')">
-  <div class="related__render"><svg viewBox="0 0 80 200" xmlns="http://www.w3.org/2000/svg" style="width:55px"><rect x="34" y="2" width="12" height="30" rx="3" fill="#1C1810" stroke="rgba(184,135,46,.3)" stroke-width=".7"/><rect x="26" y="32" width="28" height="156" rx="6" fill="#130A08" stroke="rgba(120,55,35,.38)" stroke-width=".7"/><text x="40" y="124" font-family="serif" font-size="9" fill="rgba(220,186,120,.7)" text-anchor="middle" letter-spacing="2">K3B</text></svg></div>
+  <div class="related__render"><img loading="lazy" decoding="async" class="related__render-img" src="/products/related/k3b-elixir.webp" width="183" height="520" alt="K3B Phyto-Lipid Ritual Elixir"/></div>
   <div class="related__body">
     <p class="related__lane">Facial Ritual Oil</p>
     <p class="related__name">PHYTO-LIPID RITUAL ELIXIR</p>
@@ -3360,7 +3369,7 @@ RITUAL BODY OIL</h1>
     <span class="related__link">Explore</span>
   </div>
 </a><a class="related__card" href="#" onclick="switchView('prod-k3b-gua-sha')">
-  <div class="related__render"><svg viewBox="0 0 110 150" xmlns="http://www.w3.org/2000/svg" style="width:80px"><path d="M30 14 Q30 8 38 8 L80 8 Q88 8 88 16 L88 60 Q88 74 76 74 L64 74 Q76 74 76 82 L76 122 Q76 130 64 130 L46 130 Q34 130 34 122 L34 82 Q34 74 44 74 L32 74 Q20 74 20 60 L20 22 Q20 14 28 14 Z" fill="#9B7628" stroke="rgba(220,186,120,.4)" stroke-width="1"/></svg></div>
+  <div class="related__render"><img loading="lazy" decoding="async" class="related__render-img" src="/products/related/k3b-wing-gua-sha.webp" width="520" height="479" alt="K3B Wing Kansa Gua Sha"/></div>
   <div class="related__body">
     <p class="related__lane">Ritual Instrument</p>
     <p class="related__name">WING KANSA GUA SHA</p>
@@ -3486,7 +3495,7 @@ SUNSCREEN</h1>
     <h2 class="anim d1 u-h2">Complete Your <em class="em-g">Practice</em></h2>
     <span class="rule anim d2"></span>
     <div class="related__grid anim d2"><a class="related__card" href="#" onclick="switchView('prod-k3b-everyday-magic')">
-  <div class="related__render"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" style="width:70px"><rect x="15" y="10" width="70" height="20" rx="3" fill="#1C1810" stroke="rgba(184,135,46,.3)" stroke-width=".7"/><rect x="10" y="28" width="80" height="82" rx="5" fill="#110E09" stroke="rgba(184,135,46,.22)" stroke-width=".7"/><text x="50" y="76" font-family="serif" font-size="10" fill="rgba(220,186,120,.7)" text-anchor="middle" letter-spacing="2">K3B</text></svg></div>
+  <div class="related__render"><img loading="lazy" decoding="async" class="related__render-img" src="/products/related/k3b-moisturizer.webp" width="520" height="476" alt="K3B Tri-Lipid Barrier Moisturizer"/></div>
   <div class="related__body">
     <p class="related__lane">Daily Barrier</p>
     <p class="related__name">TRI-LIPID BARRIER MOISTURIZER</p>
@@ -3494,7 +3503,7 @@ SUNSCREEN</h1>
     <span class="related__link">Explore</span>
   </div>
 </a><a class="related__card" href="#" onclick="switchView('prod-k3b-kansa-wand')">
-  <div class="related__render"><svg viewBox="0 0 80 200" xmlns="http://www.w3.org/2000/svg" style="width:55px"><circle cx="40" cy="26" r="22" fill="#9B7628" stroke="rgba(220,186,120,.4)" stroke-width=".8"/><rect x="34" y="48" width="12" height="140" rx="4" fill="#2A2018" stroke="rgba(120,90,40,.25)" stroke-width=".7"/></svg></div>
+  <div class="related__render"><img loading="lazy" decoding="async" class="related__render-img" src="/products/related/k3b-dual-kansa-wand.webp" width="191" height="520" alt="K3B Dual Kansa Wand"/></div>
   <div class="related__body">
     <p class="related__lane">Ritual Instrument</p>
     <p class="related__name">DUAL KANSA WAND</p>
@@ -3502,7 +3511,7 @@ SUNSCREEN</h1>
     <span class="related__link">Explore</span>
   </div>
 </a><a class="related__card" href="#" onclick="switchView('prod-k3b-ruby-serum')">
-  <div class="related__render"><svg viewBox="0 0 80 200" xmlns="http://www.w3.org/2000/svg" style="width:55px"><rect x="34" y="2" width="12" height="30" rx="3" fill="#1C1810" stroke="rgba(184,135,46,.3)" stroke-width=".7"/><rect x="26" y="32" width="28" height="156" rx="6" fill="#130A08" stroke="rgba(120,55,35,.38)" stroke-width=".7"/><text x="40" y="124" font-family="serif" font-size="9" fill="rgba(220,186,120,.7)" text-anchor="middle" letter-spacing="2">K3B</text></svg></div>
+  <div class="related__render"><img loading="lazy" decoding="async" class="related__render-img" src="/products/related/k3b-elixir.webp" width="183" height="520" alt="K3B Phyto-Lipid Ritual Elixir"/></div>
   <div class="related__body">
     <p class="related__lane">Facial Ritual Oil</p>
     <p class="related__name">PHYTO-LIPID RITUAL ELIXIR</p>
@@ -3510,7 +3519,7 @@ SUNSCREEN</h1>
     <span class="related__link">Explore</span>
   </div>
 </a><a class="related__card" href="#" onclick="switchView('prod-k3b-face-body-ghee')">
-  <div class="related__render"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" style="width:70px"><rect x="15" y="10" width="70" height="20" rx="3" fill="#1C1810" stroke="rgba(184,135,46,.3)" stroke-width=".7"/><rect x="10" y="28" width="80" height="82" rx="5" fill="#110E09" stroke="rgba(184,135,46,.22)" stroke-width=".7"/><text x="50" y="76" font-family="serif" font-size="10" fill="rgba(220,186,120,.7)" text-anchor="middle" letter-spacing="2">K3B</text></svg></div>
+  <div class="related__render"><img loading="lazy" decoding="async" class="related__render-img" src="/products/related/k3b-body-cream.webp" width="520" height="438" alt="K3B Kokum Body Cream"/></div>
   <div class="related__body">
     <p class="related__lane">Daily Body Moisturization</p>
     <p class="related__name">KOKUM BODY CREAM</p>
@@ -3636,7 +3645,7 @@ RITUAL ELIXIR</h1>
     <h2 class="anim d1 u-h2">Complete Your <em class="em-g">Practice</em></h2>
     <span class="rule anim d2"></span>
     <div class="related__grid anim d2"><a class="related__card" href="#" onclick="switchView('prod-k3b-kansa-wand')">
-  <div class="related__render"><svg viewBox="0 0 80 200" xmlns="http://www.w3.org/2000/svg" style="width:55px"><circle cx="40" cy="26" r="22" fill="#9B7628" stroke="rgba(220,186,120,.4)" stroke-width=".8"/><rect x="34" y="48" width="12" height="140" rx="4" fill="#2A2018" stroke="rgba(120,90,40,.25)" stroke-width=".7"/></svg></div>
+  <div class="related__render"><img loading="lazy" decoding="async" class="related__render-img" src="/products/related/k3b-dual-kansa-wand.webp" width="191" height="520" alt="K3B Dual Kansa Wand"/></div>
   <div class="related__body">
     <p class="related__lane">Ritual Instrument</p>
     <p class="related__name">DUAL KANSA WAND</p>
@@ -3644,7 +3653,7 @@ RITUAL ELIXIR</h1>
     <span class="related__link">Explore</span>
   </div>
 </a><a class="related__card" href="#" onclick="switchView('prod-k3b-gua-sha')">
-  <div class="related__render"><svg viewBox="0 0 110 150" xmlns="http://www.w3.org/2000/svg" style="width:80px"><path d="M30 14 Q30 8 38 8 L80 8 Q88 8 88 16 L88 60 Q88 74 76 74 L64 74 Q76 74 76 82 L76 122 Q76 130 64 130 L46 130 Q34 130 34 122 L34 82 Q34 74 44 74 L32 74 Q20 74 20 60 L20 22 Q20 14 28 14 Z" fill="#9B7628" stroke="rgba(220,186,120,.4)" stroke-width="1"/></svg></div>
+  <div class="related__render"><img loading="lazy" decoding="async" class="related__render-img" src="/products/related/k3b-wing-gua-sha.webp" width="520" height="479" alt="K3B Wing Kansa Gua Sha"/></div>
   <div class="related__body">
     <p class="related__lane">Ritual Instrument</p>
     <p class="related__name">WING KANSA GUA SHA</p>
@@ -3652,7 +3661,7 @@ RITUAL ELIXIR</h1>
     <span class="related__link">Explore</span>
   </div>
 </a><a class="related__card" href="#" onclick="switchView('prod-k3b-everyday-magic')">
-  <div class="related__render"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" style="width:70px"><rect x="15" y="10" width="70" height="20" rx="3" fill="#1C1810" stroke="rgba(184,135,46,.3)" stroke-width=".7"/><rect x="10" y="28" width="80" height="82" rx="5" fill="#110E09" stroke="rgba(184,135,46,.22)" stroke-width=".7"/><text x="50" y="76" font-family="serif" font-size="10" fill="rgba(220,186,120,.7)" text-anchor="middle" letter-spacing="2">K3B</text></svg></div>
+  <div class="related__render"><img loading="lazy" decoding="async" class="related__render-img" src="/products/related/k3b-moisturizer.webp" width="520" height="476" alt="K3B Tri-Lipid Barrier Moisturizer"/></div>
   <div class="related__body">
     <p class="related__lane">Daily Barrier</p>
     <p class="related__name">TRI-LIPID BARRIER MOISTURIZER</p>
@@ -3660,7 +3669,7 @@ RITUAL ELIXIR</h1>
     <span class="related__link">Explore</span>
   </div>
 </a><a class="related__card" href="#" onclick="switchView('prod-k3b-mineral-veil')">
-  <div class="related__render"><svg viewBox="0 0 80 180" xmlns="http://www.w3.org/2000/svg" style="width:55px"><rect x="34" y="2" width="12" height="24" rx="3" fill="#1C1810" stroke="rgba(184,135,46,.3)" stroke-width=".7"/><rect x="28" y="24" width="24" height="8" rx="2" fill="#241E14" stroke="rgba(184,135,46,.22)" stroke-width=".7"/><rect x="24" y="30" width="32" height="140" rx="6" fill="#110E09" stroke="rgba(184,135,46,.22)" stroke-width=".7"/><text x="40" y="108" font-family="serif" font-size="9" fill="rgba(220,186,120,.7)" text-anchor="middle" letter-spacing="2">K3B</text></svg></div>
+  <div class="related__render"><img loading="lazy" decoding="async" class="related__render-img" src="/products/related/k3b-mineral-veil.webp" width="208" height="520" alt="K3B Mineral Veil Sunscreen"/></div>
   <div class="related__body">
     <p class="related__lane">Daily Protection</p>
     <p class="related__name">MINERAL VEIL SUNSCREEN</p>
@@ -3787,7 +3796,7 @@ MASSAGER</h1>
     <h2 class="anim d1 u-h2">Complete Your <em class="em-g">Practice</em></h2>
     <span class="rule anim d2"></span>
     <div class="related__grid anim d2"><a class="related__card" href="#" onclick="switchView('prod-k3b-kokum-body-oil')">
-  <div class="related__render"><svg viewBox="0 0 80 180" xmlns="http://www.w3.org/2000/svg" style="width:55px"><rect x="34" y="2" width="12" height="24" rx="3" fill="#1C1810" stroke="rgba(184,135,46,.3)" stroke-width=".7"/><rect x="28" y="24" width="24" height="8" rx="2" fill="#241E14" stroke="rgba(184,135,46,.22)" stroke-width=".7"/><rect x="24" y="30" width="32" height="140" rx="6" fill="#110E09" stroke="rgba(184,135,46,.22)" stroke-width=".7"/><text x="40" y="108" font-family="serif" font-size="9" fill="rgba(220,186,120,.7)" text-anchor="middle" letter-spacing="2">K3B</text></svg></div>
+  <div class="related__render"><img loading="lazy" decoding="async" class="related__render-img" src="/products/related/k3b-body-oil.webp" width="182" height="520" alt="K3B Kokum Ritual Body Oil"/></div>
   <div class="related__body">
     <p class="related__lane">Waterless Body Oil</p>
     <p class="related__name">KOKUM RITUAL BODY OIL</p>
@@ -3795,7 +3804,7 @@ MASSAGER</h1>
     <span class="related__link">Explore</span>
   </div>
 </a><a class="related__card" href="#" onclick="switchView('prod-k3b-face-body-ghee')">
-  <div class="related__render"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" style="width:70px"><rect x="15" y="10" width="70" height="20" rx="3" fill="#1C1810" stroke="rgba(184,135,46,.3)" stroke-width=".7"/><rect x="10" y="28" width="80" height="82" rx="5" fill="#110E09" stroke="rgba(184,135,46,.22)" stroke-width=".7"/><text x="50" y="76" font-family="serif" font-size="10" fill="rgba(220,186,120,.7)" text-anchor="middle" letter-spacing="2">K3B</text></svg></div>
+  <div class="related__render"><img loading="lazy" decoding="async" class="related__render-img" src="/products/related/k3b-body-cream.webp" width="520" height="438" alt="K3B Kokum Body Cream"/></div>
   <div class="related__body">
     <p class="related__lane">Daily Body Moisturization</p>
     <p class="related__name">KOKUM BODY CREAM</p>
@@ -3803,7 +3812,7 @@ MASSAGER</h1>
     <span class="related__link">Explore</span>
   </div>
 </a><a class="related__card" href="#" onclick="switchView('prod-k3b-kansa-wand')">
-  <div class="related__render"><svg viewBox="0 0 80 200" xmlns="http://www.w3.org/2000/svg" style="width:55px"><circle cx="40" cy="26" r="22" fill="#9B7628" stroke="rgba(220,186,120,.4)" stroke-width=".8"/><rect x="34" y="48" width="12" height="140" rx="4" fill="#2A2018" stroke="rgba(120,90,40,.25)" stroke-width=".7"/></svg></div>
+  <div class="related__render"><img loading="lazy" decoding="async" class="related__render-img" src="/products/related/k3b-dual-kansa-wand.webp" width="191" height="520" alt="K3B Dual Kansa Wand"/></div>
   <div class="related__body">
     <p class="related__lane">Ritual Instrument</p>
     <p class="related__name">DUAL KANSA WAND</p>
@@ -3811,7 +3820,7 @@ MASSAGER</h1>
     <span class="related__link">Explore</span>
   </div>
 </a><a class="related__card" href="#" onclick="switchView('prod-k3b-gua-sha')">
-  <div class="related__render"><svg viewBox="0 0 110 150" xmlns="http://www.w3.org/2000/svg" style="width:80px"><path d="M30 14 Q30 8 38 8 L80 8 Q88 8 88 16 L88 60 Q88 74 76 74 L64 74 Q76 74 76 82 L76 122 Q76 130 64 130 L46 130 Q34 130 34 122 L34 82 Q34 74 44 74 L32 74 Q20 74 20 60 L20 22 Q20 14 28 14 Z" fill="#9B7628" stroke="rgba(220,186,120,.4)" stroke-width="1"/></svg></div>
+  <div class="related__render"><img loading="lazy" decoding="async" class="related__render-img" src="/products/related/k3b-wing-gua-sha.webp" width="520" height="479" alt="K3B Wing Kansa Gua Sha"/></div>
   <div class="related__body">
     <p class="related__lane">Ritual Instrument</p>
     <p class="related__name">WING KANSA GUA SHA</p>
